@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{84307AAD-8EF9-4FCB-9B03-B68D2CF38E93}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>EntretiensIndividuels.My.MyApplication</StartupObject>
+    <RootNamespace>EntretiensIndividuels</RootNamespace>
+    <AssemblyName>64 - EntretiensIndividuels</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>64 - EntretiensIndividuels.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>64 - EntretiensIndividuels.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClassConnection, Version=5.0.0.12, Culture=neutral, PublicKeyToken=f1c7b54f14379fee, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\98 - DLL 2012\ClassConnection.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClsAction.vb" />
+    <Compile Include="ClsCollaborateur.vb" />
+    <Compile Include="ClsEntretien.vb" />
+    <Compile Include="ClsService.vb" />
+    <Compile Include="ClsSQLAction.vb" />
+    <Compile Include="ClsSQLCollaborateur.vb" />
+    <Compile Include="ClsSQLEntretiens.vb" />
+    <Compile Include="ClsSQLService.vb" />
+    <Compile Include="ClsSQLStatut.vb" />
+    <Compile Include="ClsSQLUtilisateur.vb" />
+    <Compile Include="ClsStatut.vb" />
+    <Compile Include="ClsUtilisateur.vb" />
+    <Compile Include="FrmAjoutAction.Designer.vb">
+      <DependentUpon>FrmAjoutAction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjoutAction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjoutCollaborateur.Designer.vb">
+      <DependentUpon>FrmAjoutCollaborateur.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjoutCollaborateur.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjoutEntretien.Designer.vb">
+      <DependentUpon>FrmAjoutEntretien.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAjoutEntretien.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConnexion.Designer.vb">
+      <DependentUpon>FrmConnexion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConnexion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenu.Designer.vb">
+      <DependentUpon>FrmMenu.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMesEntretiens.Designer.vb">
+      <DependentUpon>FrmMesEntretiens.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMesEntretiens.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMonEquipe.Designer.vb">
+      <DependentUpon>FrmMonEquipe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMonEquipe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmAjoutAction.resx">
+      <DependentUpon>FrmAjoutAction.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjoutCollaborateur.resx">
+      <DependentUpon>FrmAjoutCollaborateur.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjoutEntretien.resx">
+      <DependentUpon>FrmAjoutEntretien.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConnexion.resx">
+      <DependentUpon>FrmConnexion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMesEntretiens.resx">
+      <DependentUpon>FrmMesEntretiens.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMonEquipe.resx">
+      <DependentUpon>FrmMonEquipe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
