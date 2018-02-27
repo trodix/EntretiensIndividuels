@@ -28,15 +28,14 @@ Partial Class FrmAjoutEntretien
         Me.Btn_Equipe = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DGV_Entretien = New System.Windows.Forms.DataGridView()
+        Me.Label_Titre = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Cmb_Collaborateur = New System.Windows.Forms.ComboBox()
         Me.Col_idEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_DateEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_DateEntSuivi = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_idCollab = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_Document = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Col_Valider = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.cmb_Coll = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.TLP_Menu.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -115,9 +114,9 @@ Partial Class FrmAjoutEntretien
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.DGV_Entretien, 1, 6)
-        Me.TableLayoutPanel1.Controls.Add(Me.cmb_Coll, 2, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label2, 1, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label_Titre, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 1, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.Cmb_Collaborateur, 2, 4)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(241, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -137,7 +136,7 @@ Partial Class FrmAjoutEntretien
         '
         Me.DGV_Entretien.BackgroundColor = System.Drawing.SystemColors.Control
         Me.DGV_Entretien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV_Entretien.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_idEntretien, Me.Col_DateEntretien, Me.Col_DateEntSuivi, Me.Col_idCollab, Me.Col_Document, Me.Col_Valider})
+        Me.DGV_Entretien.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_idEntretien, Me.Col_DateEntretien, Me.Col_DateEntSuivi, Me.Col_Document, Me.Col_Valider})
         Me.TableLayoutPanel1.SetColumnSpan(Me.DGV_Entretien, 3)
         Me.DGV_Entretien.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGV_Entretien.GridColor = System.Drawing.SystemColors.Control
@@ -146,6 +145,40 @@ Partial Class FrmAjoutEntretien
         Me.DGV_Entretien.RowHeadersVisible = False
         Me.DGV_Entretien.Size = New System.Drawing.Size(784, 393)
         Me.DGV_Entretien.TabIndex = 0
+        '
+        'Label_Titre
+        '
+        Me.Label_Titre.AutoSize = True
+        Me.TableLayoutPanel1.SetColumnSpan(Me.Label_Titre, 2)
+        Me.Label_Titre.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label_Titre.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_Titre.Location = New System.Drawing.Point(23, 20)
+        Me.Label_Titre.Name = "Label_Titre"
+        Me.TableLayoutPanel1.SetRowSpan(Me.Label_Titre, 2)
+        Me.Label_Titre.Size = New System.Drawing.Size(336, 40)
+        Me.Label_Titre.TabIndex = 1
+        Me.Label_Titre.Text = "Créer des Entretiens"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Location = New System.Drawing.Point(23, 90)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(144, 30)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Collaborateur"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Cmb_Collaborateur
+        '
+        Me.Cmb_Collaborateur.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Cmb_Collaborateur.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmb_Collaborateur.FormattingEnabled = True
+        Me.Cmb_Collaborateur.Location = New System.Drawing.Point(173, 93)
+        Me.Cmb_Collaborateur.Name = "Cmb_Collaborateur"
+        Me.Cmb_Collaborateur.Size = New System.Drawing.Size(186, 26)
+        Me.Cmb_Collaborateur.TabIndex = 3
         '
         'Col_idEntretien
         '
@@ -167,14 +200,6 @@ Partial Class FrmAjoutEntretien
         Me.Col_DateEntSuivi.HeaderText = "Date ent. suivi"
         Me.Col_DateEntSuivi.Name = "Col_DateEntSuivi"
         '
-        'Col_idCollab
-        '
-        Me.Col_idCollab.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_idCollab.HeaderText = "id Collaborateur"
-        Me.Col_idCollab.Name = "Col_idCollab"
-        Me.Col_idCollab.ReadOnly = True
-        Me.Col_idCollab.Visible = False
-        '
         'Col_Document
         '
         Me.Col_Document.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
@@ -188,42 +213,6 @@ Partial Class FrmAjoutEntretien
         Me.Col_Valider.HeaderText = "Valider"
         Me.Col_Valider.Name = "Col_Valider"
         Me.Col_Valider.Text = "Valider"
-        '
-        'cmb_Coll
-        '
-        Me.cmb_Coll.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cmb_Coll.Font = New System.Drawing.Font("Verdana", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmb_Coll.FormattingEnabled = True
-        Me.cmb_Coll.Location = New System.Drawing.Point(173, 93)
-        Me.cmb_Coll.Name = "cmb_Coll"
-        Me.cmb_Coll.Size = New System.Drawing.Size(186, 26)
-        Me.cmb_Coll.Sorted = True
-        Me.cmb_Coll.TabIndex = 2
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.TableLayoutPanel1.SetColumnSpan(Me.Label1, 2)
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(23, 20)
-        Me.Label1.Name = "Label1"
-        Me.TableLayoutPanel1.SetRowSpan(Me.Label1, 2)
-        Me.Label1.Size = New System.Drawing.Size(336, 40)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Créer des Entretiens"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label2.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(23, 90)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(144, 30)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Collaborateur"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'FrmAjoutEntretien
         '
@@ -250,13 +239,12 @@ Partial Class FrmAjoutEntretien
     Friend WithEvents Btn_Equipe As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents DGV_Entretien As DataGridView
+    Friend WithEvents Label_Titre As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Cmb_Collaborateur As ComboBox
     Friend WithEvents Col_idEntretien As DataGridViewTextBoxColumn
     Friend WithEvents Col_DateEntretien As DataGridViewTextBoxColumn
     Friend WithEvents Col_DateEntSuivi As DataGridViewTextBoxColumn
-    Friend WithEvents Col_idCollab As DataGridViewTextBoxColumn
     Friend WithEvents Col_Document As DataGridViewButtonColumn
     Friend WithEvents Col_Valider As DataGridViewButtonColumn
-    Friend WithEvents cmb_Coll As ComboBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
 End Class

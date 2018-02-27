@@ -2,13 +2,22 @@
 
     Property _maClsSQLCollab As New ClsSQLCollaborateur
     Property _maClsSQLEntretien As New ClsSQLEntretiens
+    'Property _leCollab As ClsCollaborateur
 
     Private Sub FrmAjoutEntretien_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Label_Titre.Text = "Créer des entretiens"
+
+
+
+        'For i As Integer = 0 To DGV_Entretien.Rows.Count - 1
+        '    DGV_Entretien.Rows(i).Cells("Col_idCollab").DefaultNewRowValue = _leCollab._idCollaborateur
+        'Next
 
         For Each Collab As ClsCollaborateur In _maClsSQLCollab._lesCollaborateurs.Values
             Dim leCollabId As Integer = Collab._idCollaborateur
             Dim leCollabLibelle As String = Collab._libelleCollaborateur
-            cmb_Coll.Items.Add(leCollabId & " - " & leCollabLibelle)
+            Cmb_Collaborateur.Items.Add(leCollabId & " - " & leCollabLibelle)
         Next
 
     End Sub
@@ -34,16 +43,15 @@
 
                 Dim currentRowIndex = e.RowIndex
 
-                Dim currentLibelleCollab As String = cmb_Coll.SelectedItem
                 Dim currentDateEntretien As Date = DGV_Entretien.Item(1, currentRowIndex).Value
                 Dim currentDateEntSuivi As Date = DGV_Entretien.Item(2, currentRowIndex).Value
 
-                words = DGV_Entretien.Item(3, currentRowIndex).Value.Split("-")
+                words = Cmb_Collaborateur.SelectedItem.Split("-")
                 Dim currentIdCollab As Integer = words(0)
-                'Dim currentDocument As File = DGV_Entretien.Item(4, currentRowIndex).Value
 
                 Dim currentEntretien As New ClsEntretien(currentDateEntretien, currentDateEntSuivi, currentIdCollab)
                 _maClsSQLEntretien.InsertEntretien(currentEntretien)
+
             End If
         End If
 

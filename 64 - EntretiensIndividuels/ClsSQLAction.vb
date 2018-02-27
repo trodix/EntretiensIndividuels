@@ -38,7 +38,7 @@
                     If Not IsDBNull(.OdbcReader("idEntretien")) Then idEnt = .OdbcReader("idEntretien")
                     If Not IsDBNull(.OdbcReader("DateSolde")) Then ds = .OdbcReader("DateSolde")
 
-                    Dim uneAction As New ClsAction(idActions, dc, desc, resrAct, delai, suiviCom, statutPDCA, idCollab, idEnt, ds)
+                    Dim uneAction As New ClsAction(desc, resrAct, delai, suiviCom, statutPDCA, idCollab, idEnt, ds, dc, idActions)
                     'lesActions.Add(idEnt, uneAction)
                     lesActions.Add(uneAction)
                 End While
@@ -66,7 +66,7 @@
     End Function
 
     Public Function InsertAction(act As ClsAction)
-        act._DateCreation = Date.Today
+        'act._DateCreation = Date.Today
         Dim req As String = "insert into [dbo].[EIActions] (DateCreation, Descriptif, RespAction, Delai, SuiviCom, StatutPDCA, idCollaborateur, idEntretien) values(
                 '" & act._DateCreation & "', '" & act._Descriptif & "', '" & act._RespAction & "', '" & act._Delai & "', '" & act._SuiviCom & "', '" & act._StatutPDCA & "', '" &
                 act._idCollaborateur & "', '" & act._idEntretien & "')"

@@ -11,7 +11,7 @@
     Property _idEntretien As Integer
     Property _DateSolde As Date
 
-    Public Sub New(idAction As Integer, DateCreation As Date, Descriptif As String, RespAction As String, Delai As Date, SuiviCom As String, StatutPDCA As Char, idCollaborateur As Integer, idEntretien As Integer, DateSolde As Date)
+    Public Sub New(Descriptif As String, RespAction As String, Delai As Date, SuiviCom As String, StatutPDCA As Char, idCollaborateur As Integer, idEntretien As Integer, Optional DateSolde As Date = Nothing, Optional DateCreation As Date = Nothing, Optional idAction As Integer = -1)
         _idAction = idAction
         _DateCreation = DateCreation
         _Descriptif = Descriptif
@@ -22,5 +22,8 @@
         _idCollaborateur = idCollaborateur
         _idEntretien = idEntretien
         _DateSolde = DateSolde
+        If DateCreation = New Date Then
+            _DateCreation = Date.Today
+        End If
     End Sub
 End Class

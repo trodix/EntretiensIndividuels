@@ -38,11 +38,11 @@ Partial Class FrmAjoutAction
         Me.Col_idEnt = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_DateSolde = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_Valider = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.cmb_Coll = New System.Windows.Forms.ComboBox()
-        Me.cmb_Ent = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label_Titre = New System.Windows.Forms.Label()
+        Me.Label_Collaborateur = New System.Windows.Forms.Label()
+        Me.Label_Entretien = New System.Windows.Forms.Label()
+        Me.Cmb_Collaborateur = New System.Windows.Forms.ComboBox()
+        Me.Cmb_Entretien = New System.Windows.Forms.ComboBox()
         Me.Panel2.SuspendLayout()
         Me.TLP_Menu.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -121,11 +121,11 @@ Partial Class FrmAjoutAction
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.DGV_Action, 1, 6)
-        Me.TableLayoutPanel1.Controls.Add(Me.cmb_Coll, 2, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.cmb_Ent, 2, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label2, 1, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label3, 1, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label_Titre, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label_Collaborateur, 1, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label_Entretien, 1, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.Cmb_Collaborateur, 2, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.Cmb_Entretien, 2, 4)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(241, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -222,64 +222,60 @@ Partial Class FrmAjoutAction
         Me.Col_Valider.Name = "Col_Valider"
         Me.Col_Valider.Text = "Valider"
         '
-        'cmb_Coll
+        'Label_Titre
         '
-        Me.cmb_Coll.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cmb_Coll.Font = New System.Drawing.Font("Verdana", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmb_Coll.FormattingEnabled = True
-        Me.cmb_Coll.Location = New System.Drawing.Point(173, 63)
-        Me.cmb_Coll.Name = "cmb_Coll"
-        Me.cmb_Coll.Size = New System.Drawing.Size(168, 26)
-        Me.cmb_Coll.Sorted = True
-        Me.cmb_Coll.TabIndex = 2
+        Me.Label_Titre.AutoSize = True
+        Me.TableLayoutPanel1.SetColumnSpan(Me.Label_Titre, 2)
+        Me.Label_Titre.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label_Titre.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_Titre.Location = New System.Drawing.Point(23, 20)
+        Me.Label_Titre.Name = "Label_Titre"
+        Me.TableLayoutPanel1.SetRowSpan(Me.Label_Titre, 2)
+        Me.Label_Titre.Size = New System.Drawing.Size(318, 40)
+        Me.Label_Titre.TabIndex = 1
+        Me.Label_Titre.Text = "Créer des actions"
         '
-        'cmb_Ent
+        'Label_Collaborateur
         '
-        Me.cmb_Ent.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cmb_Ent.Font = New System.Drawing.Font("Verdana", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmb_Ent.FormattingEnabled = True
-        Me.cmb_Ent.Location = New System.Drawing.Point(173, 93)
-        Me.cmb_Ent.Name = "cmb_Ent"
-        Me.cmb_Ent.Size = New System.Drawing.Size(168, 26)
-        Me.cmb_Ent.Sorted = True
-        Me.cmb_Ent.TabIndex = 3
+        Me.Label_Collaborateur.AutoSize = True
+        Me.Label_Collaborateur.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label_Collaborateur.Location = New System.Drawing.Point(23, 60)
+        Me.Label_Collaborateur.Name = "Label_Collaborateur"
+        Me.Label_Collaborateur.Size = New System.Drawing.Size(144, 30)
+        Me.Label_Collaborateur.TabIndex = 2
+        Me.Label_Collaborateur.Text = "Collaborateur"
+        Me.Label_Collaborateur.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label1
+        'Label_Entretien
         '
-        Me.Label1.AutoSize = True
-        Me.TableLayoutPanel1.SetColumnSpan(Me.Label1, 2)
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(23, 20)
-        Me.Label1.Name = "Label1"
-        Me.TableLayoutPanel1.SetRowSpan(Me.Label1, 2)
-        Me.Label1.Size = New System.Drawing.Size(318, 40)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Créer des actions"
+        Me.Label_Entretien.AutoSize = True
+        Me.Label_Entretien.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label_Entretien.Location = New System.Drawing.Point(23, 90)
+        Me.Label_Entretien.Name = "Label_Entretien"
+        Me.Label_Entretien.Size = New System.Drawing.Size(144, 30)
+        Me.Label_Entretien.TabIndex = 3
+        Me.Label_Entretien.Text = "Entretien"
+        Me.Label_Entretien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Label2
+        'Cmb_Collaborateur
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label2.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(23, 60)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(144, 30)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Collaborateur"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmb_Collaborateur.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Cmb_Collaborateur.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmb_Collaborateur.FormattingEnabled = True
+        Me.Cmb_Collaborateur.Location = New System.Drawing.Point(173, 63)
+        Me.Cmb_Collaborateur.Name = "Cmb_Collaborateur"
+        Me.Cmb_Collaborateur.Size = New System.Drawing.Size(168, 26)
+        Me.Cmb_Collaborateur.TabIndex = 4
         '
-        'Label3
+        'Cmb_Entretien
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label3.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(23, 90)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(144, 30)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Entretien"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Cmb_Entretien.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Cmb_Entretien.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmb_Entretien.FormattingEnabled = True
+        Me.Cmb_Entretien.Location = New System.Drawing.Point(173, 93)
+        Me.Cmb_Entretien.Name = "Cmb_Entretien"
+        Me.Cmb_Entretien.Size = New System.Drawing.Size(168, 26)
+        Me.Cmb_Entretien.TabIndex = 5
         '
         'FrmAjoutAction
         '
@@ -306,11 +302,7 @@ Partial Class FrmAjoutAction
     Friend WithEvents Btn_Equipe As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents DGV_Action As DataGridView
-    Friend WithEvents cmb_Coll As ComboBox
-    Friend WithEvents cmb_Ent As ComboBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents Label_Titre As Label
     Friend WithEvents Col_id As DataGridViewTextBoxColumn
     Friend WithEvents Col_Descriptif As DataGridViewTextBoxColumn
     Friend WithEvents Col_RespAction As DataGridViewTextBoxColumn
@@ -321,4 +313,8 @@ Partial Class FrmAjoutAction
     Friend WithEvents Col_idEnt As DataGridViewTextBoxColumn
     Friend WithEvents Col_DateSolde As DataGridViewTextBoxColumn
     Friend WithEvents Col_Valider As DataGridViewButtonColumn
+    Friend WithEvents Label_Collaborateur As Label
+    Friend WithEvents Label_Entretien As Label
+    Friend WithEvents Cmb_Collaborateur As ComboBox
+    Friend WithEvents Cmb_Entretien As ComboBox
 End Class
