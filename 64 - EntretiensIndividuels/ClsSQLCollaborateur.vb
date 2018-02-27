@@ -1,37 +1,41 @@
 ﻿Public Class ClsSQLCollaborateur
 
-    Property _lesCollaborateurs As New Dictionary(Of Integer, ClsCollaborateur)
-    Property _lesManagers As New Dictionary(Of Integer, ClsCollaborateur)
+    Property _lesCollaborateurs As Dictionary(Of Integer, ClsCollaborateur) = readLesCollaborateurs()
+    Property _lesManagers As Dictionary(Of Integer, ClsCollaborateur) = readLesManagers()
 
     Public Sub New()
         readLesCollaborateurs()
     End Sub
 
-    Private Sub readLesCollaborateurs()
+    Private Function readLesCollaborateurs()
+        Dim lesCollaborateurs As New Dictionary(Of Integer, ClsCollaborateur)
         Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
             "select * from [dbo].[EICollaborateurs]",
             ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             With s_FbMyReader
                 While .OdbcReader.Read
                     Dim unCollaborateur As New ClsCollaborateur(.OdbcReader("LibCollaborateur"), .OdbcReader("idManager"), .OdbcReader("idService"), .OdbcReader("idCollaborateur"))
-                    _lesCollaborateurs.Add(.OdbcReader("idCollaborateur"), unCollaborateur)
+                    lesCollaborateurs.Add(.OdbcReader("idCollaborateur"), unCollaborateur)
                 End While
             End With
         End Using
-    End Sub
+        Return lesCollaborateurs
+    End Function
 
-    Private Sub readLesManagers()
+    Private Function readLesManagers()
+        Dim lesManagers As New Dictionary(Of Integer, ClsCollaborateur)
         Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
             "select * from [dbo].[EICollaborateurs] where StatutManager >= 1",
             ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             With s_FbMyReader
                 While .OdbcReader.Read
                     Dim unManager As New ClsCollaborateur(.OdbcReader("LibCollaborateur"), .OdbcReader("idManager"), .OdbcReader("idService"), .OdbcReader("idCollaborateur"))
-                    _lesManagers.Add(.OdbcReader("idCollaborateur"), unManager)
+                    lesManagers.Add(.OdbcReader("idCollaborateur"), unManager)
                 End While
             End With
         End Using
-    End Sub
+        Return lesManagers
+    End Function
 
     Public Function readUnCollaborateur(idCollaborateur As Integer)
         Return _lesCollaborateurs.Item(idCollaborateur)
