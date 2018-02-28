@@ -24,7 +24,7 @@
     Private Sub FillDGV_Entretiens(idCollab As Integer)
         DGV_Dates.Rows.Clear()
         _lesEntretiensCollab.Clear()
-        DGV_Dates.Rows.Add(Nothing, idCollab, Nothing)
+        'DGV_Dates.Rows.Add(Nothing, idCollab, Nothing)
         For Each unEnt As ClsEntretien In _lesCollaborateurs(idCollab)._lesEntretiensCollab
             _lesEntretiensCollab.Add(unEnt._idEntretien, unEnt)
         Next
@@ -41,7 +41,7 @@
     Private Sub FillDGV_Actions(idEntretien As Integer)
 
         DGV_Actions.Rows.Clear()
-        _lesActionsEntCollab.Clear()
+        '_lesActionsEntCollab.Clear()
         If _lesEntretiensCollab.ContainsKey(idEntretien) Then
             _lesActionsEntCollab = _lesEntretiensCollab(idEntretien)._lesActionsEnt
         End If
@@ -58,6 +58,7 @@
     End Sub
 
     Private Sub DGV_Noms_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DGV_Noms.CellMouseClick
+        DGV_Dates.Rows.Clear()
         Dim ligneCourante As Integer = e.RowIndex
         Dim idCollab = sender.Rows(ligneCourante).Cells(0).Value
         FillDGV_Entretiens(idCollab)
@@ -67,9 +68,10 @@
     End Sub
 
     Private Sub DGV_Dates_CellMouseClick(sender As DataGridView, e As DataGridViewCellMouseEventArgs) Handles DGV_Dates.CellMouseClick
+        DGV_Actions.Rows.Clear()
         Dim ligneCourante As Integer = e.RowIndex
         Dim idEntretien = sender.Rows(ligneCourante).Cells(0).Value
-        Dim idCollab = sender.Rows(ligneCourante).Cells(1).Value
+        'Dim idCollab = sender.Rows(ligneCourante).Cells(1).Value
         FillDGV_Actions(idEntretien)
         '_collabClicked = _lesCollaborateurs(idCollab)
         'BtnAjout.Text = "Ajouter un" & vbNewLine & "entretien"

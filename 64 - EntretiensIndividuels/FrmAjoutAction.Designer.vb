@@ -22,11 +22,9 @@ Partial Class FrmAjoutAction
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAjoutAction))
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TLP_Menu = New System.Windows.Forms.TableLayoutPanel()
-        Me.Btn_Accueil = New System.Windows.Forms.Button()
-        Me.Btn_Entretiens = New System.Windows.Forms.Button()
-        Me.Btn_Equipe = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DGV_Action = New System.Windows.Forms.DataGridView()
         Me.Col_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -44,6 +42,9 @@ Partial Class FrmAjoutAction
         Me.Label_Entretien = New System.Windows.Forms.Label()
         Me.Cmb_Collaborateur = New System.Windows.Forms.ComboBox()
         Me.Cmb_Entretien = New System.Windows.Forms.ComboBox()
+        Me.Btn_Accueil = New System.Windows.Forms.Button()
+        Me.Btn_Entretiens = New System.Windows.Forms.Button()
+        Me.Btn_Equipe = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.TLP_Menu.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -83,61 +84,6 @@ Partial Class FrmAjoutAction
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TLP_Menu.Size = New System.Drawing.Size(241, 497)
         Me.TLP_Menu.TabIndex = 2
-        '
-        'Btn_Accueil
-        '
-        Me.Btn_Accueil.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_Accueil.FlatAppearance.BorderSize = 0
-        Me.Btn_Accueil.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_Accueil.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Accueil.ForeColor = System.Drawing.Color.White
-        Me.Btn_Accueil.Image = Global.EntretiensIndividuels.My.Resources.Resources.accueil_32
-        Me.Btn_Accueil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Accueil.Location = New System.Drawing.Point(23, 23)
-        Me.Btn_Accueil.Name = "Btn_Accueil"
-        Me.Btn_Accueil.Size = New System.Drawing.Size(194, 44)
-        Me.Btn_Accueil.TabIndex = 7
-        Me.Btn_Accueil.Text = "Accueil"
-        Me.Btn_Accueil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Accueil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Btn_Accueil.UseVisualStyleBackColor = True
-        '
-        'Btn_Entretiens
-        '
-        Me.Btn_Entretiens.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_Entretiens.FlatAppearance.BorderSize = 0
-        Me.Btn_Entretiens.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_Entretiens.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Entretiens.ForeColor = System.Drawing.Color.White
-        Me.Btn_Entretiens.Image = Global.EntretiensIndividuels.My.Resources.Resources.entretien_32
-        Me.Btn_Entretiens.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Entretiens.Location = New System.Drawing.Point(23, 73)
-        Me.Btn_Entretiens.Name = "Btn_Entretiens"
-        Me.Btn_Entretiens.Size = New System.Drawing.Size(194, 44)
-        Me.Btn_Entretiens.TabIndex = 3
-        Me.Btn_Entretiens.Text = "Mes entretiens"
-        Me.Btn_Entretiens.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Entretiens.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Btn_Entretiens.UseVisualStyleBackColor = True
-        '
-        'Btn_Equipe
-        '
-        Me.Btn_Equipe.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(131, Byte), Integer), CType(CType(222, Byte), Integer))
-        Me.Btn_Equipe.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_Equipe.FlatAppearance.BorderSize = 0
-        Me.Btn_Equipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_Equipe.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Equipe.ForeColor = System.Drawing.Color.White
-        Me.Btn_Equipe.Image = Global.EntretiensIndividuels.My.Resources.Resources.equipe_32
-        Me.Btn_Equipe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Equipe.Location = New System.Drawing.Point(23, 123)
-        Me.Btn_Equipe.Name = "Btn_Equipe"
-        Me.Btn_Equipe.Size = New System.Drawing.Size(194, 44)
-        Me.Btn_Equipe.TabIndex = 4
-        Me.Btn_Equipe.Text = "Mon équipe"
-        Me.Btn_Equipe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Equipe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Btn_Equipe.UseVisualStyleBackColor = False
         '
         'TableLayoutPanel1
         '
@@ -305,6 +251,61 @@ Partial Class FrmAjoutAction
         Me.Cmb_Entretien.Name = "Cmb_Entretien"
         Me.Cmb_Entretien.Size = New System.Drawing.Size(168, 26)
         Me.Cmb_Entretien.TabIndex = 5
+        '
+        'Btn_Accueil
+        '
+        Me.Btn_Accueil.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_Accueil.FlatAppearance.BorderSize = 0
+        Me.Btn_Accueil.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_Accueil.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_Accueil.ForeColor = System.Drawing.Color.White
+        Me.Btn_Accueil.Image = Global.EntretiensIndividuels.My.Resources.Resources.accueil_32
+        Me.Btn_Accueil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Accueil.Location = New System.Drawing.Point(23, 23)
+        Me.Btn_Accueil.Name = "Btn_Accueil"
+        Me.Btn_Accueil.Size = New System.Drawing.Size(194, 44)
+        Me.Btn_Accueil.TabIndex = 7
+        Me.Btn_Accueil.Text = "Accueil"
+        Me.Btn_Accueil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Accueil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Btn_Accueil.UseVisualStyleBackColor = True
+        '
+        'Btn_Entretiens
+        '
+        Me.Btn_Entretiens.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_Entretiens.FlatAppearance.BorderSize = 0
+        Me.Btn_Entretiens.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_Entretiens.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_Entretiens.ForeColor = System.Drawing.Color.White
+        Me.Btn_Entretiens.Image = CType(resources.GetObject("Btn_Entretiens.Image"), System.Drawing.Image)
+        Me.Btn_Entretiens.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Entretiens.Location = New System.Drawing.Point(23, 73)
+        Me.Btn_Entretiens.Name = "Btn_Entretiens"
+        Me.Btn_Entretiens.Size = New System.Drawing.Size(194, 44)
+        Me.Btn_Entretiens.TabIndex = 3
+        Me.Btn_Entretiens.Text = "Mes entretiens"
+        Me.Btn_Entretiens.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Entretiens.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Btn_Entretiens.UseVisualStyleBackColor = True
+        '
+        'Btn_Equipe
+        '
+        Me.Btn_Equipe.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(131, Byte), Integer), CType(CType(222, Byte), Integer))
+        Me.Btn_Equipe.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_Equipe.FlatAppearance.BorderSize = 0
+        Me.Btn_Equipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_Equipe.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_Equipe.ForeColor = System.Drawing.Color.White
+        Me.Btn_Equipe.Image = CType(resources.GetObject("Btn_Equipe.Image"), System.Drawing.Image)
+        Me.Btn_Equipe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Equipe.Location = New System.Drawing.Point(23, 123)
+        Me.Btn_Equipe.Name = "Btn_Equipe"
+        Me.Btn_Equipe.Size = New System.Drawing.Size(194, 44)
+        Me.Btn_Equipe.TabIndex = 4
+        Me.Btn_Equipe.Text = "Mon équipe"
+        Me.Btn_Equipe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Equipe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Btn_Equipe.UseVisualStyleBackColor = False
         '
         'FrmAjoutAction
         '
