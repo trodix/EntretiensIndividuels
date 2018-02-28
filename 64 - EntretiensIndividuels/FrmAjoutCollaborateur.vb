@@ -53,7 +53,7 @@
                 words = DGV_Collab.Item(3, currentRowIndex).Value.Split("-")
                 Dim currentStatut As Integer = words(0)
 
-                Dim currentCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService)
+                Dim currentCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, Nothing, currentStatut)
                 _maClsSQLCollaborateur.InsertCollaborateur(currentCollab)
             End If
         End If

@@ -4,21 +4,13 @@
     Property _maClsSQLEnt As New ClsSQLEntretiens
     Property _maClsAction As New ClsSQLAction
     Property _entretien As ClsEntretien
+    Property _selectedCollabId As Integer = -1
+    Property _selectedEntId As Integer = -1
 
     Private Sub FrmAjoutAction_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        'Label_Collaborateur.Text = _maClsSQLCollab._lesCollaborateurs(_entretien._idCollaborateur)._libelleCollaborateur
-        'Label_Entretien.Text = _entretien._DateEntretien
-
-
         For Each Collab As ClsCollaborateur In _maClsSQLCollab._lesCollaborateurs.Values
-            Dim leCollabLibelle As String = Collab._libelleCollaborateur
-            Cmb_Collaborateur.Items.Add(leCollabLibelle)
-        Next
-
-        For Each Ent As ClsEntretien In _maClsSQLEnt._lesEntretiens.Values 'chercher les entretiens du collab selectionné
-            Dim leEntDateSuivi As String = Ent._DateEntretienSuivi
-            Cmb_Entretien.Items.Add(leEntDateSuivi)
+            Cmb_Collaborateur.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
         Next
 
     End Sub
@@ -31,8 +23,6 @@
 
     Private Sub DGV_Action_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DGV_Action.CellMouseClick
 
-        'Dim words() As String
-
         If e.RowIndex <> -1 Then
             If e.ColumnIndex = DGV_Action.Columns("Col_Valider").Index Then
 
@@ -44,39 +34,34 @@
                 Dim currentSuiviCom As String = DGV_Action.Item(4, currentRowIndex).Value
                 Dim currentStatutPDCA As Char = DGV_Action.Item(5, currentRowIndex).Value
 
-                'words = Cmb_Collaborateur.SelectedValue.split("-")
-                'words = Cmb_Collaborateur.SelectedItem.split("-")
+                Dim currentAction As New ClsAction(currentDescriptif, currentRespAction, currentDelai, currentSuiviCom, currentStatutPDCA, _selectedCollabId, _selectedEntId)
 
-                Dim currentidCollab As Integer = getIdByName(Cmb_Collaborateur.SelectedItem)
-
-                'words = Cmb_Entretien.SelectedItem.split("-")
-                Dim currentidEnt As Integer = getIdByLibelle(Cmb_Entretien.SelectedItem)
-
-
-                Dim currentAction As New ClsAction(currentDescriptif, currentRespAction, currentDelai, currentSuiviCom, currentStatutPDCA, currentidCollab, currentidEnt)
-                _maClsAction.InsertAction(currentAction)
-
+                If _selectedCollabId <> -1 And _selectedEntId <> -1 Then
+                    _maClsAction.InsertAction(currentAction)
+                    MessageBox.Show("Action ajoutée avec succès", "Ajout d'actions", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    MessageBox.Show("Action non ajoutée, seletionnez un collaborateur et un entretien", "Ajout d'actions", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
             End If
         End If
     End Sub
 
-    Private Function getIdByName(nom As String)
-        Dim key As Integer
-        For Each collab As ClsCollaborateur In _maClsSQLCollab._lesCollaborateurs.Values
-            If collab._libelleCollaborateur.Equals(Name) Then
-                key = collab._idCollaborateur
-            End If
-        Next
-        Return key
-    End Function
+    Private Sub Cmb_Collaborateur_SelectedValueChanged(sender As Object, e As EventArgs) Handles Cmb_Collaborateur.SelectedValueChanged
 
-    Private Function getIdByLibelle(libelle As String)
-        Dim key As Integer
-        For Each ent As ClsEntretien In _maClsSQLEnt._lesEntretiens.Values
-            If ent._DateEntretienSuivi.Equals(libelle) Then
-                key = ent._idEntretien
+
+        _selectedCollabId = Cmb_Collaborateur.SelectedItem.split("-")(0)
+        Cmb_Entretien.Items.Clear()
+        Cmb_Entretien.SelectedText = ""
+
+        For Each Ent As ClsEntretien In _maClsSQLEnt._lesEntretiens.Values 'chercher les entretiens du collab selectionné
+            If Ent._idCollaborateur = _selectedCollabId Then
+                Cmb_Entretien.Items.Add(Ent._idEntretien & " - " & Ent._DateEntretienSuivi)
             End If
         Next
-        Return key
-    End Function
+
+    End Sub
+
+    Private Sub Cmb_Entretien_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Cmb_Entretien.SelectedIndexChanged
+        _selectedEntId = Cmb_Entretien.SelectedItem.split("-")(0)
+    End Sub
 End Class
