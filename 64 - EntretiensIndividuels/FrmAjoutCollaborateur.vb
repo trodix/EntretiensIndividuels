@@ -54,9 +54,18 @@
                 Dim currentStatut As Integer = words(0)
 
                 Dim currentCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, Nothing, currentStatut)
+
                 _maClsSQLCollaborateur.InsertCollaborateur(currentCollab)
+
+
             End If
         End If
 
+    End Sub
+
+    Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs) Handles Btn_Accueil.Click
+        Dim _f As New FrmMenu
+        _f.Show()
+        Close()
     End Sub
 End Class

@@ -27,22 +27,10 @@
 
     End Sub
 
-    'Private Sub TreeView1_NodeMouseClick(sender As Object, e As TreeNodeMouseClickEventArgs)
-    '    'MessageBox.Show(e.Node.Name)
-    '    If e.Node.Name = "Node_Ent" Then
-    '        Dim _FrmMesEntretiens As New FrmMesEntretiens
-    '        _FrmMesEntretiens.ShowDialog()
-    '    ElseIf e.Node.Name = "Node_Action" Then
-    '        Dim _FrmMonEquipe As New FrmMesEntretiens
-    '        _FrmMonEquipe.ShowDialog()
-    '    ElseIf e.Node.Name = "Node_CreerEnt" Then
-    '        Dim _FrmAjoutEntretien As New FrmAjoutEntretien
-    '        FrmAjoutEntretien.ShowDialog()
-    '    ElseIf e.Node.Name = "Node_CreerAction" Then
-    '        Dim _FrmAjoutEntretien As New FrmAjoutEntretien
-    '        FrmAjoutEntretien.ShowDialog()
-    '    End If
+    Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs) Handles Btn_Accueil.Click
+        Dim _f As New FrmMenu
+        _f.Show()
+        Close()
+    End Sub
 
-
-    'End Sub
 End Class

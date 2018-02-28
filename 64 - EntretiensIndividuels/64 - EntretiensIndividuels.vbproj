@@ -187,6 +187,21 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajouter-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accueil-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\action-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\entretien-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\equipe-32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

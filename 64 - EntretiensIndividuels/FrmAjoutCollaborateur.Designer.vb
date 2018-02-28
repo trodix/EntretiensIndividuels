@@ -24,16 +24,17 @@ Partial Class FrmAjoutCollaborateur
     Private Sub InitializeComponent()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TLP_Menu = New System.Windows.Forms.TableLayoutPanel()
+        Me.Btn_Accueil = New System.Windows.Forms.Button()
         Me.Btn_Entretiens = New System.Windows.Forms.Button()
         Me.Btn_Equipe = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DGV_Collab = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Col_libCollab = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_Manager = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Col_Service = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Col_Statut = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Col_Valider = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.TLP_Menu.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -57,13 +58,15 @@ Partial Class FrmAjoutCollaborateur
         Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
         Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
-        Me.TLP_Menu.Controls.Add(Me.Btn_Entretiens, 1, 1)
-        Me.TLP_Menu.Controls.Add(Me.Btn_Equipe, 1, 2)
+        Me.TLP_Menu.Controls.Add(Me.Btn_Accueil, 1, 1)
+        Me.TLP_Menu.Controls.Add(Me.Btn_Entretiens, 1, 2)
+        Me.TLP_Menu.Controls.Add(Me.Btn_Equipe, 1, 3)
         Me.TLP_Menu.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TLP_Menu.Location = New System.Drawing.Point(0, 0)
         Me.TLP_Menu.Name = "TLP_Menu"
-        Me.TLP_Menu.RowCount = 6
+        Me.TLP_Menu.RowCount = 7
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
@@ -72,6 +75,24 @@ Partial Class FrmAjoutCollaborateur
         Me.TLP_Menu.Size = New System.Drawing.Size(241, 520)
         Me.TLP_Menu.TabIndex = 2
         '
+        'Btn_Accueil
+        '
+        Me.Btn_Accueil.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_Accueil.FlatAppearance.BorderSize = 0
+        Me.Btn_Accueil.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_Accueil.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_Accueil.ForeColor = System.Drawing.Color.White
+        Me.Btn_Accueil.Image = Global.EntretiensIndividuels.My.Resources.Resources.accueil_32
+        Me.Btn_Accueil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Accueil.Location = New System.Drawing.Point(23, 23)
+        Me.Btn_Accueil.Name = "Btn_Accueil"
+        Me.Btn_Accueil.Size = New System.Drawing.Size(194, 44)
+        Me.Btn_Accueil.TabIndex = 7
+        Me.Btn_Accueil.Text = "Accueil"
+        Me.Btn_Accueil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Accueil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Btn_Accueil.UseVisualStyleBackColor = True
+        '
         'Btn_Entretiens
         '
         Me.Btn_Entretiens.Dock = System.Windows.Forms.DockStyle.Fill
@@ -79,12 +100,15 @@ Partial Class FrmAjoutCollaborateur
         Me.Btn_Entretiens.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_Entretiens.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btn_Entretiens.ForeColor = System.Drawing.Color.White
-        Me.Btn_Entretiens.Location = New System.Drawing.Point(23, 23)
+        Me.Btn_Entretiens.Image = Global.EntretiensIndividuels.My.Resources.Resources.entretien_32
+        Me.Btn_Entretiens.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Entretiens.Location = New System.Drawing.Point(23, 73)
         Me.Btn_Entretiens.Name = "Btn_Entretiens"
         Me.Btn_Entretiens.Size = New System.Drawing.Size(194, 44)
         Me.Btn_Entretiens.TabIndex = 3
         Me.Btn_Entretiens.Text = "Mes entretiens"
         Me.Btn_Entretiens.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Entretiens.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Btn_Entretiens.UseVisualStyleBackColor = True
         '
         'Btn_Equipe
@@ -95,12 +119,15 @@ Partial Class FrmAjoutCollaborateur
         Me.Btn_Equipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_Equipe.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btn_Equipe.ForeColor = System.Drawing.Color.White
-        Me.Btn_Equipe.Location = New System.Drawing.Point(23, 73)
+        Me.Btn_Equipe.Image = Global.EntretiensIndividuels.My.Resources.Resources.equipe_32
+        Me.Btn_Equipe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Equipe.Location = New System.Drawing.Point(23, 123)
         Me.Btn_Equipe.Name = "Btn_Equipe"
         Me.Btn_Equipe.Size = New System.Drawing.Size(194, 44)
         Me.Btn_Equipe.TabIndex = 4
         Me.Btn_Equipe.Text = "Mon équipe"
         Me.Btn_Equipe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Equipe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Btn_Equipe.UseVisualStyleBackColor = False
         '
         'TableLayoutPanel1
@@ -110,7 +137,7 @@ Partial Class FrmAjoutCollaborateur
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.DGV_Collab, 1, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 1, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -139,21 +166,8 @@ Partial Class FrmAjoutCollaborateur
         Me.DGV_Collab.Location = New System.Drawing.Point(23, 83)
         Me.DGV_Collab.Name = "DGV_Collab"
         Me.DGV_Collab.RowHeadersVisible = False
-        Me.DGV_Collab.Size = New System.Drawing.Size(687, 414)
+        Me.DGV_Collab.Size = New System.Drawing.Size(685, 414)
         Me.DGV_Collab.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.TableLayoutPanel1.SetColumnSpan(Me.Label1, 2)
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(23, 20)
-        Me.Label1.Name = "Label1"
-        Me.TableLayoutPanel1.SetRowSpan(Me.Label1, 2)
-        Me.Label1.Size = New System.Drawing.Size(307, 40)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Créer des collaborateurs"
         '
         'Col_libCollab
         '
@@ -186,6 +200,19 @@ Partial Class FrmAjoutCollaborateur
         Me.Col_Valider.Name = "Col_Valider"
         Me.Col_Valider.Text = "Valider"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.TableLayoutPanel1.SetColumnSpan(Me.Label1, 2)
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(23, 20)
+        Me.Label1.Name = "Label1"
+        Me.TableLayoutPanel1.SetRowSpan(Me.Label1, 2)
+        Me.Label1.Size = New System.Drawing.Size(306, 40)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Créer des collaborateurs"
+        '
         'FrmAjoutCollaborateur
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -194,7 +221,7 @@ Partial Class FrmAjoutCollaborateur
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.Panel2)
         Me.Name = "FrmAjoutCollaborateur"
-        Me.Text = "FrmAjoutCollaborateur"
+        Me.Text = "Entretiens Individuels - Ajouter des collaborateurs"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel2.ResumeLayout(False)
         Me.TLP_Menu.ResumeLayout(False)
@@ -217,4 +244,5 @@ Partial Class FrmAjoutCollaborateur
     Friend WithEvents Col_Service As DataGridViewComboBoxColumn
     Friend WithEvents Col_Statut As DataGridViewComboBoxColumn
     Friend WithEvents Col_Valider As DataGridViewButtonColumn
+    Friend WithEvents Btn_Accueil As Button
 End Class

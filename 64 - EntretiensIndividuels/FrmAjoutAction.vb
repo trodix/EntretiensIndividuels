@@ -11,6 +11,7 @@
 
         For Each Collab As ClsCollaborateur In _maClsSQLCollab._lesCollaborateurs.Values
             Cmb_Collaborateur.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
+            Col_RespAction.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
         Next
 
     End Sub
@@ -29,10 +30,10 @@
                 Dim currentRowIndex = e.RowIndex
 
                 Dim currentDescriptif As String = DGV_Action.Item(1, currentRowIndex).Value
-                Dim currentRespAction As String = DGV_Action.Item(2, currentRowIndex).Value
+                Dim currentRespAction As String = DGV_Action.Item(2, currentRowIndex).Value.split("-")(1)
                 Dim currentDelai As Date = DGV_Action.Item(3, currentRowIndex).Value
                 Dim currentSuiviCom As String = DGV_Action.Item(4, currentRowIndex).Value
-                Dim currentStatutPDCA As Char = DGV_Action.Item(5, currentRowIndex).Value
+                Dim currentStatutPDCA As Char = Char.ToUpper(DGV_Action.Item(5, currentRowIndex).Value)
 
                 Dim currentAction As New ClsAction(currentDescriptif, currentRespAction, currentDelai, currentSuiviCom, currentStatutPDCA, _selectedCollabId, _selectedEntId)
 
@@ -63,5 +64,11 @@
 
     Private Sub Cmb_Entretien_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Cmb_Entretien.SelectedIndexChanged
         _selectedEntId = Cmb_Entretien.SelectedItem.split("-")(0)
+    End Sub
+
+    Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs) Handles Btn_Accueil.Click
+        Dim _f As New FrmMenu
+        _f.Show()
+        Close()
     End Sub
 End Class

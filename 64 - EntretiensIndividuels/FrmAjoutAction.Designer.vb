@@ -24,13 +24,14 @@ Partial Class FrmAjoutAction
     Private Sub InitializeComponent()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TLP_Menu = New System.Windows.Forms.TableLayoutPanel()
+        Me.Btn_Accueil = New System.Windows.Forms.Button()
         Me.Btn_Entretiens = New System.Windows.Forms.Button()
         Me.Btn_Equipe = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DGV_Action = New System.Windows.Forms.DataGridView()
         Me.Col_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_Descriptif = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_RespAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_RespAction = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Col_Delai = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_SuiviCom = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_StatutPDCA = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -66,13 +67,15 @@ Partial Class FrmAjoutAction
         Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
         Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
-        Me.TLP_Menu.Controls.Add(Me.Btn_Entretiens, 1, 1)
-        Me.TLP_Menu.Controls.Add(Me.Btn_Equipe, 1, 2)
+        Me.TLP_Menu.Controls.Add(Me.Btn_Accueil, 1, 1)
+        Me.TLP_Menu.Controls.Add(Me.Btn_Entretiens, 1, 2)
+        Me.TLP_Menu.Controls.Add(Me.Btn_Equipe, 1, 3)
         Me.TLP_Menu.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TLP_Menu.Location = New System.Drawing.Point(0, 0)
         Me.TLP_Menu.Name = "TLP_Menu"
-        Me.TLP_Menu.RowCount = 6
+        Me.TLP_Menu.RowCount = 7
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
@@ -81,6 +84,24 @@ Partial Class FrmAjoutAction
         Me.TLP_Menu.Size = New System.Drawing.Size(241, 497)
         Me.TLP_Menu.TabIndex = 2
         '
+        'Btn_Accueil
+        '
+        Me.Btn_Accueil.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_Accueil.FlatAppearance.BorderSize = 0
+        Me.Btn_Accueil.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_Accueil.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_Accueil.ForeColor = System.Drawing.Color.White
+        Me.Btn_Accueil.Image = Global.EntretiensIndividuels.My.Resources.Resources.accueil_32
+        Me.Btn_Accueil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Accueil.Location = New System.Drawing.Point(23, 23)
+        Me.Btn_Accueil.Name = "Btn_Accueil"
+        Me.Btn_Accueil.Size = New System.Drawing.Size(194, 44)
+        Me.Btn_Accueil.TabIndex = 7
+        Me.Btn_Accueil.Text = "Accueil"
+        Me.Btn_Accueil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Accueil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Btn_Accueil.UseVisualStyleBackColor = True
+        '
         'Btn_Entretiens
         '
         Me.Btn_Entretiens.Dock = System.Windows.Forms.DockStyle.Fill
@@ -88,12 +109,15 @@ Partial Class FrmAjoutAction
         Me.Btn_Entretiens.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_Entretiens.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btn_Entretiens.ForeColor = System.Drawing.Color.White
-        Me.Btn_Entretiens.Location = New System.Drawing.Point(23, 23)
+        Me.Btn_Entretiens.Image = Global.EntretiensIndividuels.My.Resources.Resources.entretien_32
+        Me.Btn_Entretiens.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Entretiens.Location = New System.Drawing.Point(23, 73)
         Me.Btn_Entretiens.Name = "Btn_Entretiens"
         Me.Btn_Entretiens.Size = New System.Drawing.Size(194, 44)
         Me.Btn_Entretiens.TabIndex = 3
         Me.Btn_Entretiens.Text = "Mes entretiens"
         Me.Btn_Entretiens.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Entretiens.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Btn_Entretiens.UseVisualStyleBackColor = True
         '
         'Btn_Equipe
@@ -104,12 +128,15 @@ Partial Class FrmAjoutAction
         Me.Btn_Equipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_Equipe.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btn_Equipe.ForeColor = System.Drawing.Color.White
-        Me.Btn_Equipe.Location = New System.Drawing.Point(23, 73)
+        Me.Btn_Equipe.Image = Global.EntretiensIndividuels.My.Resources.Resources.equipe_32
+        Me.Btn_Equipe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Equipe.Location = New System.Drawing.Point(23, 123)
         Me.Btn_Equipe.Name = "Btn_Equipe"
         Me.Btn_Equipe.Size = New System.Drawing.Size(194, 44)
         Me.Btn_Equipe.TabIndex = 4
         Me.Btn_Equipe.Text = "Mon équipe"
         Me.Btn_Equipe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_Equipe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Btn_Equipe.UseVisualStyleBackColor = False
         '
         'TableLayoutPanel1
@@ -174,6 +201,8 @@ Partial Class FrmAjoutAction
         Me.Col_RespAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Col_RespAction.HeaderText = "Resp. action"
         Me.Col_RespAction.Name = "Col_RespAction"
+        Me.Col_RespAction.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Col_RespAction.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'Col_Delai
         '
@@ -285,7 +314,7 @@ Partial Class FrmAjoutAction
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.Panel2)
         Me.Name = "FrmAjoutAction"
-        Me.Text = "FrmAjoutAction"
+        Me.Text = "Entretiens Individuels - Ajouter des actions"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel2.ResumeLayout(False)
         Me.TLP_Menu.ResumeLayout(False)
@@ -303,9 +332,13 @@ Partial Class FrmAjoutAction
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents DGV_Action As DataGridView
     Friend WithEvents Label_Titre As Label
+    Friend WithEvents Label_Collaborateur As Label
+    Friend WithEvents Label_Entretien As Label
+    Friend WithEvents Cmb_Collaborateur As ComboBox
+    Friend WithEvents Cmb_Entretien As ComboBox
     Friend WithEvents Col_id As DataGridViewTextBoxColumn
     Friend WithEvents Col_Descriptif As DataGridViewTextBoxColumn
-    Friend WithEvents Col_RespAction As DataGridViewTextBoxColumn
+    Friend WithEvents Col_RespAction As DataGridViewComboBoxColumn
     Friend WithEvents Col_Delai As DataGridViewTextBoxColumn
     Friend WithEvents Col_SuiviCom As DataGridViewTextBoxColumn
     Friend WithEvents Col_StatutPDCA As DataGridViewTextBoxColumn
@@ -313,8 +346,5 @@ Partial Class FrmAjoutAction
     Friend WithEvents Col_idEnt As DataGridViewTextBoxColumn
     Friend WithEvents Col_DateSolde As DataGridViewTextBoxColumn
     Friend WithEvents Col_Valider As DataGridViewButtonColumn
-    Friend WithEvents Label_Collaborateur As Label
-    Friend WithEvents Label_Entretien As Label
-    Friend WithEvents Cmb_Collaborateur As ComboBox
-    Friend WithEvents Cmb_Entretien As ComboBox
+    Friend WithEvents Btn_Accueil As Button
 End Class
