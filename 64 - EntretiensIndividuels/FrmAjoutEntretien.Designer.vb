@@ -23,21 +23,23 @@ Partial Class FrmAjoutEntretien
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAjoutEntretien))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TLP_Menu = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DGV_Entretien = New System.Windows.Forms.DataGridView()
-        Me.Col_idEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_DateEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_DateEntSuivi = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_Document = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.Col_Valider = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Label_Titre = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Cmb_Collaborateur = New System.Windows.Forms.ComboBox()
         Me.Btn_Accueil = New System.Windows.Forms.Button()
         Me.Btn_Entretiens = New System.Windows.Forms.Button()
         Me.Btn_Equipe = New System.Windows.Forms.Button()
+        Me.Col_idEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_DateEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_DateEntSuivi = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_Document = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Col_Valider = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Panel2.SuspendLayout()
         Me.TLP_Menu.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -118,40 +120,6 @@ Partial Class FrmAjoutEntretien
         Me.DGV_Entretien.RowHeadersVisible = False
         Me.DGV_Entretien.Size = New System.Drawing.Size(784, 393)
         Me.DGV_Entretien.TabIndex = 0
-        '
-        'Col_idEntretien
-        '
-        Me.Col_idEntretien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_idEntretien.HeaderText = "id Entretien"
-        Me.Col_idEntretien.Name = "Col_idEntretien"
-        Me.Col_idEntretien.ReadOnly = True
-        Me.Col_idEntretien.Visible = False
-        '
-        'Col_DateEntretien
-        '
-        Me.Col_DateEntretien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_DateEntretien.HeaderText = "Date entretien"
-        Me.Col_DateEntretien.Name = "Col_DateEntretien"
-        '
-        'Col_DateEntSuivi
-        '
-        Me.Col_DateEntSuivi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_DateEntSuivi.HeaderText = "Date ent. suivi"
-        Me.Col_DateEntSuivi.Name = "Col_DateEntSuivi"
-        '
-        'Col_Document
-        '
-        Me.Col_Document.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_Document.HeaderText = "Document scanné"
-        Me.Col_Document.Name = "Col_Document"
-        Me.Col_Document.Text = "Ajouter document"
-        '
-        'Col_Valider
-        '
-        Me.Col_Valider.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_Valider.HeaderText = "Valider"
-        Me.Col_Valider.Name = "Col_Valider"
-        Me.Col_Valider.Text = "Valider"
         '
         'Label_Titre
         '
@@ -242,6 +210,46 @@ Partial Class FrmAjoutEntretien
         Me.Btn_Equipe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Btn_Equipe.UseVisualStyleBackColor = False
         '
+        'Col_idEntretien
+        '
+        Me.Col_idEntretien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_idEntretien.HeaderText = "id Entretien"
+        Me.Col_idEntretien.Name = "Col_idEntretien"
+        Me.Col_idEntretien.ReadOnly = True
+        Me.Col_idEntretien.Visible = False
+        '
+        'Col_DateEntretien
+        '
+        Me.Col_DateEntretien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle1.Format = "d"
+        DataGridViewCellStyle1.NullValue = "jj/mm/aaaa"
+        Me.Col_DateEntretien.DefaultCellStyle = DataGridViewCellStyle1
+        Me.Col_DateEntretien.HeaderText = "Date entretien"
+        Me.Col_DateEntretien.Name = "Col_DateEntretien"
+        '
+        'Col_DateEntSuivi
+        '
+        Me.Col_DateEntSuivi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle2.Format = "d"
+        DataGridViewCellStyle2.NullValue = "jj/mm/aaaa"
+        Me.Col_DateEntSuivi.DefaultCellStyle = DataGridViewCellStyle2
+        Me.Col_DateEntSuivi.HeaderText = "Date ent. suivi"
+        Me.Col_DateEntSuivi.Name = "Col_DateEntSuivi"
+        '
+        'Col_Document
+        '
+        Me.Col_Document.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_Document.HeaderText = "Document scanné"
+        Me.Col_Document.Name = "Col_Document"
+        Me.Col_Document.Text = "Ajouter document"
+        '
+        'Col_Valider
+        '
+        Me.Col_Valider.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_Valider.HeaderText = "Valider"
+        Me.Col_Valider.Name = "Col_Valider"
+        Me.Col_Valider.Text = "Valider"
+        '
         'FrmAjoutEntretien
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -270,10 +278,10 @@ Partial Class FrmAjoutEntretien
     Friend WithEvents Label_Titre As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Cmb_Collaborateur As ComboBox
+    Friend WithEvents Btn_Accueil As Button
     Friend WithEvents Col_idEntretien As DataGridViewTextBoxColumn
     Friend WithEvents Col_DateEntretien As DataGridViewTextBoxColumn
     Friend WithEvents Col_DateEntSuivi As DataGridViewTextBoxColumn
     Friend WithEvents Col_Document As DataGridViewButtonColumn
     Friend WithEvents Col_Valider As DataGridViewButtonColumn
-    Friend WithEvents Btn_Accueil As Button
 End Class

@@ -9,8 +9,10 @@
 
 
     Private Sub FrmMonEquipe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         _lesCollaborateurs = _monCollaborateurSQL._lesCollaborateurs
         FillDGV_Noms()
+        Me.Cursor = Cursors.Default
     End Sub
 
     Private Sub FillDGV_Noms()
@@ -116,30 +118,35 @@
     'End Sub
 
     Private Sub Btn_Entretiens_Click(sender As Object, e As EventArgs) Handles Btn_Entretiens.Click
+        Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmMesEntretiens
         _f.Show()
         Close()
     End Sub
 
     Private Sub Btn_AjoutCollab_Click(sender As Object, e As EventArgs) Handles Btn_AjoutCollab.Click
+        Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmAjoutCollaborateur
         _f.Show()
         Close()
     End Sub
 
     Private Sub Btn_AjoutEntretien_Click(sender As Object, e As EventArgs) Handles Btn_AjoutEntretien.Click
+        Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmAjoutEntretien
         _f.Show()
         Close()
     End Sub
 
     Private Sub Btn_AjoutAction_Click(sender As Object, e As EventArgs) Handles Btn_AjoutAction.Click
+        Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmAjoutAction
         _f.Show()
         Close()
     End Sub
 
     Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs) Handles Btn_Accueil.Click
+        Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmMenu
         _f.Show()
         Close()
