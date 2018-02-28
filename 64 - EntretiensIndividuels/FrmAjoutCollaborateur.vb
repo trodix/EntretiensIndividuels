@@ -6,11 +6,7 @@
 
     Private Sub FrmAjoutCollaborateur_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        For Each Manager As ClsCollaborateur In _maClsSQLCollaborateur._lesManagers.Values
-            Dim leManagerId As Integer = Manager._idCollaborateur
-            Dim leManagerLib As String = Manager._libelleCollaborateur
-            Col_Manager.Items.Add(leManagerId & " - " & leManagerLib)
-        Next
+        chargerManager()
 
         For Each Service As ClsService In _maClsSQLService._lesServices.Values
             Dim leServiceId As Integer = Service._idService
@@ -44,22 +40,34 @@
                 Dim currentRowIndex = e.RowIndex
                 Dim currentLibelleCollab As String = DGV_Collab.Item(0, currentRowIndex).Value
 
-                'Manager
-                words = DGV_Collab.Item(1, currentRowIndex).Value.Split("-")
-                Dim currentManager As Integer = words(0)
+                Dim currentManager As Integer = 0
+                Dim currentService As Integer = 0
+                Dim currentStatut As Integer = 0
 
-                'Service
-                words = DGV_Collab.Item(2, currentRowIndex).Value.Split("-")
-                Dim currentService As Integer = words(0)
 
-                'Statut
-                words = DGV_Collab.Item(3, currentRowIndex).Value.Split("-")
-                Dim currentStatut As Integer = words(0)
+                Try
+                    'Manager
+                    words = DGV_Collab.Item(1, currentRowIndex).Value.Split("-")
+                    currentManager = words(0)
+
+                    'Service
+                    words = DGV_Collab.Item(2, currentRowIndex).Value.Split("-")
+                    currentService = words(0)
+
+                    'Statut
+                    words = DGV_Collab.Item(3, currentRowIndex).Value.Split("-")
+                    currentStatut = words(0)
+
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.Exclamation)
+                End Try
 
                 Dim currentCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, Nothing, currentStatut)
 
                 Try
                     _maClsSQLCollaborateur.InsertCollaborateur(currentCollab)
+                    chargerManager()
+                    DGV_Collab.RefreshEdit()
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Critical)
                 End Try
@@ -81,5 +89,22 @@
         Dim _f As New FrmMonEquipe
         _f.Show()
         Close()
+    End Sub
+
+    Private Sub chargerManager()
+
+        Col_Manager.Items.Clear()
+
+        'For Each Manager As ClsCollaborateur In _maClsSQLCollaborateur._lesManagers.Values
+        For Each Manager As ClsCollaborateur In _maClsSQLCollaborateur.readLesManagers.Values
+            Dim leManagerId As Integer = Manager._idCollaborateur
+            Dim leManagerLib As String = Manager._libelleCollaborateur
+            Col_Manager.Items.Add(leManagerId & " - " & leManagerLib)
+        Next
+
+    End Sub
+
+    Private Sub DGV_Collab_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles DGV_Collab.RowsAdded
+
     End Sub
 End Class

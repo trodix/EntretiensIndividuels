@@ -22,7 +22,7 @@
         Return lesCollaborateurs
     End Function
 
-    Private Function readLesManagers()
+    Public Function readLesManagers()
         Dim lesManagers As New Dictionary(Of Integer, ClsCollaborateur)
         Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
             "select * from [dbo].[EICollaborateurs] where StatutManager >= 1",
