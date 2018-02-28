@@ -68,19 +68,24 @@
     Public Function InsertAction(act As ClsAction)
         'act._DateCreation = Date.Today
         Dim req As String = "insert into [dbo].[EIActions] (DateCreation, Descriptif, RespAction, Delai, SuiviCom, StatutPDCA, idCollaborateur, idEntretien) values(
-                '" & act._DateCreation & "', '" & act._Descriptif & "', '" & act._RespAction & "', '" & act._Delai & "', '" & act._SuiviCom & "', '" & act._StatutPDCA & "', '" &
-                act._idCollaborateur & "', '" & act._idEntretien & "')"
+                '" & replaceSqlSpecialChars(act._DateCreation) & "', '" & replaceSqlSpecialChars(act._Descriptif) & "', '" & replaceSqlSpecialChars(act._RespAction) & "', '" & replaceSqlSpecialChars(act._Delai) & "', '" & replaceSqlSpecialChars(act._SuiviCom) & "', '" & replaceSqlSpecialChars(act._StatutPDCA) & "', '" &
+                replaceSqlSpecialChars(act._idCollaborateur) & "', '" & replaceSqlSpecialChars(act._idEntretien) & "')"
         Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             _odbcConnection.OdbcNotSelectQuery(req)
         End Using
     End Function
 
     Public Function UpdateAction(act As ClsAction)
-        Dim req As String = "update [dbo].[EIActions] set Descriptif = '" & act._Descriptif & "', RespAction = '" & act._RespAction & "', Delai = '" & act._Delai & "', SuiviCom = '" &
-                act._SuiviCom & "', StatutPDCA = '" & act._StatutPDCA & "'"
+        Dim req As String = "update [dbo].[EIActions] set Descriptif = '" & replaceSqlSpecialChars(act._Descriptif) & "', RespAction = '" & replaceSqlSpecialChars(act._RespAction) & "', Delai = '" & replaceSqlSpecialChars(act._Delai) & "', SuiviCom = '" &
+                replaceSqlSpecialChars(act._SuiviCom) & "', StatutPDCA = '" & replaceSqlSpecialChars(act._StatutPDCA) & "'"
         Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             _odbcConnection.OdbcNotSelectQuery(req)
         End Using
+    End Function
+
+
+    Private Function replaceSqlSpecialChars(maChaine As String)
+        Return maChaine.Replace("'", "''")
     End Function
 
 End Class

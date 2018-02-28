@@ -42,7 +42,7 @@
 
     Public Function InsertEntretien(ent As ClsEntretien)
         Dim req As String = "insert into [dbo].[EIEntretiens] (DateEntretien, DateEntretienSuivi, idCollaborateur, DocumentScanne) values(
-                '" & ent._DateEntretien & "', '" & ent._DateEntretienSuivi & "', " & ent._idCollaborateur & ", '" & Nothing & "')"
+                '" & replaceSqlSpecialChars(ent._DateEntretien) & "', '" & replaceSqlSpecialChars(ent._DateEntretienSuivi) & "', " & replaceSqlSpecialChars(ent._idCollaborateur) & ", '" & Nothing & "')"
         Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             _odbcConnection.OdbcNotSelectQuery(req)
         End Using
@@ -53,6 +53,11 @@
         Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             _odbcConnection.OdbcNotSelectQuery(req)
         End Using
+    End Function
+
+
+    Private Function replaceSqlSpecialChars(maChaine As String)
+        Return maChaine.Replace("'", "''")
     End Function
 
 End Class

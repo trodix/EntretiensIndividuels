@@ -49,7 +49,7 @@
         If _lesActionsEntCollab IsNot Nothing Then
             For Each uneActionEnt As ClsAction In _lesActionsEntCollab.Values
                 DGV_Actions.Rows.Add(
-                    uneActionEnt._idEntretien, uneActionEnt._idAction, uneActionEnt._DateCreation, uneActionEnt._Descriptif, uneActionEnt._RespAction,
+                    uneActionEnt._idAction, uneActionEnt._DateCreation, uneActionEnt._Descriptif, uneActionEnt._RespAction,
                     uneActionEnt._Delai, uneActionEnt._SuiviCom, uneActionEnt._StatutPDCA, uneActionEnt._DateSolde
                     )
             Next
