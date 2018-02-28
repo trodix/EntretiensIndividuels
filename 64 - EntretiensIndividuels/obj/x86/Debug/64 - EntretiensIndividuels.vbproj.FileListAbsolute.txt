@@ -16,9 +16,6 @@ J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQ
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\EntretiensIndividuels.FrmConnexion.resources
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\EntretiensIndividuels.FrmAjoutAction.resources
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\EntretiensIndividuels.FrmAjoutCollaborateur.resources
-J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\bin\Debug\64 - EntretiensIndividuels.exe
-J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\bin\Debug\64 - EntretiensIndividuels.pdb
-J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\bin\Debug\64 - EntretiensIndividuels.xml
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EntretiensIndividuels.vbprojResolveAssemblyReference.cache
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\EntretiensIndividuels.FrmAjoutAction.resources
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\EntretiensIndividuels.FrmAjoutCollaborateur.resources
@@ -30,6 +27,13 @@ J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQ
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\EntretiensIndividuels.Resources.resources
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EntretiensIndividuels.vbproj.GenerateResource.Cache
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EntretiensIndividuels.vbproj.CoreCompileInputs.cache
-J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EntretiensIndividuels.exe
-J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EntretiensIndividuels.xml
-J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EntretiensIndividuels.pdb
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\bin\Debug\64 - EI.exe.manifest
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\bin\Debug\64 - EI.application
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\bin\Debug\64 - EI.exe
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\bin\Debug\64 - EI.pdb
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\bin\Debug\64 - EI.xml
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EI.exe.manifest
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EI.application
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EI.exe
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EI.xml
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EI.pdb
