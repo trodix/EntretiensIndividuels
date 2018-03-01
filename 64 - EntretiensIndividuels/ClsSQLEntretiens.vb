@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports EntretiensIndividuels
 
 Public Class ClsSQLEntretiens
 
@@ -30,6 +31,10 @@ Public Class ClsSQLEntretiens
             End With
         End Using
         Return lesEntretiens
+    End Function
+
+    Friend Function readUnEntretienById(idEntUpdate As Integer) As ClsEntretien
+        Throw New NotImplementedException()
     End Function
 
     Public Function readLesEntretiensCollab(idCollaborateur As Integer)

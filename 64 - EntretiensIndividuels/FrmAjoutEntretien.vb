@@ -9,6 +9,9 @@ Public Class FrmAjoutEntretien
     Property _fileExtension As String
     Property _fichier As Byte()
 
+    Property _askUpdate As Boolean = False
+    Property _idEntUpdate As Integer
+
     Private Sub FrmAjoutEntretien_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         For Each Collab As ClsCollaborateur In _maClsSQLCollab._lesCollaborateurs.Values
@@ -16,6 +19,11 @@ Public Class FrmAjoutEntretien
             Dim leCollabLibelle As String = Collab._libelleCollaborateur
             Cmb_Collaborateur.Items.Add(leCollabId & " - " & leCollabLibelle)
         Next
+
+        If _askUpdate Then
+            Dim leEntUpdate As ClsEntretien = _maClsSQLEntretien.readUnEntretienById(_idEntUpdate)
+            ' remplir les cmbx
+        End If
 
         Me.Cursor = Cursors.Default
 

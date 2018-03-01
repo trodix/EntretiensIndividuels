@@ -2,10 +2,13 @@
 
     Property _maClsSQLCollab As New ClsSQLCollaborateur
     Property _maClsSQLEnt As New ClsSQLEntretiens
-    Property _maClsAction As New ClsSQLAction
+    Property _maClsSQLAction As New ClsSQLAction
     Property _entretien As ClsEntretien
     Property _selectedCollabId As Integer = -1
     Property _selectedEntId As Integer = -1
+
+    Property _askUpdate As Boolean = False
+    Property _idActionUpdate As Integer
 
     Private Sub FrmAjoutAction_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -13,6 +16,15 @@
             Cmb_Collaborateur.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
             Col_RespAction.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
         Next
+
+        If _askUpdate Then
+            Dim laActionUpdate As ClsAction = _maClsSQLAction.readUneAction(_idActionUpdate)
+            DGV_Action.Item(1, 0).Value = laActionUpdate._Descriptif
+            DGV_Action.Item(2, 0).Value = laActionUpdate._RespAction
+            DGV_Action.Item(3, 0).Value = laActionUpdate._Delai
+            DGV_Action.Item(4, 0).Value = laActionUpdate._SuiviCom
+            DGV_Action.Item(5, 0).Value = laActionUpdate._StatutPDCA
+        End If
 
         Me.Cursor = Cursors.Default
 
@@ -42,7 +54,7 @@
 
                 If _selectedCollabId <> -1 And _selectedEntId <> -1 Then
                     Try
-                        _maClsAction.InsertAction(currentAction)
+                        _maClsSQLAction.InsertAction(currentAction)
                     Catch ex As Exception
                         MsgBox(ex.Message, MsgBoxStyle.Critical)
 

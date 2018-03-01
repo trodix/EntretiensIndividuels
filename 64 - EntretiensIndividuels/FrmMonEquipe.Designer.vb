@@ -51,6 +51,7 @@ Partial Class FrmMonEquipe
         Me.Btn_AjoutCollab = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Btn_Header = New System.Windows.Forms.Button()
         Me.TLP_Main.SuspendLayout()
         CType(Me.DGV_Noms, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGV_Dates, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,18 +69,21 @@ Partial Class FrmMonEquipe
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.TLP_Main.Controls.Add(Me.DGV_Noms, 1, 3)
-        Me.TLP_Main.Controls.Add(Me.DGV_Dates, 2, 3)
-        Me.TLP_Main.Controls.Add(Me.DGV_Actions, 3, 3)
+        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
+        Me.TLP_Main.Controls.Add(Me.DGV_Noms, 1, 5)
+        Me.TLP_Main.Controls.Add(Me.DGV_Dates, 2, 5)
+        Me.TLP_Main.Controls.Add(Me.DGV_Actions, 3, 5)
         Me.TLP_Main.Controls.Add(Me.Label1, 1, 1)
+        Me.TLP_Main.Controls.Add(Me.Btn_Header, 1, 3)
         Me.TLP_Main.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TLP_Main.Location = New System.Drawing.Point(0, 0)
         Me.TLP_Main.Name = "TLP_Main"
-        Me.TLP_Main.RowCount = 5
+        Me.TLP_Main.RowCount = 7
         Me.TLP_Main.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TLP_Main.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TLP_Main.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TLP_Main.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TLP_Main.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TLP_Main.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TLP_Main.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TLP_Main.Size = New System.Drawing.Size(874, 635)
@@ -92,7 +96,7 @@ Partial Class FrmMonEquipe
         Me.DGV_Noms.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.col_id, Me.Col_Noms})
         Me.DGV_Noms.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGV_Noms.GridColor = System.Drawing.SystemColors.Control
-        Me.DGV_Noms.Location = New System.Drawing.Point(23, 113)
+        Me.DGV_Noms.Location = New System.Drawing.Point(23, 153)
         Me.DGV_Noms.MultiSelect = False
         Me.DGV_Noms.Name = "DGV_Noms"
         Me.DGV_Noms.ReadOnly = True
@@ -100,7 +104,7 @@ Partial Class FrmMonEquipe
         Me.DGV_Noms.RowHeadersVisible = False
         Me.DGV_Noms.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.Control
         Me.DGV_Noms.RowTemplate.ReadOnly = True
-        Me.DGV_Noms.Size = New System.Drawing.Size(198, 499)
+        Me.DGV_Noms.Size = New System.Drawing.Size(198, 459)
         Me.DGV_Noms.TabIndex = 4
         '
         'col_id
@@ -124,10 +128,10 @@ Partial Class FrmMonEquipe
         Me.DGV_Dates.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_idEntretien, Me.Col_idCollab, Me.Col_dateEntretien})
         Me.DGV_Dates.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGV_Dates.GridColor = System.Drawing.SystemColors.Control
-        Me.DGV_Dates.Location = New System.Drawing.Point(227, 113)
+        Me.DGV_Dates.Location = New System.Drawing.Point(227, 153)
         Me.DGV_Dates.Name = "DGV_Dates"
         Me.DGV_Dates.RowHeadersVisible = False
-        Me.DGV_Dates.Size = New System.Drawing.Size(116, 499)
+        Me.DGV_Dates.Size = New System.Drawing.Size(116, 459)
         Me.DGV_Dates.TabIndex = 5
         '
         'Col_idEntretien
@@ -159,10 +163,10 @@ Partial Class FrmMonEquipe
         Me.DGV_Actions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_idActions, Me.Col_DateCreation, Me.Col_Descriptif, Me.Col_RespAction, Me.Col_Delai, Me.Col_SuiviCom, Me.Col_StatutPDCA, Me.Col_DateSolde})
         Me.DGV_Actions.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGV_Actions.GridColor = System.Drawing.SystemColors.Control
-        Me.DGV_Actions.Location = New System.Drawing.Point(349, 113)
+        Me.DGV_Actions.Location = New System.Drawing.Point(349, 153)
         Me.DGV_Actions.Name = "DGV_Actions"
         Me.DGV_Actions.RowHeadersVisible = False
-        Me.DGV_Actions.Size = New System.Drawing.Size(484, 499)
+        Me.DGV_Actions.Size = New System.Drawing.Size(483, 459)
         Me.DGV_Actions.TabIndex = 6
         '
         'Col_idActions
@@ -226,7 +230,7 @@ Partial Class FrmMonEquipe
         Me.Label1.Location = New System.Drawing.Point(23, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(810, 40)
+        Me.Label1.Size = New System.Drawing.Size(809, 40)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Mon équipe"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -409,6 +413,22 @@ Partial Class FrmMonEquipe
         Me.Panel1.Size = New System.Drawing.Size(874, 635)
         Me.Panel1.TabIndex = 5
         '
+        'Btn_Header
+        '
+        Me.Btn_Header.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Btn_Header.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_Header.FlatAppearance.BorderSize = 0
+        Me.Btn_Header.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_Header.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_Header.ForeColor = System.Drawing.Color.White
+        Me.Btn_Header.Location = New System.Drawing.Point(23, 83)
+        Me.Btn_Header.Name = "Btn_Header"
+        Me.Btn_Header.Size = New System.Drawing.Size(198, 44)
+        Me.Btn_Header.TabIndex = 8
+        Me.Btn_Header.Text = "Button1"
+        Me.Btn_Header.UseVisualStyleBackColor = False
+        Me.Btn_Header.Visible = False
+        '
         'FrmMonEquipe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -460,4 +480,5 @@ Partial Class FrmMonEquipe
     Friend WithEvents Btn_AjoutEntretien As Button
     Friend WithEvents Btn_AjoutCollab As Button
     Friend WithEvents Btn_Accueil As Button
+    Friend WithEvents Btn_Header As Button
 End Class

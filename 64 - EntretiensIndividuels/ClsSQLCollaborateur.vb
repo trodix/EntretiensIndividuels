@@ -43,7 +43,8 @@
 
     Public Function InsertCollaborateur(col As ClsCollaborateur)
         Dim req As String = "insert into [dbo].[EICollaborateurs] (LibCollaborateur, MotDePasse, idManager, idService, StatutManager) values(
-                '" & replaceSqlSpecialChars(col._libelleCollaborateur) & "', '" & replaceSqlSpecialChars(col._password) & "', '" & replaceSqlSpecialChars(col._idManager) & "', '" & replaceSqlSpecialChars(col._idService) & "', '" & replaceSqlSpecialChars(col._StatutManager) & "')"
+                '" & replaceSqlSpecialChars(col._libelleCollaborateur) & "', '" & replaceSqlSpecialChars(col._password) & "', '" &
+                replaceSqlSpecialChars(col._idManager) & "', '" & replaceSqlSpecialChars(col._idService) & "', '" & replaceSqlSpecialChars(col._StatutManager) & "')"
         Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             _odbcConnection.OdbcNotSelectQuery(req)
         End Using
@@ -54,4 +55,12 @@
         Return maChaine.Replace("'", "''")
     End Function
 
+    Public Sub UpdateCollaborateur(leCollab As ClsCollaborateur)
+        Dim req As String = "update [dbo].[EICollaborateurs] set LibCollaborateur = '" & replaceSqlSpecialChars(leCollab._libelleCollaborateur) & "', idManager = " &
+            replaceSqlSpecialChars(leCollab._idManager) & ", idService = " & replaceSqlSpecialChars(leCollab._idService) & ", StatutManager = " & replaceSqlSpecialChars(leCollab._StatutManager)
+
+        Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+            _odbcConnection.OdbcNotSelectQuery(req)
+        End Using
+    End Sub
 End Class

@@ -4,7 +4,12 @@
     Property _maClsSQLService As New ClsSQLService
     Property _maClsSQLStatut As New ClsSQLStatut
 
+    Property _askUpdate As Boolean = False
+    Property _idCollabUpdate As Integer
+
     Private Sub FrmAjoutCollaborateur_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
 
         chargerManager()
 
@@ -19,6 +24,12 @@
             Dim leStatutLib As String = Statut._LibelleStatut
             Cmb_Statut.Items.Add(leStatutId & " - " & leStatutLib)
         Next
+
+        If _askUpdate Then
+            Dim leCollabUpdate As ClsCollaborateur = _maClsSQLCollaborateur.readUnCollaborateur(_idCollabUpdate)
+            Tbx_LibColl.Text = leCollabUpdate._libelleCollaborateur
+            ' remplir les cmbx
+        End If
 
         Me.Cursor = Cursors.Default
 
@@ -115,7 +126,11 @@
 
         Dim leCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, Nothing, currentStatut)
         Try
-            _maClsSQLCollaborateur.InsertCollaborateur(leCollab)
+            If Not _askUpdate Then
+                _maClsSQLCollaborateur.InsertCollaborateur(leCollab)
+            Else
+                _maClsSQLCollaborateur.UpdateCollaborateur(leCollab)
+            End If
             Tbx_LibColl.Text = ""
             chargerManager()
         Catch ex As Exception
