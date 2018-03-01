@@ -10,7 +10,7 @@
     Public Function readLesEntretiens()
         Dim lesEntretiens As New Dictionary(Of Integer, ClsEntretien)
         Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
-            "select * from [dbo].[EIEntretiens]",
+            "select * from [dbo].[EIEntretiens] order by DateEntretienSuivi",
             ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             With s_FbMyReader
                 While .OdbcReader.Read

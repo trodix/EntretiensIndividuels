@@ -2,7 +2,12 @@
 
 
     Private Sub FrmMenu_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
+        TabControl1.Appearance = TabAppearance.FlatButtons
+        TabControl1.ItemSize = New Size(0, 1)
+        TabControl1.SizeMode = TabSizeMode.Fixed
+        For Each tab As TabPage In TabControl1.TabPages
+            tab.Text = ""
+        Next
     End Sub
 
     Private Sub Btn_Entretiens_Click(sender As Object, e As EventArgs) Handles Btn_Entretiens.Click

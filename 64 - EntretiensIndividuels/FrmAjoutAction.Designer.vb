@@ -28,16 +28,11 @@ Partial Class FrmAjoutAction
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TLP_Menu = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.DGV_Action = New System.Windows.Forms.DataGridView()
-        Me.Label_Titre = New System.Windows.Forms.Label()
-        Me.Label_Collaborateur = New System.Windows.Forms.Label()
-        Me.Label_Entretien = New System.Windows.Forms.Label()
-        Me.Cmb_Collaborateur = New System.Windows.Forms.ComboBox()
-        Me.Cmb_Entretien = New System.Windows.Forms.ComboBox()
         Me.Btn_Accueil = New System.Windows.Forms.Button()
         Me.Btn_Entretiens = New System.Windows.Forms.Button()
         Me.Btn_Equipe = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.DGV_Action = New System.Windows.Forms.DataGridView()
         Me.Col_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_Descriptif = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_RespAction = New System.Windows.Forms.DataGridViewComboBoxColumn()
@@ -48,6 +43,11 @@ Partial Class FrmAjoutAction
         Me.Col_idEnt = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_DateSolde = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_Valider = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Label_Titre = New System.Windows.Forms.Label()
+        Me.Label_Collaborateur = New System.Windows.Forms.Label()
+        Me.Label_Entretien = New System.Windows.Forms.Label()
+        Me.Cmb_Collaborateur = New System.Windows.Forms.ComboBox()
+        Me.Cmb_Entretien = New System.Windows.Forms.ComboBox()
         Me.Panel2.SuspendLayout()
         Me.TLP_Menu.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -87,104 +87,6 @@ Partial Class FrmAjoutAction
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TLP_Menu.Size = New System.Drawing.Size(241, 497)
         Me.TLP_Menu.TabIndex = 2
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 5
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.DGV_Action, 1, 6)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label_Titre, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label_Collaborateur, 1, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label_Entretien, 1, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.Cmb_Collaborateur, 2, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.Cmb_Entretien, 2, 4)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(241, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 8
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(771, 497)
-        Me.TableLayoutPanel1.TabIndex = 6
-        '
-        'DGV_Action
-        '
-        Me.DGV_Action.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.DGV_Action.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV_Action.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_id, Me.Col_Descriptif, Me.Col_RespAction, Me.Col_Delai, Me.Col_SuiviCom, Me.Col_StatutPDCA, Me.Col_idCollab, Me.Col_idEnt, Me.Col_DateSolde, Me.Col_Valider})
-        Me.TableLayoutPanel1.SetColumnSpan(Me.DGV_Action, 3)
-        Me.DGV_Action.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DGV_Action.GridColor = System.Drawing.SystemColors.Control
-        Me.DGV_Action.Location = New System.Drawing.Point(23, 143)
-        Me.DGV_Action.Name = "DGV_Action"
-        Me.DGV_Action.RowHeadersVisible = False
-        Me.DGV_Action.Size = New System.Drawing.Size(724, 331)
-        Me.DGV_Action.TabIndex = 0
-        '
-        'Label_Titre
-        '
-        Me.Label_Titre.AutoSize = True
-        Me.TableLayoutPanel1.SetColumnSpan(Me.Label_Titre, 2)
-        Me.Label_Titre.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label_Titre.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_Titre.Location = New System.Drawing.Point(23, 20)
-        Me.Label_Titre.Name = "Label_Titre"
-        Me.TableLayoutPanel1.SetRowSpan(Me.Label_Titre, 2)
-        Me.Label_Titre.Size = New System.Drawing.Size(318, 40)
-        Me.Label_Titre.TabIndex = 1
-        Me.Label_Titre.Text = "Créer des actions"
-        '
-        'Label_Collaborateur
-        '
-        Me.Label_Collaborateur.AutoSize = True
-        Me.Label_Collaborateur.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label_Collaborateur.Location = New System.Drawing.Point(23, 60)
-        Me.Label_Collaborateur.Name = "Label_Collaborateur"
-        Me.Label_Collaborateur.Size = New System.Drawing.Size(144, 30)
-        Me.Label_Collaborateur.TabIndex = 2
-        Me.Label_Collaborateur.Text = "Collaborateur"
-        Me.Label_Collaborateur.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label_Entretien
-        '
-        Me.Label_Entretien.AutoSize = True
-        Me.Label_Entretien.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label_Entretien.Location = New System.Drawing.Point(23, 90)
-        Me.Label_Entretien.Name = "Label_Entretien"
-        Me.Label_Entretien.Size = New System.Drawing.Size(144, 30)
-        Me.Label_Entretien.TabIndex = 3
-        Me.Label_Entretien.Text = "Entretien"
-        Me.Label_Entretien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Cmb_Collaborateur
-        '
-        Me.Cmb_Collaborateur.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Cmb_Collaborateur.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Cmb_Collaborateur.FormattingEnabled = True
-        Me.Cmb_Collaborateur.Location = New System.Drawing.Point(173, 63)
-        Me.Cmb_Collaborateur.Name = "Cmb_Collaborateur"
-        Me.Cmb_Collaborateur.Size = New System.Drawing.Size(168, 26)
-        Me.Cmb_Collaborateur.TabIndex = 4
-        '
-        'Cmb_Entretien
-        '
-        Me.Cmb_Entretien.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Cmb_Entretien.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Cmb_Entretien.FormattingEnabled = True
-        Me.Cmb_Entretien.Location = New System.Drawing.Point(173, 93)
-        Me.Cmb_Entretien.Name = "Cmb_Entretien"
-        Me.Cmb_Entretien.Size = New System.Drawing.Size(168, 26)
-        Me.Cmb_Entretien.TabIndex = 5
         '
         'Btn_Accueil
         '
@@ -240,6 +142,49 @@ Partial Class FrmAjoutAction
         Me.Btn_Equipe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Btn_Equipe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Btn_Equipe.UseVisualStyleBackColor = False
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 5
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.DGV_Action, 1, 6)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label_Titre, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label_Collaborateur, 1, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label_Entretien, 1, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.Cmb_Collaborateur, 2, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.Cmb_Entretien, 2, 4)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(241, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 8
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(771, 497)
+        Me.TableLayoutPanel1.TabIndex = 6
+        '
+        'DGV_Action
+        '
+        Me.DGV_Action.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.DGV_Action.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGV_Action.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_id, Me.Col_Descriptif, Me.Col_RespAction, Me.Col_Delai, Me.Col_SuiviCom, Me.Col_StatutPDCA, Me.Col_idCollab, Me.Col_idEnt, Me.Col_DateSolde, Me.Col_Valider})
+        Me.TableLayoutPanel1.SetColumnSpan(Me.DGV_Action, 3)
+        Me.DGV_Action.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DGV_Action.GridColor = System.Drawing.SystemColors.Control
+        Me.DGV_Action.Location = New System.Drawing.Point(23, 143)
+        Me.DGV_Action.Name = "DGV_Action"
+        Me.DGV_Action.RowHeadersVisible = False
+        Me.DGV_Action.Size = New System.Drawing.Size(724, 331)
+        Me.DGV_Action.TabIndex = 0
         '
         'Col_id
         '
@@ -318,6 +263,61 @@ Partial Class FrmAjoutAction
         Me.Col_Valider.HeaderText = "Valider"
         Me.Col_Valider.Name = "Col_Valider"
         Me.Col_Valider.Text = "Valider"
+        '
+        'Label_Titre
+        '
+        Me.Label_Titre.AutoSize = True
+        Me.TableLayoutPanel1.SetColumnSpan(Me.Label_Titre, 2)
+        Me.Label_Titre.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label_Titre.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_Titre.Location = New System.Drawing.Point(23, 20)
+        Me.Label_Titre.Name = "Label_Titre"
+        Me.TableLayoutPanel1.SetRowSpan(Me.Label_Titre, 2)
+        Me.Label_Titre.Size = New System.Drawing.Size(318, 40)
+        Me.Label_Titre.TabIndex = 1
+        Me.Label_Titre.Text = "Créer des actions"
+        '
+        'Label_Collaborateur
+        '
+        Me.Label_Collaborateur.AutoSize = True
+        Me.Label_Collaborateur.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label_Collaborateur.Location = New System.Drawing.Point(23, 60)
+        Me.Label_Collaborateur.Name = "Label_Collaborateur"
+        Me.Label_Collaborateur.Size = New System.Drawing.Size(144, 30)
+        Me.Label_Collaborateur.TabIndex = 2
+        Me.Label_Collaborateur.Text = "Collaborateur"
+        Me.Label_Collaborateur.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label_Entretien
+        '
+        Me.Label_Entretien.AutoSize = True
+        Me.Label_Entretien.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label_Entretien.Location = New System.Drawing.Point(23, 90)
+        Me.Label_Entretien.Name = "Label_Entretien"
+        Me.Label_Entretien.Size = New System.Drawing.Size(144, 30)
+        Me.Label_Entretien.TabIndex = 3
+        Me.Label_Entretien.Text = "Entretien"
+        Me.Label_Entretien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Cmb_Collaborateur
+        '
+        Me.Cmb_Collaborateur.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Cmb_Collaborateur.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmb_Collaborateur.FormattingEnabled = True
+        Me.Cmb_Collaborateur.Location = New System.Drawing.Point(173, 63)
+        Me.Cmb_Collaborateur.Name = "Cmb_Collaborateur"
+        Me.Cmb_Collaborateur.Size = New System.Drawing.Size(168, 26)
+        Me.Cmb_Collaborateur.TabIndex = 4
+        '
+        'Cmb_Entretien
+        '
+        Me.Cmb_Entretien.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Cmb_Entretien.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cmb_Entretien.FormattingEnabled = True
+        Me.Cmb_Entretien.Location = New System.Drawing.Point(173, 93)
+        Me.Cmb_Entretien.Name = "Cmb_Entretien"
+        Me.Cmb_Entretien.Size = New System.Drawing.Size(168, 26)
+        Me.Cmb_Entretien.TabIndex = 5
         '
         'FrmAjoutAction
         '

@@ -61,6 +61,7 @@
 
     Private Sub DGV_Noms_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DGV_Noms.CellMouseClick
         DGV_Dates.Rows.Clear()
+        DGV_Actions.Rows.Clear()
         Dim ligneCourante As Integer = e.RowIndex
         Dim idCollab = sender.Rows(ligneCourante).Cells(0).Value
         FillDGV_Entretiens(idCollab)

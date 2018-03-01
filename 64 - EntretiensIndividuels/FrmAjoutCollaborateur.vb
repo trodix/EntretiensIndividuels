@@ -50,17 +50,18 @@
                     words = DGV_Collab.Item(1, currentRowIndex).Value.Split("-")
                     currentManager = words(0)
 
-                    'Service
-                    words = DGV_Collab.Item(2, currentRowIndex).Value.Split("-")
-                    currentService = words(0)
-
-                    'Statut
-                    words = DGV_Collab.Item(3, currentRowIndex).Value.Split("-")
-                    currentStatut = words(0)
-
                 Catch ex As Exception
                     MsgBox(ex.Message, MsgBoxStyle.Exclamation)
                 End Try
+
+                'Service
+                words = DGV_Collab.Item(2, currentRowIndex).Value.Split("-")
+                currentService = words(0)
+
+                'Statut
+                words = DGV_Collab.Item(3, currentRowIndex).Value.Split("-")
+                'MsgBox(words)
+                currentStatut = words(0)
 
                 Dim currentCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, Nothing, currentStatut)
 

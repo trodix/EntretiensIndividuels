@@ -25,16 +25,22 @@ Partial Class FrmMenu
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMenu))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TLP_Menu = New System.Windows.Forms.TableLayoutPanel()
-        Me.TLP_Main = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label_Titre = New System.Windows.Forms.Label()
-        Me.Panel_Main = New System.Windows.Forms.Panel()
         Me.Btn_Accueil = New System.Windows.Forms.Button()
         Me.Btn_Entretiens = New System.Windows.Forms.Button()
         Me.Btn_Equipe = New System.Windows.Forms.Button()
+        Me.Panel_Main = New System.Windows.Forms.Panel()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.TLP_Main = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label_Titre = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.TLP_Menu.SuspendLayout()
-        Me.TLP_Main.SuspendLayout()
         Me.Panel_Main.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.TLP_Main.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -44,7 +50,7 @@ Partial Class FrmMenu
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(241, 519)
+        Me.Panel1.Size = New System.Drawing.Size(241, 671)
         Me.Panel1.TabIndex = 0
         '
         'TLP_Menu
@@ -67,48 +73,8 @@ Partial Class FrmMenu
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TLP_Menu.Size = New System.Drawing.Size(241, 519)
+        Me.TLP_Menu.Size = New System.Drawing.Size(241, 671)
         Me.TLP_Menu.TabIndex = 0
-        '
-        'TLP_Main
-        '
-        Me.TLP_Main.ColumnCount = 3
-        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TLP_Main.Controls.Add(Me.Label_Titre, 1, 1)
-        Me.TLP_Main.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TLP_Main.Location = New System.Drawing.Point(0, 0)
-        Me.TLP_Main.Name = "TLP_Main"
-        Me.TLP_Main.RowCount = 3
-        Me.TLP_Main.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TLP_Main.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TLP_Main.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_Main.Size = New System.Drawing.Size(656, 519)
-        Me.TLP_Main.TabIndex = 1
-        '
-        'Label_Titre
-        '
-        Me.Label_Titre.AutoSize = True
-        Me.Label_Titre.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label_Titre.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label_Titre.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_Titre.Location = New System.Drawing.Point(23, 20)
-        Me.Label_Titre.Name = "Label_Titre"
-        Me.Label_Titre.Size = New System.Drawing.Size(610, 40)
-        Me.Label_Titre.TabIndex = 0
-        Me.Label_Titre.Text = "Accueil"
-        Me.Label_Titre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Panel_Main
-        '
-        Me.Panel_Main.Controls.Add(Me.TLP_Main)
-        Me.Panel_Main.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel_Main.Location = New System.Drawing.Point(241, 0)
-        Me.Panel_Main.Name = "Panel_Main"
-        Me.Panel_Main.Size = New System.Drawing.Size(656, 519)
-        Me.Panel_Main.TabIndex = 2
         '
         'Btn_Accueil
         '
@@ -165,20 +131,106 @@ Partial Class FrmMenu
         Me.Btn_Equipe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Btn_Equipe.UseVisualStyleBackColor = True
         '
+        'Panel_Main
+        '
+        Me.Panel_Main.Controls.Add(Me.TabControl1)
+        Me.Panel_Main.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel_Main.Location = New System.Drawing.Point(241, 0)
+        Me.Panel_Main.Name = "Panel_Main"
+        Me.Panel_Main.Size = New System.Drawing.Size(917, 671)
+        Me.Panel_Main.TabIndex = 2
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TabControl1.ItemSize = New System.Drawing.Size(200, 80)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(917, 671)
+        Me.TabControl1.TabIndex = 1
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.TLP_Main)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 84)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(909, 583)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Accueil"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Location = New System.Drawing.Point(4, 84)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(909, 583)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Mes entretiens"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Location = New System.Drawing.Point(4, 84)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(909, 583)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Mon équipe"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'TLP_Main
+        '
+        Me.TLP_Main.ColumnCount = 3
+        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TLP_Main.Controls.Add(Me.Label_Titre, 1, 1)
+        Me.TLP_Main.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TLP_Main.Location = New System.Drawing.Point(3, 3)
+        Me.TLP_Main.Name = "TLP_Main"
+        Me.TLP_Main.RowCount = 3
+        Me.TLP_Main.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TLP_Main.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TLP_Main.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TLP_Main.Size = New System.Drawing.Size(903, 577)
+        Me.TLP_Main.TabIndex = 2
+        '
+        'Label_Titre
+        '
+        Me.Label_Titre.AutoSize = True
+        Me.Label_Titre.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label_Titre.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Label_Titre.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_Titre.Location = New System.Drawing.Point(23, 20)
+        Me.Label_Titre.Name = "Label_Titre"
+        Me.Label_Titre.Size = New System.Drawing.Size(857, 40)
+        Me.Label_Titre.TabIndex = 0
+        Me.Label_Titre.Text = "Accueil"
+        Me.Label_Titre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'FrmMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(897, 519)
+        Me.ClientSize = New System.Drawing.Size(1158, 671)
         Me.Controls.Add(Me.Panel_Main)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FrmMenu"
         Me.Text = "Entretiens Individuels - Accueil"
         Me.Panel1.ResumeLayout(False)
         Me.TLP_Menu.ResumeLayout(False)
+        Me.Panel_Main.ResumeLayout(False)
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
         Me.TLP_Main.ResumeLayout(False)
         Me.TLP_Main.PerformLayout()
-        Me.Panel_Main.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -187,8 +239,12 @@ Partial Class FrmMenu
     Friend WithEvents TLP_Menu As TableLayoutPanel
     Friend WithEvents Btn_Entretiens As Button
     Friend WithEvents Btn_Equipe As Button
-    Friend WithEvents TLP_Main As TableLayoutPanel
-    Friend WithEvents Label_Titre As Label
     Friend WithEvents Panel_Main As Panel
     Friend WithEvents Btn_Accueil As Button
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TLP_Main As TableLayoutPanel
+    Friend WithEvents Label_Titre As Label
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents TabPage3 As TabPage
 End Class

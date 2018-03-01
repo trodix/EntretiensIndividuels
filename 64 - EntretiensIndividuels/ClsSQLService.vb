@@ -10,7 +10,7 @@
     Private Function readLesServices()
         Dim lesServices As New Dictionary(Of Integer, ClsService)
         Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
-            "select * from [dbo].[EIServices]",
+            "select * from [dbo].[EIServices] order by cast(LibService as nvarchar)",
             ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             With s_FbMyReader
                 While .OdbcReader.Read

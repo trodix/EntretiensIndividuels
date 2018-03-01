@@ -10,7 +10,7 @@
     Private Function readLesCollaborateurs()
         Dim lesCollaborateurs As New Dictionary(Of Integer, ClsCollaborateur)
         Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
-            "select * from [dbo].[EICollaborateurs]",
+            "select * from [dbo].[EICollaborateurs] order by cast(LibCollaborateur as nvarchar)",
             ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             With s_FbMyReader
                 While .OdbcReader.Read
@@ -25,7 +25,7 @@
     Public Function readLesManagers()
         Dim lesManagers As New Dictionary(Of Integer, ClsCollaborateur)
         Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
-            "select * from [dbo].[EICollaborateurs] where StatutManager >= 1",
+            "select * from [dbo].[EICollaborateurs] where StatutManager >= 1 order by cast(LibCollaborateur as nvarchar)",
             ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             With s_FbMyReader
                 While .OdbcReader.Read
