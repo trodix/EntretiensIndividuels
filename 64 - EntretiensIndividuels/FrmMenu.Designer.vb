@@ -31,10 +31,10 @@ Partial Class FrmMenu
         Me.Panel_Main = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TLP_Main = New System.Windows.Forms.TableLayoutPanel()
         Me.Label_Titre = New System.Windows.Forms.Label()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Panel1.SuspendLayout()
         Me.TLP_Menu.SuspendLayout()
         Me.Panel_Main.SuspendLayout()
@@ -147,7 +147,6 @@ Partial Class FrmMenu
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TabControl1.ItemSize = New System.Drawing.Size(200, 80)
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -164,25 +163,6 @@ Partial Class FrmMenu
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Accueil"
         Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 84)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(909, 583)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Mes entretiens"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Location = New System.Drawing.Point(4, 84)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(909, 583)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Mon équipe"
-        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'TLP_Main
         '
@@ -214,6 +194,25 @@ Partial Class FrmMenu
         Me.Label_Titre.TabIndex = 0
         Me.Label_Titre.Text = "Accueil"
         Me.Label_Titre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Location = New System.Drawing.Point(4, 84)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(909, 583)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Mes entretiens"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Location = New System.Drawing.Point(4, 84)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(909, 583)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Mon équipe"
+        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'FrmMenu
         '
