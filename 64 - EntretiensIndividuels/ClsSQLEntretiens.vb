@@ -1,5 +1,11 @@
-﻿Public Class ClsSQLEntretiens
+﻿Imports System.Data.SqlClient
 
+Public Class ClsSQLEntretiens
+
+    Property sqlConnexion As New SqlConnection("Data Source=localhost; database=db_file; integrated security = true")
+    Property requete As SqlCommand
+    Property adaptater As SqlDataAdapter
+    Property Dt As New DataTable
     Property _lesEntretiens As New Dictionary(Of Integer, ClsEntretien)
 
     Public Sub New()
@@ -41,11 +47,34 @@
     End Function
 
     Public Function InsertEntretien(ent As ClsEntretien)
-        Dim req As String = "insert into [dbo].[EIEntretiens] (DateEntretien, DateEntretienSuivi, idCollaborateur, DocumentScanne) values(
-                '" & replaceSqlSpecialChars(ent._DateEntretien) & "', '" & replaceSqlSpecialChars(ent._DateEntretienSuivi) & "', " & replaceSqlSpecialChars(ent._idCollaborateur) & ", '" & Nothing & "')"
+        Dim req As String = "insert into [dbo].[EIEntretiens] (DateEntretien, DateEntretienSuivi, idCollaborateur, DocumentScanne, DocumentNom, DocumentExtension) values(
+                '" & replaceSqlSpecialChars(ent._DateEntretien) & "', '" & replaceSqlSpecialChars(ent._DateEntretienSuivi) & "', " & replaceSqlSpecialChars(ent._idCollaborateur) &
+                ", '" & Nothing & "')"
         Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             _odbcConnection.OdbcNotSelectQuery(req)
         End Using
+
+        '"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+        'requete = New SqlCommand("insert into tbl_files (Nom, Fichier, Extension) values (@Nom, @Fichier, @Extension)", sqlConnexion)
+        'Try
+        '    sqlConnexion.Open()
+        'Catch ex As Exception
+        '    MsgBox("Impossible de se connecter à la base de données" & vbNewLine & ex.Message, MsgBoxStyle.Critical)
+        'End Try
+
+        'requete.Parameters.Add(New SqlParameter("@Nom", SqlDbType.NVarChar, 50)).Value = ent._nomDocument
+        'requete.Parameters.Add(New SqlParameter("@Extension", SqlDbType.NChar, 10)).Value = ent._extentionDocument
+
+        'Dim fs As New FileStream(OpenFileDialog2.FileName, FileMode.Open, FileAccess.Read)
+        'Dim br As New BinaryReader(fs)
+        'Dim fichier() As Byte = br.ReadBytes(br.BaseStream.Length)
+        'requete.Parameters.Add(New SqlParameter("@Fichier", SqlDbType.VarBinary)).Value = fichier
+        'requete.ExecuteNonQuery()
+        'sqlConnexion.Close()
+        'MsgBox("Fichier ajouté à la base de données", MsgBoxStyle.Information, "Fichier ajouté !")
+
+        '""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
     End Function
 
     Public Function updateEntretien(ent As ClsEntretien)

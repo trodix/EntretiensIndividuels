@@ -23,27 +23,26 @@ Partial Class FrmAjoutEntretien
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAjoutEntretien))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TLP_Menu = New System.Windows.Forms.TableLayoutPanel()
         Me.Btn_Accueil = New System.Windows.Forms.Button()
         Me.Btn_Entretiens = New System.Windows.Forms.Button()
         Me.Btn_Equipe = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.DGV_Entretien = New System.Windows.Forms.DataGridView()
-        Me.Col_idEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_DateEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_DateEntSuivi = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_Document = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.Col_Valider = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.Label_Titre = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Cmb_Collaborateur = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.BtnValider = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Dtp_DateEntretien = New System.Windows.Forms.DateTimePicker()
+        Me.Dtp_DateEntretienSuivi = New System.Windows.Forms.DateTimePicker()
+        Me.Btn_Fichier = New System.Windows.Forms.Button()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Panel2.SuspendLayout()
         Me.TLP_Menu.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.DGV_Entretien, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel2
@@ -139,116 +138,154 @@ Partial Class FrmAjoutEntretien
         '
         Me.TableLayoutPanel1.ColumnCount = 5
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.DGV_Entretien, 1, 6)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label_Titre, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 1, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.Cmb_Collaborateur, 2, 4)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label2, 1, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.Cmb_Collaborateur, 2, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label3, 1, 7)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label4, 1, 9)
+        Me.TableLayoutPanel1.Controls.Add(Me.BtnValider, 2, 11)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label5, 1, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.Dtp_DateEntretien, 2, 5)
+        Me.TableLayoutPanel1.Controls.Add(Me.Dtp_DateEntretienSuivi, 2, 7)
+        Me.TableLayoutPanel1.Controls.Add(Me.Btn_Fichier, 2, 9)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(241, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 8
+        Me.TableLayoutPanel1.RowCount = 14
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(832, 559)
         Me.TableLayoutPanel1.TabIndex = 7
         '
-        'DGV_Entretien
-        '
-        Me.DGV_Entretien.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.DGV_Entretien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV_Entretien.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_idEntretien, Me.Col_DateEntretien, Me.Col_DateEntSuivi, Me.Col_Document, Me.Col_Valider})
-        Me.TableLayoutPanel1.SetColumnSpan(Me.DGV_Entretien, 3)
-        Me.DGV_Entretien.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DGV_Entretien.GridColor = System.Drawing.SystemColors.Control
-        Me.DGV_Entretien.Location = New System.Drawing.Point(23, 143)
-        Me.DGV_Entretien.Name = "DGV_Entretien"
-        Me.DGV_Entretien.RowHeadersVisible = False
-        Me.DGV_Entretien.Size = New System.Drawing.Size(784, 393)
-        Me.DGV_Entretien.TabIndex = 0
-        '
-        'Col_idEntretien
-        '
-        Me.Col_idEntretien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_idEntretien.HeaderText = "id Entretien"
-        Me.Col_idEntretien.Name = "Col_idEntretien"
-        Me.Col_idEntretien.ReadOnly = True
-        Me.Col_idEntretien.Visible = False
-        '
-        'Col_DateEntretien
-        '
-        Me.Col_DateEntretien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle1.Format = "d"
-        DataGridViewCellStyle1.NullValue = "jj/mm/aaaa"
-        Me.Col_DateEntretien.DefaultCellStyle = DataGridViewCellStyle1
-        Me.Col_DateEntretien.HeaderText = "Date entretien"
-        Me.Col_DateEntretien.Name = "Col_DateEntretien"
-        '
-        'Col_DateEntSuivi
-        '
-        Me.Col_DateEntSuivi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle2.Format = "d"
-        DataGridViewCellStyle2.NullValue = "jj/mm/aaaa"
-        Me.Col_DateEntSuivi.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Col_DateEntSuivi.HeaderText = "Date ent. suivi"
-        Me.Col_DateEntSuivi.Name = "Col_DateEntSuivi"
-        '
-        'Col_Document
-        '
-        Me.Col_Document.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_Document.HeaderText = "Document scanné"
-        Me.Col_Document.Name = "Col_Document"
-        Me.Col_Document.Text = "Ajouter document"
-        '
-        'Col_Valider
-        '
-        Me.Col_Valider.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_Valider.HeaderText = "Valider"
-        Me.Col_Valider.Name = "Col_Valider"
-        Me.Col_Valider.Text = "Valider"
-        '
-        'Label_Titre
-        '
-        Me.Label_Titre.AutoSize = True
-        Me.TableLayoutPanel1.SetColumnSpan(Me.Label_Titre, 2)
-        Me.Label_Titre.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label_Titre.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_Titre.Location = New System.Drawing.Point(23, 20)
-        Me.Label_Titre.Name = "Label_Titre"
-        Me.TableLayoutPanel1.SetRowSpan(Me.Label_Titre, 2)
-        Me.Label_Titre.Size = New System.Drawing.Size(336, 40)
-        Me.Label_Titre.TabIndex = 1
-        Me.Label_Titre.Text = "Créer des Entretiens"
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.TableLayoutPanel1.SetColumnSpan(Me.Label1, 3)
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Location = New System.Drawing.Point(23, 90)
+        Me.Label1.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(23, 20)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(144, 30)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Collaborateur"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label1.Size = New System.Drawing.Size(786, 40)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Créer un entretien"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label2.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(23, 224)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(240, 30)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Date entretien"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Cmb_Collaborateur
         '
         Me.Cmb_Collaborateur.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Cmb_Collaborateur.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cmb_Collaborateur.FormattingEnabled = True
-        Me.Cmb_Collaborateur.Location = New System.Drawing.Point(173, 93)
+        Me.Cmb_Collaborateur.Location = New System.Drawing.Point(269, 177)
         Me.Cmb_Collaborateur.Name = "Cmb_Collaborateur"
-        Me.Cmb_Collaborateur.Size = New System.Drawing.Size(186, 26)
+        Me.Cmb_Collaborateur.Size = New System.Drawing.Size(294, 26)
         Me.Cmb_Collaborateur.TabIndex = 3
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label3.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(23, 274)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(240, 30)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "Date entretien suivi"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label4.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(23, 324)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(240, 30)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Document"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'BtnValider
+        '
+        Me.BtnValider.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.BtnValider.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnValider.Location = New System.Drawing.Point(269, 377)
+        Me.BtnValider.Name = "BtnValider"
+        Me.BtnValider.Size = New System.Drawing.Size(294, 44)
+        Me.BtnValider.TabIndex = 4
+        Me.BtnValider.Text = "Créer"
+        Me.BtnValider.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label5.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(23, 174)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(240, 30)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "Collaborateur"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Dtp_DateEntretien
+        '
+        Me.Dtp_DateEntretien.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Dtp_DateEntretien.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Dtp_DateEntretien.Location = New System.Drawing.Point(269, 227)
+        Me.Dtp_DateEntretien.Name = "Dtp_DateEntretien"
+        Me.Dtp_DateEntretien.Size = New System.Drawing.Size(294, 27)
+        Me.Dtp_DateEntretien.TabIndex = 6
+        '
+        'Dtp_DateEntretienSuivi
+        '
+        Me.Dtp_DateEntretienSuivi.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Dtp_DateEntretienSuivi.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Dtp_DateEntretienSuivi.Location = New System.Drawing.Point(269, 277)
+        Me.Dtp_DateEntretienSuivi.Name = "Dtp_DateEntretienSuivi"
+        Me.Dtp_DateEntretienSuivi.Size = New System.Drawing.Size(294, 27)
+        Me.Dtp_DateEntretienSuivi.TabIndex = 7
+        '
+        'Btn_Fichier
+        '
+        Me.Btn_Fichier.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_Fichier.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_Fichier.Location = New System.Drawing.Point(269, 327)
+        Me.Btn_Fichier.Name = "Btn_Fichier"
+        Me.Btn_Fichier.Size = New System.Drawing.Size(294, 24)
+        Me.Btn_Fichier.TabIndex = 8
+        Me.Btn_Fichier.Text = "Sélectionner"
+        Me.Btn_Fichier.UseVisualStyleBackColor = True
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'FrmAjoutEntretien
         '
@@ -264,7 +301,6 @@ Partial Class FrmAjoutEntretien
         Me.TLP_Menu.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
-        CType(Me.DGV_Entretien, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -274,14 +310,16 @@ Partial Class FrmAjoutEntretien
     Friend WithEvents Btn_Entretiens As Button
     Friend WithEvents Btn_Equipe As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents DGV_Entretien As DataGridView
-    Friend WithEvents Label_Titre As Label
-    Friend WithEvents Label1 As Label
     Friend WithEvents Cmb_Collaborateur As ComboBox
     Friend WithEvents Btn_Accueil As Button
-    Friend WithEvents Col_idEntretien As DataGridViewTextBoxColumn
-    Friend WithEvents Col_DateEntretien As DataGridViewTextBoxColumn
-    Friend WithEvents Col_DateEntSuivi As DataGridViewTextBoxColumn
-    Friend WithEvents Col_Document As DataGridViewButtonColumn
-    Friend WithEvents Col_Valider As DataGridViewButtonColumn
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents BtnValider As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Dtp_DateEntretien As DateTimePicker
+    Friend WithEvents Dtp_DateEntretienSuivi As DateTimePicker
+    Friend WithEvents Btn_Fichier As Button
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class
