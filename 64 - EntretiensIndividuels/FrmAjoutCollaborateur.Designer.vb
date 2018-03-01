@@ -49,7 +49,7 @@ Partial Class FrmAjoutCollaborateur
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(241, 524)
+        Me.Panel2.Size = New System.Drawing.Size(241, 651)
         Me.Panel2.TabIndex = 7
         '
         'TLP_Menu
@@ -73,7 +73,7 @@ Partial Class FrmAjoutCollaborateur
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TLP_Menu.Size = New System.Drawing.Size(241, 524)
+        Me.TLP_Menu.Size = New System.Drawing.Size(241, 651)
         Me.TLP_Menu.TabIndex = 2
         '
         'Btn_Accueil
@@ -138,7 +138,7 @@ Partial Class FrmAjoutCollaborateur
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.DGV_Collab, 1, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 1, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -153,7 +153,7 @@ Partial Class FrmAjoutCollaborateur
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(733, 524)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(778, 651)
         Me.TableLayoutPanel1.TabIndex = 8
         '
         'DGV_Collab
@@ -167,7 +167,7 @@ Partial Class FrmAjoutCollaborateur
         Me.DGV_Collab.Location = New System.Drawing.Point(23, 83)
         Me.DGV_Collab.Name = "DGV_Collab"
         Me.DGV_Collab.RowHeadersVisible = False
-        Me.DGV_Collab.Size = New System.Drawing.Size(679, 418)
+        Me.DGV_Collab.Size = New System.Drawing.Size(724, 545)
         Me.DGV_Collab.TabIndex = 0
         '
         'Col_libCollab
@@ -210,7 +210,7 @@ Partial Class FrmAjoutCollaborateur
         Me.Label1.Location = New System.Drawing.Point(23, 20)
         Me.Label1.Name = "Label1"
         Me.TableLayoutPanel1.SetRowSpan(Me.Label1, 2)
-        Me.Label1.Size = New System.Drawing.Size(304, 40)
+        Me.Label1.Size = New System.Drawing.Size(318, 40)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Créer des collaborateurs"
         '
@@ -218,7 +218,7 @@ Partial Class FrmAjoutCollaborateur
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(974, 524)
+        Me.ClientSize = New System.Drawing.Size(1019, 651)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.Panel2)
         Me.Name = "FrmAjoutCollaborateur"
