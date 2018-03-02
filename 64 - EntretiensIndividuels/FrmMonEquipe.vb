@@ -39,7 +39,7 @@
 
         If _lesEntretiensCollab IsNot Nothing Then
             For Each unEntretienCollab As ClsEntretien In _lesEntretiensCollab.Values
-                DGV_Dates.Rows.Add(unEntretienCollab._idEntretien, idCollab, unEntretienCollab._DateEntretienSuivi.ToShortDateString)
+                DGV_Dates.Rows.Add(unEntretienCollab._idEntretien, idCollab, unEntretienCollab._DateEntretien.ToShortDateString)
             Next
         End If
 
@@ -77,11 +77,15 @@
             Btn_Header.Text = "Modifier le collaborateur"
             Btn_Header.Visible = True
             _collabIdClicked = idCollab
+            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Collaborateur_Click
+            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Entretien_Click
+            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Action_Click
             AddHandler Btn_Header.Click, AddressOf BtnModif_Collaborateur_Click
 
             FillDGV_Entretiens(idCollab)
         Else
             ' Ajouter un collaborateur
+            Btn_Header.Visible = False
         End If
 
 
@@ -101,11 +105,15 @@
             Btn_Header.Text = "Modifier l'entretien"
             Btn_Header.Visible = True
             _entIdClicked = idEntretien
+            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Collaborateur_Click
+            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Entretien_Click
+            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Action_Click
             AddHandler Btn_Header.Click, AddressOf BtnModif_Entretien_Click
 
             FillDGV_Actions(idEntretien)
         Else
             ' Ajouter un entretien
+            Btn_Header.Visible = False
         End If
 
         '_collabClicked = _lesCollaborateurs(idCollab)
@@ -129,10 +137,14 @@
             Btn_Header.Text = "Modifier l'action"
             Btn_Header.Visible = True
             _actionIdClicked = idAction
+            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Collaborateur_Click
+            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Entretien_Click
+            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Action_Click
             AddHandler Btn_Header.Click, AddressOf BtnModif_Action_Click
 
         Else
             ' Ajouter une action
+            Btn_Header.Visible = False
         End If
 
 
@@ -168,23 +180,32 @@
 
     End Sub
 
+    '""""""""""""""""""""""""""""""""""""""""""""""""""
+
     Private Sub BtnModif_Collaborateur_Click(sender As Object, e As EventArgs)
         Dim _f As New FrmAjoutCollaborateur
         _f._askUpdate = True
         _f._idCollabUpdate = _collabIdClicked
+        _f.Label_Titre.Text = "Modifier un collaborateur"
+        _f.ShowDialog()
     End Sub
 
     Private Sub BtnModif_Entretien_Click(sender As Object, e As EventArgs)
         Dim _f As New FrmAjoutEntretien
         _f._askUpdate = True
         _f._idEntUpdate = _entIdClicked
+        _f.Label_Titre.Text = "Modifier un entretien"
+        _f.ShowDialog()
     End Sub
 
     Private Sub BtnModif_Action_Click(sender As Object, e As EventArgs)
         Dim _f As New FrmAjoutAction
         _f._askUpdate = True
         _f._idActionUpdate = _actionIdClicked
+        _f.ShowDialog()
     End Sub
+
+    '""""""""""""""""""""""""""""""""""""""""""""""""""
 
     Private Sub Btn_Entretiens_Click(sender As Object, e As EventArgs) Handles Btn_Entretiens.Click
         Me.Cursor = Cursors.WaitCursor
@@ -196,22 +217,19 @@
     Private Sub Btn_AjoutCollab_Click(sender As Object, e As EventArgs) Handles Btn_AjoutCollab.Click
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmAjoutCollaborateur
-        _f.Show()
-        Close()
+        _f.ShowDialog()
     End Sub
 
     Private Sub Btn_AjoutEntretien_Click(sender As Object, e As EventArgs) Handles Btn_AjoutEntretien.Click
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmAjoutEntretien
-        _f.Show()
-        Close()
+        _f.ShowDialog()
     End Sub
 
     Private Sub Btn_AjoutAction_Click(sender As Object, e As EventArgs) Handles Btn_AjoutAction.Click
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmAjoutAction
-        _f.Show()
-        Close()
+        _f.ShowDialog()
     End Sub
 
     Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs) Handles Btn_Accueil.Click
@@ -221,7 +239,7 @@
         Close()
     End Sub
 
-    Private Sub Btn_Header_Click(sender As Object, e As EventArgs) Handles Btn_Header.Click
-        Throw New NotImplementedException
-    End Sub
+    'Private Sub Btn_Header_Click(sender As Object, e As EventArgs) Handles Btn_Header.Click
+    '    Throw New NotImplementedException
+    'End Sub
 End Class

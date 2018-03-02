@@ -17,7 +17,7 @@ Public Class ClsSQLEntretiens
     Public Function readLesEntretiens()
         Dim lesEntretiens As New Dictionary(Of Integer, ClsEntretien)
         Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
-            "select * from [dbo].[EIEntretiens] order by DateEntretienSuivi",
+            "select * from [dbo].[EIEntretiens] order by DateEntretien",
             ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             With s_FbMyReader
                 While .OdbcReader.Read
@@ -33,8 +33,22 @@ Public Class ClsSQLEntretiens
         Return lesEntretiens
     End Function
 
-    Friend Function readUnEntretienById(idEntUpdate As Integer) As ClsEntretien
-        Throw New NotImplementedException()
+    Public Function readUnEntretienById(idEntUpdate As Integer) As ClsEntretien
+        Dim unEntretien As ClsEntretien = Nothing
+        Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
+            "select * from [dbo].[EIEntretiens] where idEntretien = " & idEntUpdate & " order by DateEntretien",
+            ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+            With s_FbMyReader
+                While .OdbcReader.Read
+                    If Not IsDBNull(.OdbcReader("idEntretien")) And Not IsDBNull(.OdbcReader("DateEntretien")) And Not IsDBNull(.OdbcReader("DateEntretienSuivi")) And Not IsDBNull(.OdbcReader("idCollaborateur")) Then
+                        Dim DateEntretien As New Date(CDate(.OdbcReader("DateEntretien")).Year, CDate(.OdbcReader("DateEntretien")).Month, CDate(.OdbcReader("DateEntretien")).Day)
+                        Dim DateEntretienSuivi As New Date(CDate(.OdbcReader("DateEntretienSuivi")).Year, CDate(.OdbcReader("DateEntretienSuivi")).Month, CDate(.OdbcReader("DateEntretienSuivi")).Day)
+                        unEntretien = New ClsEntretien(DateEntretien, DateEntretienSuivi, .OdbcReader("idCollaborateur"), .OdbcReader("idEntretien"),)
+                    End If
+                End While
+            End With
+        End Using
+        Return unEntretien
     End Function
 
     Public Function readLesEntretiensCollab(idCollaborateur As Integer)

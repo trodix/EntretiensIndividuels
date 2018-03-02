@@ -29,6 +29,7 @@
             Dim leCollabUpdate As ClsCollaborateur = _maClsSQLCollaborateur.readUnCollaborateur(_idCollabUpdate)
             Tbx_LibColl.Text = leCollabUpdate._libelleCollaborateur
             ' remplir les cmbx
+            'Cmb_Manager.SelectedItem = leCollabUpdate.
         End If
 
         Me.Cursor = Cursors.Default
@@ -141,21 +142,21 @@
 
 
 
-    Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs) Handles Btn_Accueil.Click
+    Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs)
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmMenu
         _f.Show()
         Close()
     End Sub
 
-    Private Sub Btn_Equipe_Click(sender As Object, e As EventArgs) Handles Btn_Equipe.Click
+    Private Sub Btn_Equipe_Click(sender As Object, e As EventArgs)
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmMonEquipe
         _f.Show()
         Close()
     End Sub
 
-    Private Sub Btn_Entretiens_Click(sender As Object, e As EventArgs) Handles Btn_Entretiens.Click
+    Private Sub Btn_Entretiens_Click(sender As Object, e As EventArgs)
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmMesEntretiens
         _f.Show()
