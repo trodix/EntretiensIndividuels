@@ -63,4 +63,35 @@
             _odbcConnection.OdbcNotSelectQuery(req)
         End Using
     End Sub
+
+    Public Function readManagerById(idManager As Integer)
+        Dim unManager As ClsCollaborateur = Nothing
+        Dim req As String = "select * from [dbo].[EICollaborateurs] where idCollaborateur = " & idManager
+
+        Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(req, ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+            With s_FbMyReader
+                While .OdbcReader.Read
+                    unManager = New ClsCollaborateur(.OdbcReader("LibCollaborateur"), .OdbcReader("idManager"), .OdbcReader("idService"), .OdbcReader("idCollaborateur"))
+                End While
+            End With
+        End Using
+        Return unManager
+    End Function
+
+    Public Function readUnCollaborateurByEnt(idEnt As Integer)
+        Dim unCollab As ClsCollaborateur = Nothing
+        Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
+            "select * from [dbo].[EICollaborateurs]  
+                inner join [dbo].[EIEntretiens] 
+                on [dbo].[EIEntretiens].IdCollaborateur = [dbo].[EICollaborateurs].IdCollaborateur
+                where idEntretien = " & idEnt,
+            ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+            With s_FbMyReader
+                While .OdbcReader.Read
+                    unCollab = New ClsCollaborateur(.OdbcReader("LibCollaborateur"), .OdbcReader("idManager"), .OdbcReader("idService"), .OdbcReader("idCollaborateur"))
+                End While
+            End With
+        End Using
+        Return unCollab
+    End Function
 End Class

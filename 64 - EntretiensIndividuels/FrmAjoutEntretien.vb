@@ -20,9 +20,36 @@ Public Class FrmAjoutEntretien
             Cmb_Collaborateur.Items.Add(leCollabId & " - " & leCollabLibelle)
         Next
 
+        'If _askUpdate Then
+        '    Dim sqlManager As ClsSQLCollaborateur = _maClsSQLCollaborateur
+        '    Dim sqlService As New ClsSQLService
+        '    Dim sqlStatut As New ClsSQLStatut
+
+        '    Dim leCollabUpdate As ClsCollaborateur = _maClsSQLCollaborateur.readUnCollaborateur(_idCollabUpdate)
+        '    Dim leCollabUpdateManager As ClsCollaborateur = sqlManager.readManagerById(leCollabUpdate._idManager)
+        '    Dim leCollabUpdateService As ClsService = sqlService.readServiceById(leCollabUpdate._idService)
+        '    Dim leCollabUpdateStatut As ClsStatut = sqlStatut.readStatutById(leCollabUpdate._StatutManager)
+
+        '    Tbx_LibColl.Text = leCollabUpdate._libelleCollaborateur
+        '    ' remplir les cmbx
+        '    Cmb_Manager.SelectedItem = leCollabUpdateManager._idCollaborateur & " - " & leCollabUpdateManager._libelleCollaborateur
+        '    Cmb_Service.SelectedItem = leCollabUpdateService._idService & " - " & leCollabUpdateService._LibService
+        '    Cmb_Statut.SelectedItem = leCollabUpdateStatut._idStatut & " - " & leCollabUpdateStatut._LibelleStatut
+        '    'Cmb_Manager.SelectedItem = leCollabUpdate.
+        'End If
+
         If _askUpdate Then
-            Dim leEntUpdate As ClsEntretien = _maClsSQLEntretien.readUnEntretienById(_idEntUpdate)
+            Dim sqlEntretien As ClsSQLEntretiens = _maClsSQLEntretien
+            Dim sqlCollab As New ClsSQLCollaborateur
+
+
+            Dim leEntUpdate As ClsEntretien = sqlEntretien.readUnEntretienById(_idEntUpdate)
+            Dim leEntUpdateCollab As ClsCollaborateur = sqlCollab.readUnCollaborateurByEnt(_idEntUpdate)
+
             ' remplir les cmbx
+            Cmb_Collaborateur.SelectedItem = leEntUpdateCollab._idCollaborateur & " - " & leEntUpdateCollab._libelleCollaborateur
+            Dtp_DateEntretien.Value = leEntUpdate._DateEntretien
+            Dtp_DateEntretienSuivi.Value = leEntUpdate._DateEntretienSuivi
         End If
 
         Me.Cursor = Cursors.Default
