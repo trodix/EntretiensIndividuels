@@ -57,7 +57,7 @@
         If _lesActionsEntCollab IsNot Nothing Then
             For Each uneActionEnt As ClsAction In _lesActionsEntCollab.Values
                 DGV_Actions.Rows.Add(
-                    uneActionEnt._idAction, uneActionEnt._DateCreation, uneActionEnt._Descriptif, uneActionEnt._RespAction,
+                    uneActionEnt._idEntretien, uneActionEnt._idAction, uneActionEnt._DateCreation, uneActionEnt._Objectif, uneActionEnt._ActionField, uneActionEnt._RespAction,
                     uneActionEnt._Delai, uneActionEnt._SuiviCom, uneActionEnt._StatutPDCA, uneActionEnt._DateSolde
                     )
             Next
@@ -129,8 +129,8 @@
 
 
         Dim ligneCourante As Integer = e.RowIndex
-        Dim idEntretien = sender.Rows(ligneCourante).Cells(0).Value
-        Dim idAction = sender.Rows(ligneCourante).Cells(1).Value
+        Dim idEntretien = sender.Rows(ligneCourante).Cells("Col_idEnt").Value
+        Dim idAction = sender.Rows(ligneCourante).Cells("Col_idActions").Value
 
         If _lesActionsEntCollab.ContainsKey(idAction) Then
             ' afficher bouton modifier une action

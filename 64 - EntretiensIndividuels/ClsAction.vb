@@ -2,7 +2,8 @@
 
     Property _idAction As Integer
     Property _DateCreation As Date
-    Property _Descriptif As String
+    Property _Objectif As String
+    Property _ActionField As String
     Property _RespAction As String
     Property _Delai As Date
     Property _SuiviCom As String
@@ -11,10 +12,11 @@
     Property _idEntretien As Integer
     Property _DateSolde As Date
 
-    Public Sub New(Descriptif As String, RespAction As String, Delai As Date, SuiviCom As String, StatutPDCA As Char, idCollaborateur As Integer, idEntretien As Integer, Optional DateSolde As Date = Nothing, Optional DateCreation As Date = Nothing, Optional idAction As Integer = -1)
+    Public Sub New(Objectif As String, ActionField As String, RespAction As String, Delai As Date, SuiviCom As String, StatutPDCA As Char, idCollaborateur As Integer, idEntretien As Integer, Optional DateSolde As Date = Nothing, Optional DateCreation As Date = Nothing, Optional idAction As Integer = -1)
         _idAction = idAction
         _DateCreation = DateCreation
-        _Descriptif = Descriptif
+        _Objectif = Objectif
+        _ActionField = ActionField
         _RespAction = RespAction
         _Delai = Delai
         _SuiviCom = SuiviCom
