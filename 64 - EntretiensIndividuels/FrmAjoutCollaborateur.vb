@@ -30,7 +30,7 @@
             Dim sqlService As New ClsSQLService
             Dim sqlStatut As New ClsSQLStatut
 
-            Dim leCollabUpdate As ClsCollaborateur = _maClsSQLCollaborateur.readUnCollaborateur(_idCollabUpdate)
+            Dim leCollabUpdate As ClsCollaborateur = _maClsSQLCollaborateur.readUnCollaborateurById(_idCollabUpdate)
             Dim leCollabUpdateManager As ClsCollaborateur = sqlManager.readManagerById(leCollabUpdate._idManager)
             Dim leCollabUpdateService As ClsService = sqlService.readServiceById(leCollabUpdate._idService)
             Dim leCollabUpdateStatut As ClsStatut = sqlStatut.readStatutById(leCollabUpdate._StatutManager)
@@ -116,7 +116,7 @@
         'Manager
         Dim currentManager As Integer
         Try
-            words = Cmb_Manager.SelectedItem.Value.Split("-")
+            words = Cmb_Manager.SelectedItem.Split("-")
             currentManager = words(0)
         Catch ex As Exception
             currentManager = 0
@@ -127,21 +127,24 @@
 
         'Service
         Dim currentService As Integer
-        words = Cmb_Service.SelectedItem.Value.Split("-")
+        words = Cmb_Service.SelectedItem.Split("-")
         currentService = words(0)
 
         'Statut
         Dim currentStatut As Integer
-        words = Cmb_Statut.SelectedItem.Value.Split("-")
+        words = Cmb_Statut.SelectedItem.Split("-")
         currentStatut = words(0)
 
 
-        Dim leCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, Nothing, currentStatut)
+
         Try
             If Not _askUpdate Then
+                Dim leCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, Nothing, currentStatut)
                 _maClsSQLCollaborateur.InsertCollaborateur(leCollab)
             Else
+                Dim leCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, _idCollabUpdate, currentStatut)
                 _maClsSQLCollaborateur.UpdateCollaborateur(leCollab)
+                Close()
             End If
             Tbx_LibColl.Text = ""
             chargerManager()

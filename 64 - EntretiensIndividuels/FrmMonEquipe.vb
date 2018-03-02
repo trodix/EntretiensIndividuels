@@ -187,6 +187,7 @@
         _f._askUpdate = True
         _f._idCollabUpdate = _collabIdClicked
         _f.Label_Titre.Text = "Modifier un collaborateur"
+        _f.BtnValider.Text = "Modifier"
         _f.ShowDialog()
     End Sub
 
@@ -195,6 +196,7 @@
         _f._askUpdate = True
         _f._idEntUpdate = _entIdClicked
         _f.Label_Titre.Text = "Modifier un entretien"
+        _f.BtnValider.Text = "Modifier"
         _f.ShowDialog()
     End Sub
 

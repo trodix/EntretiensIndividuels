@@ -77,7 +77,7 @@
 
     Public Function UpdateAction(act As ClsAction)
         Dim req As String = "update [dbo].[EIActions] set Descriptif = '" & replaceSqlSpecialChars(act._Descriptif) & "', RespAction = '" & replaceSqlSpecialChars(act._RespAction) & "', Delai = '" & replaceSqlSpecialChars(act._Delai) & "', SuiviCom = '" &
-                replaceSqlSpecialChars(act._SuiviCom) & "', StatutPDCA = '" & replaceSqlSpecialChars(act._StatutPDCA) & "'"
+                replaceSqlSpecialChars(act._SuiviCom) & "', StatutPDCA = '" & replaceSqlSpecialChars(act._StatutPDCA) & "' where idActions = " & act._idAction
         Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             _odbcConnection.OdbcNotSelectQuery(req)
         End Using

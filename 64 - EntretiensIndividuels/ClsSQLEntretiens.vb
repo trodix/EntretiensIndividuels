@@ -68,7 +68,7 @@ Public Class ClsSQLEntretiens
     Public Function InsertEntretien(ent As ClsEntretien)
         Dim req As String = "insert into [dbo].[EIEntretiens] (DateEntretien, DateEntretienSuivi, idCollaborateur, DocumentScanne, DocumentNom, DocumentExtension) values(
                 '" & replaceSqlSpecialChars(ent._DateEntretien) & "', '" & replaceSqlSpecialChars(ent._DateEntretienSuivi) & "', " & replaceSqlSpecialChars(ent._idCollaborateur) &
-                ", '" & Nothing & "')"
+                ", NULL, NULL, NULL)"
         Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             _odbcConnection.OdbcNotSelectQuery(req)
         End Using
@@ -97,7 +97,7 @@ Public Class ClsSQLEntretiens
     End Function
 
     Public Function updateEntretien(ent As ClsEntretien)
-        Dim req As String = "update [dbo].[EIEntretiens] set DateEntretien = '" & ent._DateEntretien & "', " & "DateEntretienSuivi = '" & ent._DateEntretienSuivi & "', DocumentScanne = '" & Nothing & "'"
+        Dim req As String = "update [dbo].[EIEntretiens] set DateEntretien = '" & ent._DateEntretien & "', " & "DateEntretienSuivi = '" & ent._DateEntretienSuivi & "', DocumentScanne = NULL, DocumentNom = NULL, DocumentExtension = NULL where idEntretien = " & ent._idEntretien
         Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             _odbcConnection.OdbcNotSelectQuery(req)
         End Using

@@ -20,6 +20,8 @@ Public Class FrmAjoutEntretien
             Cmb_Collaborateur.Items.Add(leCollabId & " - " & leCollabLibelle)
         Next
 
+        Dtp_DateEntretienSuivi.Value = CDate("01/01/1900")
+
         'If _askUpdate Then
         '    Dim sqlManager As ClsSQLCollaborateur = _maClsSQLCollaborateur
         '    Dim sqlService As New ClsSQLService
@@ -76,14 +78,17 @@ Public Class FrmAjoutEntretien
 
         Dim currentDateEntretien As Date = Convert.ToDateTime(Dtp_DateEntretien.Value)
         Dim currentDateEntSuivi As Date = Convert.ToDateTime(Dtp_DateEntretienSuivi.Value)
-        Dim currentEntretien As New ClsEntretien(currentDateEntretien, currentDateEntSuivi, _selectedCollabId, Nothing, _fichier, _fileName, _fileExtension)
+
 
         If _selectedCollabId <> -1 Then
-            Try
+            If _askUpdate Then
+                Dim currentEntretien As New ClsEntretien(currentDateEntretien, currentDateEntSuivi, _selectedCollabId, _idEntUpdate, _fichier, _fileName, _fileExtension)
+                _maClsSQLEntretien.updateEntretien(currentEntretien)
+                Close()
+            Else
+                Dim currentEntretien As New ClsEntretien(currentDateEntretien, currentDateEntSuivi, _selectedCollabId, Nothing, _fichier, _fileName, _fileExtension)
                 _maClsSQLEntretien.InsertEntretien(currentEntretien)
-            Catch ex As Exception
-                MsgBox(ex.Message, MsgBoxStyle.Critical)
-            End Try
+            End If
         Else
             MessageBox.Show("Entretien non ajouté, sélétionnez un collaborateur", "Ajout d'entretien", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If

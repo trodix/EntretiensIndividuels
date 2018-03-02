@@ -37,8 +37,22 @@
         Return lesManagers
     End Function
 
-    Public Function readUnCollaborateur(idCollaborateur As Integer)
-        Return _lesCollaborateurs.Item(idCollaborateur)
+    'Public Function readUnCollaborateur(idCollaborateur As Integer)
+    '    Return _lesCollaborateurs.Item(idCollaborateur)
+    'End Function
+
+    Public Function readUnCollaborateurById(idCollaborateur As Integer)
+        Dim unCollaborateur As ClsCollaborateur = Nothing
+        Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
+            "select * from [dbo].[EICollaborateurs] where idCollaborateur = " & idCollaborateur,
+            ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+            With s_FbMyReader
+                While .OdbcReader.Read
+                    unCollaborateur = New ClsCollaborateur(.OdbcReader("LibCollaborateur"), .OdbcReader("idManager"), .OdbcReader("idService"), .OdbcReader("idCollaborateur"), .OdbcReader("StatutManager"))
+                End While
+            End With
+        End Using
+        Return unCollaborateur
     End Function
 
     Public Function InsertCollaborateur(col As ClsCollaborateur)
@@ -57,7 +71,7 @@
 
     Public Sub UpdateCollaborateur(leCollab As ClsCollaborateur)
         Dim req As String = "update [dbo].[EICollaborateurs] set LibCollaborateur = '" & replaceSqlSpecialChars(leCollab._libelleCollaborateur) & "', idManager = " &
-            replaceSqlSpecialChars(leCollab._idManager) & ", idService = " & replaceSqlSpecialChars(leCollab._idService) & ", StatutManager = " & replaceSqlSpecialChars(leCollab._StatutManager)
+            replaceSqlSpecialChars(leCollab._idManager) & ", idService = " & replaceSqlSpecialChars(leCollab._idService) & ", StatutManager = " & replaceSqlSpecialChars(leCollab._StatutManager) & "where idCollaborateur = " & leCollab._idCollaborateur
 
         Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             _odbcConnection.OdbcNotSelectQuery(req)
