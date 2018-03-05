@@ -124,6 +124,10 @@ Public Class FrmAjoutEntretien
         Close()
     End Sub
 
+    Private Sub Dtp_DateEntretienSuivi_DropDown(sender As Object, e As EventArgs) Handles Dtp_DateEntretienSuivi.DropDown
+        Dtp_DateEntretienSuivi.Value = Date.Now
+    End Sub
+
     'Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
     '    requete = New SqlCommand("insert into tbl_files (Nom, Fichier, Extension) values (@Nom, @Fichier, @Extension)", sqlConnexion)
     '    Try

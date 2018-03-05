@@ -158,4 +158,7 @@
         Close()
     End Sub
 
+    Private Sub Dtp_DropDown(sender As DateTimePicker, e As EventArgs) Handles Dtp_Delai.DropDown, Dtp_DateSolde.DropDown
+        sender.Value = Date.Now
+    End Sub
 End Class
