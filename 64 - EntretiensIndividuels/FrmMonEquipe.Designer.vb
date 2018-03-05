@@ -32,6 +32,16 @@ Partial Class FrmMonEquipe
         Me.Col_idCollab = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_dateEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DGV_Actions = New System.Windows.Forms.DataGridView()
+        Me.Col_idEnt = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_idActions = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_DateCreation = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_Objectif = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_Action = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_RespAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_Delai = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_SuiviCom = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_StatutPDCA = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_DateSolde = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Btn_Header = New System.Windows.Forms.Button()
         Me.TLP_Menu = New System.Windows.Forms.TableLayoutPanel()
@@ -44,16 +54,7 @@ Partial Class FrmMonEquipe
         Me.Btn_AjoutCollab = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Col_idEnt = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_idActions = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_DateCreation = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_Objectif = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_Action = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_RespAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_Delai = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_SuiviCom = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_StatutPDCA = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_DateSolde = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Btn_VoirFichier = New System.Windows.Forms.Button()
         Me.TLP_Main.SuspendLayout()
         CType(Me.DGV_Noms, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGV_Dates, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -71,12 +72,13 @@ Partial Class FrmMonEquipe
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
         Me.TLP_Main.Controls.Add(Me.DGV_Noms, 1, 5)
         Me.TLP_Main.Controls.Add(Me.DGV_Dates, 2, 5)
         Me.TLP_Main.Controls.Add(Me.DGV_Actions, 3, 5)
         Me.TLP_Main.Controls.Add(Me.Label1, 1, 1)
         Me.TLP_Main.Controls.Add(Me.Btn_Header, 1, 3)
+        Me.TLP_Main.Controls.Add(Me.Btn_VoirFichier, 2, 3)
         Me.TLP_Main.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TLP_Main.Location = New System.Drawing.Point(0, 0)
         Me.TLP_Main.Name = "TLP_Main"
@@ -133,7 +135,7 @@ Partial Class FrmMonEquipe
         Me.DGV_Dates.Location = New System.Drawing.Point(226, 153)
         Me.DGV_Dates.Name = "DGV_Dates"
         Me.DGV_Dates.RowHeadersVisible = False
-        Me.DGV_Dates.Size = New System.Drawing.Size(116, 459)
+        Me.DGV_Dates.Size = New System.Drawing.Size(115, 459)
         Me.DGV_Dates.TabIndex = 5
         '
         'Col_idEntretien
@@ -165,11 +167,77 @@ Partial Class FrmMonEquipe
         Me.DGV_Actions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_idEnt, Me.Col_idActions, Me.Col_DateCreation, Me.Col_Objectif, Me.Col_Action, Me.Col_RespAction, Me.Col_Delai, Me.Col_SuiviCom, Me.Col_StatutPDCA, Me.Col_DateSolde})
         Me.DGV_Actions.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGV_Actions.GridColor = System.Drawing.SystemColors.Control
-        Me.DGV_Actions.Location = New System.Drawing.Point(348, 153)
+        Me.DGV_Actions.Location = New System.Drawing.Point(347, 153)
         Me.DGV_Actions.Name = "DGV_Actions"
         Me.DGV_Actions.RowHeadersVisible = False
-        Me.DGV_Actions.Size = New System.Drawing.Size(482, 459)
+        Me.DGV_Actions.Size = New System.Drawing.Size(481, 459)
         Me.DGV_Actions.TabIndex = 6
+        '
+        'Col_idEnt
+        '
+        Me.Col_idEnt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_idEnt.HeaderText = "idEntretien"
+        Me.Col_idEnt.Name = "Col_idEnt"
+        Me.Col_idEnt.ReadOnly = True
+        Me.Col_idEnt.Visible = False
+        '
+        'Col_idActions
+        '
+        Me.Col_idActions.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_idActions.HeaderText = "idActions"
+        Me.Col_idActions.Name = "Col_idActions"
+        Me.Col_idActions.ReadOnly = True
+        Me.Col_idActions.Visible = False
+        '
+        'Col_DateCreation
+        '
+        Me.Col_DateCreation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_DateCreation.HeaderText = "Date creation"
+        Me.Col_DateCreation.Name = "Col_DateCreation"
+        Me.Col_DateCreation.ReadOnly = True
+        '
+        'Col_Objectif
+        '
+        Me.Col_Objectif.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_Objectif.HeaderText = "Objectif"
+        Me.Col_Objectif.Name = "Col_Objectif"
+        '
+        'Col_Action
+        '
+        Me.Col_Action.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_Action.HeaderText = "Action"
+        Me.Col_Action.Name = "Col_Action"
+        '
+        'Col_RespAction
+        '
+        Me.Col_RespAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_RespAction.HeaderText = "Resp. action"
+        Me.Col_RespAction.Name = "Col_RespAction"
+        '
+        'Col_Delai
+        '
+        Me.Col_Delai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_Delai.HeaderText = "Delai"
+        Me.Col_Delai.Name = "Col_Delai"
+        '
+        'Col_SuiviCom
+        '
+        Me.Col_SuiviCom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_SuiviCom.HeaderText = "Suivi com."
+        Me.Col_SuiviCom.Name = "Col_SuiviCom"
+        '
+        'Col_StatutPDCA
+        '
+        Me.Col_StatutPDCA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_StatutPDCA.HeaderText = "Statut PDCA"
+        Me.Col_StatutPDCA.Name = "Col_StatutPDCA"
+        Me.Col_StatutPDCA.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'Col_DateSolde
+        '
+        Me.Col_DateSolde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_DateSolde.HeaderText = "Date solde"
+        Me.Col_DateSolde.Name = "Col_DateSolde"
         '
         'Label1
         '
@@ -180,7 +248,7 @@ Partial Class FrmMonEquipe
         Me.Label1.Location = New System.Drawing.Point(23, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(807, 40)
+        Me.Label1.Size = New System.Drawing.Size(805, 40)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Mon équipe"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -379,71 +447,16 @@ Partial Class FrmMonEquipe
         Me.Panel1.Size = New System.Drawing.Size(874, 635)
         Me.Panel1.TabIndex = 5
         '
-        'Col_idEnt
+        'Btn_VoirFichier
         '
-        Me.Col_idEnt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_idEnt.HeaderText = "idEntretien"
-        Me.Col_idEnt.Name = "Col_idEnt"
-        Me.Col_idEnt.ReadOnly = True
-        Me.Col_idEnt.Visible = False
-        '
-        'Col_idActions
-        '
-        Me.Col_idActions.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_idActions.HeaderText = "idActions"
-        Me.Col_idActions.Name = "Col_idActions"
-        Me.Col_idActions.ReadOnly = True
-        Me.Col_idActions.Visible = False
-        '
-        'Col_DateCreation
-        '
-        Me.Col_DateCreation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_DateCreation.HeaderText = "Date creation"
-        Me.Col_DateCreation.Name = "Col_DateCreation"
-        Me.Col_DateCreation.ReadOnly = True
-        '
-        'Col_Objectif
-        '
-        Me.Col_Objectif.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_Objectif.HeaderText = "Objectif"
-        Me.Col_Objectif.Name = "Col_Objectif"
-        '
-        'Col_Action
-        '
-        Me.Col_Action.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_Action.HeaderText = "Action"
-        Me.Col_Action.Name = "Col_Action"
-        '
-        'Col_RespAction
-        '
-        Me.Col_RespAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_RespAction.HeaderText = "Resp. action"
-        Me.Col_RespAction.Name = "Col_RespAction"
-        '
-        'Col_Delai
-        '
-        Me.Col_Delai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_Delai.HeaderText = "Delai"
-        Me.Col_Delai.Name = "Col_Delai"
-        '
-        'Col_SuiviCom
-        '
-        Me.Col_SuiviCom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_SuiviCom.HeaderText = "Suivi com."
-        Me.Col_SuiviCom.Name = "Col_SuiviCom"
-        '
-        'Col_StatutPDCA
-        '
-        Me.Col_StatutPDCA.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_StatutPDCA.HeaderText = "Statut PDCA"
-        Me.Col_StatutPDCA.Name = "Col_StatutPDCA"
-        Me.Col_StatutPDCA.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'Col_DateSolde
-        '
-        Me.Col_DateSolde.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_DateSolde.HeaderText = "Date solde"
-        Me.Col_DateSolde.Name = "Col_DateSolde"
+        Me.Btn_VoirFichier.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_VoirFichier.Location = New System.Drawing.Point(226, 83)
+        Me.Btn_VoirFichier.Name = "Btn_VoirFichier"
+        Me.Btn_VoirFichier.Size = New System.Drawing.Size(115, 44)
+        Me.Btn_VoirFichier.TabIndex = 9
+        Me.Btn_VoirFichier.Text = "Ouvrir le fichier"
+        Me.Btn_VoirFichier.UseVisualStyleBackColor = True
+        Me.Btn_VoirFichier.Visible = False
         '
         'FrmMonEquipe
         '
@@ -499,4 +512,5 @@ Partial Class FrmMonEquipe
     Friend WithEvents Col_SuiviCom As DataGridViewTextBoxColumn
     Friend WithEvents Col_StatutPDCA As DataGridViewTextBoxColumn
     Friend WithEvents Col_DateSolde As DataGridViewTextBoxColumn
+    Friend WithEvents Btn_VoirFichier As Button
 End Class

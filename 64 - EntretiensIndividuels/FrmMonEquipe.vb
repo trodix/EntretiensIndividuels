@@ -1,4 +1,6 @@
-﻿Public Class FrmMonEquipe
+﻿Imports System.IO
+
+Public Class FrmMonEquipe
 
     Property _monCollaborateurSQL As New ClsSQLCollaborateur
     Property _lesCollaborateurs As New Dictionary(Of Integer, ClsCollaborateur)
@@ -108,6 +110,13 @@
             RemoveHandler Btn_Header.Click, AddressOf BtnModif_Entretien_Click
             RemoveHandler Btn_Header.Click, AddressOf BtnModif_Action_Click
             AddHandler Btn_Header.Click, AddressOf BtnModif_Entretien_Click
+
+            If Not _lesEntretiensCollab(idEntretien)._Document Is Nothing Then
+                Btn_VoirFichier.Visible = True
+
+            Else
+                Btn_VoirFichier.Visible = False
+            End If
 
             FillDGV_Actions(idEntretien)
         Else
@@ -240,7 +249,25 @@
         Close()
     End Sub
 
-    'Private Sub Btn_Header_Click(sender As Object, e As EventArgs) Handles Btn_Header.Click
-    '    Throw New NotImplementedException
-    'End Sub
+    Private Sub Btn_VoirFichier_Click(sender As Object, e As EventArgs) Handles Btn_VoirFichier.Click
+
+        Try
+
+
+            Dim FileName As String = _lesEntretiensCollab(_entIdClicked)._nomDocument
+            Dim fileData() As Byte = CType(_lesEntretiensCollab(_entIdClicked)._Document, Byte())
+            Dim fs As New FileStream(FileName, FileMode.OpenOrCreate, FileAccess.Write)
+            fs.Write(fileData, 0, fileData.Length)
+            fs.Close()
+            Process.Start(FileName)
+
+        Catch ex As Exception
+
+            MsgBox(ex.Message)
+            Exit Sub
+
+        End Try
+
+    End Sub
+
 End Class
