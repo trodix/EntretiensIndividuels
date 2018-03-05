@@ -1,5 +1,7 @@
 ﻿Public Class FrmAjoutAction
 
+    Property _authUser As ClsUtilisateur = Nothing
+
     Property _maClsSQLCollab As New ClsSQLCollaborateur
     Property _maClsSQLEnt As New ClsSQLEntretiens
     Property _maClsSQLAction As New ClsSQLAction
@@ -12,8 +14,16 @@
 
     Private Sub FrmAjoutAction_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        For Each Collab As ClsCollaborateur In _maClsSQLCollab._lesCollaborateurs.Values
+        If _authUser Is Nothing OrElse _authUser._StatutManager = 0 Then
+            Close()
+        End If
+
+
+        For Each Collab As ClsCollaborateur In _maClsSQLCollab.readLesCollaborateursByManager(_authUser._idCollaborateur).Values
             Cmb_Collaborateur.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
+        Next
+
+        For Each Collab As ClsCollaborateur In _maClsSQLCollab.readLesCollaborateurs.Values
             Cmb_RespAction.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
         Next
 
@@ -61,6 +71,7 @@
     Private Sub Btn_Entretiens_Click(sender As Object, e As EventArgs)
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmMesEntretiens
+        _f._authUser = _authUser
         _f.Show()
         Close()
     End Sub
@@ -147,6 +158,7 @@
     Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs)
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmMenu
+        _f._authUser = _authUser
         _f.Show()
         Close()
     End Sub
@@ -154,6 +166,7 @@
     Private Sub Btn_Equipe_Click(sender As Object, e As EventArgs)
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmMonEquipe
+        _f._authUser = _authUser
         _f.Show()
         Close()
     End Sub

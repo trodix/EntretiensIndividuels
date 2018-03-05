@@ -43,7 +43,7 @@ Partial Class FrmAjoutCollaborateur
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98.03922!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.960784!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Label_Titre, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Tbx_LibColl, 2, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.Cmb_Manager, 2, 5)
@@ -83,7 +83,7 @@ Partial Class FrmAjoutCollaborateur
         Me.Label_Titre.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_Titre.Location = New System.Drawing.Point(23, 20)
         Me.Label_Titre.Name = "Label_Titre"
-        Me.Label_Titre.Size = New System.Drawing.Size(427, 40)
+        Me.Label_Titre.Size = New System.Drawing.Size(426, 40)
         Me.Label_Titre.TabIndex = 1
         Me.Label_Titre.Text = "Créer un collaborateur"
         '
@@ -91,7 +91,7 @@ Partial Class FrmAjoutCollaborateur
         '
         Me.Tbx_LibColl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Tbx_LibColl.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tbx_LibColl.Location = New System.Drawing.Point(154, 90)
+        Me.Tbx_LibColl.Location = New System.Drawing.Point(153, 90)
         Me.Tbx_LibColl.Name = "Tbx_LibColl"
         Me.Tbx_LibColl.Size = New System.Drawing.Size(294, 27)
         Me.Tbx_LibColl.TabIndex = 2
@@ -101,7 +101,7 @@ Partial Class FrmAjoutCollaborateur
         Me.Cmb_Manager.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Cmb_Manager.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cmb_Manager.FormattingEnabled = True
-        Me.Cmb_Manager.Location = New System.Drawing.Point(154, 140)
+        Me.Cmb_Manager.Location = New System.Drawing.Point(153, 140)
         Me.Cmb_Manager.Name = "Cmb_Manager"
         Me.Cmb_Manager.Size = New System.Drawing.Size(294, 26)
         Me.Cmb_Manager.TabIndex = 3
@@ -111,7 +111,7 @@ Partial Class FrmAjoutCollaborateur
         Me.Cmb_Service.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Cmb_Service.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cmb_Service.FormattingEnabled = True
-        Me.Cmb_Service.Location = New System.Drawing.Point(154, 190)
+        Me.Cmb_Service.Location = New System.Drawing.Point(153, 190)
         Me.Cmb_Service.Name = "Cmb_Service"
         Me.Cmb_Service.Size = New System.Drawing.Size(294, 26)
         Me.Cmb_Service.TabIndex = 4
@@ -121,7 +121,7 @@ Partial Class FrmAjoutCollaborateur
         Me.Cmb_Statut.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Cmb_Statut.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cmb_Statut.FormattingEnabled = True
-        Me.Cmb_Statut.Location = New System.Drawing.Point(154, 240)
+        Me.Cmb_Statut.Location = New System.Drawing.Point(153, 240)
         Me.Cmb_Statut.Name = "Cmb_Statut"
         Me.Cmb_Statut.Size = New System.Drawing.Size(294, 26)
         Me.Cmb_Statut.TabIndex = 5
@@ -130,7 +130,7 @@ Partial Class FrmAjoutCollaborateur
         '
         Me.BtnValider.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BtnValider.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnValider.Location = New System.Drawing.Point(154, 290)
+        Me.BtnValider.Location = New System.Drawing.Point(153, 290)
         Me.BtnValider.Name = "BtnValider"
         Me.BtnValider.Size = New System.Drawing.Size(294, 44)
         Me.BtnValider.TabIndex = 6
@@ -144,7 +144,7 @@ Partial Class FrmAjoutCollaborateur
         Me.Label2.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(23, 87)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(125, 30)
+        Me.Label2.Size = New System.Drawing.Size(124, 30)
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "NOM Prénom"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -156,7 +156,7 @@ Partial Class FrmAjoutCollaborateur
         Me.Label3.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(23, 137)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(125, 30)
+        Me.Label3.Size = New System.Drawing.Size(124, 30)
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "Manager"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -168,7 +168,7 @@ Partial Class FrmAjoutCollaborateur
         Me.Label4.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(23, 187)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(125, 30)
+        Me.Label4.Size = New System.Drawing.Size(124, 30)
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Service"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -180,7 +180,7 @@ Partial Class FrmAjoutCollaborateur
         Me.Label5.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(23, 237)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(125, 30)
+        Me.Label5.Size = New System.Drawing.Size(124, 30)
         Me.Label5.TabIndex = 10
         Me.Label5.Text = "Statut"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight

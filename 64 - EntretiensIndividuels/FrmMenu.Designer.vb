@@ -31,10 +31,10 @@ Partial Class FrmMenu
         Me.Panel_Main = New System.Windows.Forms.Panel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TLP_Main = New System.Windows.Forms.TableLayoutPanel()
         Me.Label_Titre = New System.Windows.Forms.Label()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.Panel1.SuspendLayout()
         Me.TLP_Menu.SuspendLayout()
         Me.Panel_Main.SuspendLayout()
@@ -165,27 +165,9 @@ Partial Class FrmMenu
         Me.TabPage1.Text = "Accueil"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'TabPage2
-        '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 84)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(909, 583)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Mes entretiens"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Location = New System.Drawing.Point(4, 84)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(909, 583)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Mon équipe"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
         'TLP_Main
         '
+        Me.TLP_Main.BackColor = System.Drawing.Color.Transparent
         Me.TLP_Main.ColumnCount = 3
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -214,6 +196,25 @@ Partial Class FrmMenu
         Me.Label_Titre.TabIndex = 0
         Me.Label_Titre.Text = "Accueil"
         Me.Label_Titre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Location = New System.Drawing.Point(4, 84)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(909, 583)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Mes entretiens"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Location = New System.Drawing.Point(4, 84)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(909, 583)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Mon équipe"
+        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'FrmMenu
         '

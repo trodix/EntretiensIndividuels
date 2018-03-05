@@ -21,4 +21,11 @@
         Return currentUser
     End Function
 
+    Public Sub UpdatePassword(idCollaborateur As Integer, password As String)
+        Dim req As String = "update [dbo].[EICollaborateurs] set MotDePasse = '" & password & "' where idCollaborateur = " & idCollaborateur
+        Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+            _odbcConnection.OdbcNotSelectQuery(req)
+        End Using
+    End Sub
+
 End Class

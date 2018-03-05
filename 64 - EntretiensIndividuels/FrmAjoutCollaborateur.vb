@@ -1,5 +1,7 @@
 ﻿Public Class FrmAjoutCollaborateur
 
+    Property _authUser As ClsUtilisateur = Nothing
+
     Property _maClsSQLCollaborateur As New ClsSQLCollaborateur
     Property _maClsSQLService As New ClsSQLService
     Property _maClsSQLStatut As New ClsSQLStatut
@@ -9,6 +11,9 @@
 
     Private Sub FrmAjoutCollaborateur_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        If _authUser Is Nothing OrElse _authUser._StatutManager <> 2 Then
+            Close()
+        End If
 
 
         chargerManager()
@@ -159,6 +164,7 @@
     Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs)
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmMenu
+        _f._authUser = _authUser
         _f.Show()
         Close()
     End Sub
@@ -166,6 +172,7 @@
     Private Sub Btn_Equipe_Click(sender As Object, e As EventArgs)
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmMonEquipe
+        _f._authUser = _authUser
         _f.Show()
         Close()
     End Sub
@@ -173,6 +180,7 @@
     Private Sub Btn_Entretiens_Click(sender As Object, e As EventArgs)
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmMesEntretiens
+        _f._authUser = _authUser
         _f.Show()
         Close()
     End Sub

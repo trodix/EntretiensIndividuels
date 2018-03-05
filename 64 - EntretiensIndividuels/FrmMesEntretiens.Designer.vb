@@ -25,14 +25,14 @@ Partial Class FrmMesEntretiens
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMesEntretiens))
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TLP_Menu = New System.Windows.Forms.TableLayoutPanel()
+        Me.Btn_Accueil = New System.Windows.Forms.Button()
+        Me.Btn_Entretiens = New System.Windows.Forms.Button()
+        Me.Btn_Equipe = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DGV_Dates = New System.Windows.Forms.DataGridView()
         Me.Col_idEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_dateEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Btn_Accueil = New System.Windows.Forms.Button()
-        Me.Btn_Entretiens = New System.Windows.Forms.Button()
-        Me.Btn_Equipe = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.TLP_Menu.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -73,59 +73,6 @@ Partial Class FrmMesEntretiens
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TLP_Menu.Size = New System.Drawing.Size(241, 502)
         Me.TLP_Menu.TabIndex = 2
-        '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.TableLayoutPanel1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(241, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(723, 502)
-        Me.Panel1.TabIndex = 6
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 3
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.DGV_Dates, 0, 3)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 4
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(723, 502)
-        Me.TableLayoutPanel1.TabIndex = 9
-        '
-        'DGV_Dates
-        '
-        Me.DGV_Dates.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.DGV_Dates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV_Dates.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_idEntretien, Me.Col_dateEntretien})
-        Me.DGV_Dates.GridColor = System.Drawing.SystemColors.Control
-        Me.DGV_Dates.Location = New System.Drawing.Point(3, 83)
-        Me.DGV_Dates.Name = "DGV_Dates"
-        Me.DGV_Dates.RowHeadersVisible = False
-        Me.DGV_Dates.Size = New System.Drawing.Size(99, 409)
-        Me.DGV_Dates.TabIndex = 7
-        '
-        'Col_idEntretien
-        '
-        Me.Col_idEntretien.HeaderText = "idEntretien"
-        Me.Col_idEntretien.Name = "Col_idEntretien"
-        Me.Col_idEntretien.ReadOnly = True
-        Me.Col_idEntretien.Visible = False
-        '
-        'Col_dateEntretien
-        '
-        Me.Col_dateEntretien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_dateEntretien.HeaderText = "Date Entretien"
-        Me.Col_dateEntretien.Name = "Col_dateEntretien"
-        Me.Col_dateEntretien.ReadOnly = True
         '
         'Btn_Accueil
         '
@@ -182,6 +129,59 @@ Partial Class FrmMesEntretiens
         Me.Btn_Equipe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Btn_Equipe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Btn_Equipe.UseVisualStyleBackColor = False
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.TableLayoutPanel1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(241, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(723, 502)
+        Me.Panel1.TabIndex = 6
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 3
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.DGV_Dates, 0, 3)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 4
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(723, 502)
+        Me.TableLayoutPanel1.TabIndex = 9
+        '
+        'DGV_Dates
+        '
+        Me.DGV_Dates.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.DGV_Dates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGV_Dates.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_idEntretien, Me.Col_dateEntretien})
+        Me.DGV_Dates.GridColor = System.Drawing.SystemColors.Control
+        Me.DGV_Dates.Location = New System.Drawing.Point(3, 83)
+        Me.DGV_Dates.Name = "DGV_Dates"
+        Me.DGV_Dates.RowHeadersVisible = False
+        Me.DGV_Dates.Size = New System.Drawing.Size(99, 409)
+        Me.DGV_Dates.TabIndex = 7
+        '
+        'Col_idEntretien
+        '
+        Me.Col_idEntretien.HeaderText = "idEntretien"
+        Me.Col_idEntretien.Name = "Col_idEntretien"
+        Me.Col_idEntretien.ReadOnly = True
+        Me.Col_idEntretien.Visible = False
+        '
+        'Col_dateEntretien
+        '
+        Me.Col_dateEntretien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_dateEntretien.HeaderText = "Date Entretien"
+        Me.Col_dateEntretien.Name = "Col_dateEntretien"
+        Me.Col_dateEntretien.ReadOnly = True
         '
         'FrmMesEntretiens
         '

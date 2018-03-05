@@ -2,6 +2,8 @@
 
 Public Class FrmMonEquipe
 
+    Property _authUser As ClsUtilisateur = Nothing
+
     Property _monCollaborateurSQL As New ClsSQLCollaborateur
     Property _lesCollaborateurs As New Dictionary(Of Integer, ClsCollaborateur)
     Property _lesEntretiensCollab As New Dictionary(Of Integer, ClsEntretien)
@@ -15,9 +17,23 @@ Public Class FrmMonEquipe
 
     Private Sub FrmMonEquipe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        _lesCollaborateurs = _monCollaborateurSQL._lesCollaborateurs
+        If _authUser Is Nothing OrElse _authUser._StatutManager = 0 Then
+            Close()
+            Me.Cursor = Cursors.Default
+        Else
+
+            If _authUser._StatutManager = 1 Then
+                _lesCollaborateurs = _monCollaborateurSQL.readLesCollaborateursByManager(_authUser._idCollaborateur)
+                Btn_AjoutCollab.Hide()
+            ElseIf _authUser._StatutManager = 2 Then
+                _lesCollaborateurs = _monCollaborateurSQL.readLesCollaborateurs
+            End If
+
+        End If
+
+
         FillDGV_Noms()
-        Me.Cursor = Cursors.Default
+
     End Sub
 
     Private Sub FillDGV_Noms()
@@ -192,6 +208,7 @@ Public Class FrmMonEquipe
 
     Private Sub BtnModif_Collaborateur_Click(sender As Object, e As EventArgs)
         Dim _f As New FrmAjoutCollaborateur
+        _f._authUser = _authUser
         _f._askUpdate = True
         _f._idCollabUpdate = _collabIdClicked
         _f.Label_Titre.Text = "Modifier un collaborateur"
@@ -201,6 +218,7 @@ Public Class FrmMonEquipe
 
     Private Sub BtnModif_Entretien_Click(sender As Object, e As EventArgs)
         Dim _f As New FrmAjoutEntretien
+        _f._authUser = _authUser
         _f._askUpdate = True
         _f._idEntUpdate = _entIdClicked
         _f.Label_Titre.Text = "Modifier un entretien"
@@ -210,6 +228,7 @@ Public Class FrmMonEquipe
 
     Private Sub BtnModif_Action_Click(sender As Object, e As EventArgs)
         Dim _f As New FrmAjoutAction
+        _f._authUser = _authUser
         _f._askUpdate = True
         _f._idActionUpdate = _actionIdClicked
         _f.ShowDialog()
@@ -220,6 +239,7 @@ Public Class FrmMonEquipe
     Private Sub Btn_Entretiens_Click(sender As Object, e As EventArgs) Handles Btn_Entretiens.Click
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmMesEntretiens
+        _f._authUser = _authUser
         _f.Show()
         Close()
     End Sub
@@ -227,24 +247,28 @@ Public Class FrmMonEquipe
     Private Sub Btn_AjoutCollab_Click(sender As Object, e As EventArgs) Handles Btn_AjoutCollab.Click
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmAjoutCollaborateur
+        _f._authUser = _authUser
         _f.ShowDialog()
     End Sub
 
     Private Sub Btn_AjoutEntretien_Click(sender As Object, e As EventArgs) Handles Btn_AjoutEntretien.Click
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmAjoutEntretien
+        _f._authUser = _authUser
         _f.ShowDialog()
     End Sub
 
     Private Sub Btn_AjoutAction_Click(sender As Object, e As EventArgs) Handles Btn_AjoutAction.Click
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmAjoutAction
+        _f._authUser = _authUser
         _f.ShowDialog()
     End Sub
 
     Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs) Handles Btn_Accueil.Click
         Me.Cursor = Cursors.WaitCursor
         Dim _f As New FrmMenu
+        _f._authUser = _authUser
         _f.Show()
         Close()
     End Sub
