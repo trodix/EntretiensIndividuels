@@ -36,7 +36,6 @@
         Next
 
 
-
         If _lesEntretiensCollab IsNot Nothing Then
             For Each unEntretienCollab As ClsEntretien In _lesEntretiensCollab.Values
                 DGV_Dates.Rows.Add(unEntretienCollab._idEntretien, idCollab, unEntretienCollab._DateEntretien.ToShortDateString)

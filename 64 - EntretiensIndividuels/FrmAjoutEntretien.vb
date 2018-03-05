@@ -64,14 +64,16 @@ Public Class FrmAjoutEntretien
     End Sub
 
     Private Sub Btn_Fichier_Click(sender As Object, e As EventArgs) Handles Btn_Fichier.Click
-        'OpenFileDialog1.Filter = "All files (*.*) |*.*"
-        'If OpenFileDialog1.ShowDialog = DialogResult.OK Then
-        '    _fileName = OpenFileDialog1.FileName
-        '    _fileExtension = Path.GetExtension(OpenFileDialog1.FileName)
-        '    Dim fs As New FileStream(OpenFileDialog1.FileName, FileMode.Open, FileAccess.Read)
-        '    Dim br As New BinaryReader(fs)
-        '    _fichier = br.ReadBytes(br.BaseStream.Length)
-        'End If
+        OpenFileDialog1.Filter = "All files (*.*) |*.*"
+        OpenFileDialog1.Multiselect = False
+
+        If OpenFileDialog1.ShowDialog = DialogResult.OK Then
+            _fileName = Path.GetFileNameWithoutExtension(OpenFileDialog1.FileName)
+            _fileExtension = Path.GetExtension(OpenFileDialog1.FileName)
+            Dim fs As New FileStream(OpenFileDialog1.FileName, FileMode.Open, FileAccess.Read)
+            Dim br As New BinaryReader(fs)
+            _fichier = br.ReadBytes(br.BaseStream.Length)
+        End If
     End Sub
 
     Private Sub BtnValider_Click(sender As Object, e As EventArgs) Handles BtnValider.Click
@@ -88,6 +90,7 @@ Public Class FrmAjoutEntretien
             Else
                 Dim currentEntretien As New ClsEntretien(currentDateEntretien, currentDateEntSuivi, _selectedCollabId, Nothing, _fichier, _fileName, _fileExtension)
                 _maClsSQLEntretien.InsertEntretien(currentEntretien)
+                Close()
             End If
         Else
             MessageBox.Show("Entretien non ajouté, sélétionnez un collaborateur", "Ajout d'entretien", MessageBoxButtons.OK, MessageBoxIcon.Warning)

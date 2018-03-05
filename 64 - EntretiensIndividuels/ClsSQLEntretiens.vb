@@ -3,7 +3,8 @@ Imports EntretiensIndividuels
 
 Public Class ClsSQLEntretiens
 
-    Property sqlConnexion As New SqlConnection("Data Source=localhost; database=db_file; integrated security = true")
+    'Property _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+    Property sqlConnexion As New SqlConnection("Server=SRV-BDD\SQLEXPRESS2008;Database=dbEntretiensIndividuels;Uid=sa;Pwd=+BTS08;")
     Property requete As SqlCommand
     Property adaptater As SqlDataAdapter
     Property Dt As New DataTable
@@ -66,12 +67,24 @@ Public Class ClsSQLEntretiens
     End Function
 
     Public Function InsertEntretien(ent As ClsEntretien)
+
+        Try
+            sqlConnexion.Open()
+        Catch ex As Exception
+            MsgBox("Impossible de se connecter à la base de données" & vbNewLine & ex.Message, MsgBoxStyle.Critical)
+        End Try
+
         Dim req As String = "insert into [dbo].[EIEntretiens] (DateEntretien, DateEntretienSuivi, idCollaborateur, DocumentScanne, DocumentNom, DocumentExtension) values(
                 '" & replaceSqlSpecialChars(ent._DateEntretien) & "', '" & replaceSqlSpecialChars(ent._DateEntretienSuivi) & "', " & replaceSqlSpecialChars(ent._idCollaborateur) &
-                ", NULL, NULL, NULL)"
-        Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
-            _odbcConnection.OdbcNotSelectQuery(req)
-        End Using
+                ", @Fichier, @Nom, @Extension)"
+
+        requete = New SqlCommand(req, sqlConnexion)
+
+        requete.Parameters.Add(New SqlParameter("@Fichier", SqlDbType.VarBinary)).Value = ent._Document
+        requete.Parameters.Add(New SqlParameter("@Nom", SqlDbType.Text)).Value = ent._nomDocument
+        requete.Parameters.Add(New SqlParameter("@Extension", SqlDbType.NChar)).Value = ent._extensionDocument
+        requete.ExecuteNonQuery()
+        sqlConnexion.Close()
 
         '"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
         'requete = New SqlCommand("insert into tbl_files (Nom, Fichier, Extension) values (@Nom, @Fichier, @Extension)", sqlConnexion)
