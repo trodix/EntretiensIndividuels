@@ -449,13 +449,18 @@ Partial Class FrmMonEquipe
         '
         'Btn_VoirFichier
         '
+        Me.Btn_VoirFichier.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Btn_VoirFichier.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_VoirFichier.FlatAppearance.BorderSize = 0
+        Me.Btn_VoirFichier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_VoirFichier.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_VoirFichier.ForeColor = System.Drawing.Color.White
         Me.Btn_VoirFichier.Location = New System.Drawing.Point(226, 83)
         Me.Btn_VoirFichier.Name = "Btn_VoirFichier"
         Me.Btn_VoirFichier.Size = New System.Drawing.Size(115, 44)
         Me.Btn_VoirFichier.TabIndex = 9
         Me.Btn_VoirFichier.Text = "Ouvrir le fichier"
-        Me.Btn_VoirFichier.UseVisualStyleBackColor = True
+        Me.Btn_VoirFichier.UseVisualStyleBackColor = False
         Me.Btn_VoirFichier.Visible = False
         '
         'FrmMonEquipe
