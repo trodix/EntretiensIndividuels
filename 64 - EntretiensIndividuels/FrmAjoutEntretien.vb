@@ -7,7 +7,7 @@ Public Class FrmAjoutEntretien
     Property _selectedCollabId As Integer = -1
     Property _fileName As String
     Property _fileExtension As String
-    Property _fichier As Byte()
+    Property _fichier As Byte() = Nothing
 
     Property _askUpdate As Boolean = False
     Property _idEntUpdate As Integer
@@ -52,6 +52,11 @@ Public Class FrmAjoutEntretien
             Cmb_Collaborateur.SelectedItem = leEntUpdateCollab._idCollaborateur & " - " & leEntUpdateCollab._libelleCollaborateur
             Dtp_DateEntretien.Value = leEntUpdate._DateEntretien
             Dtp_DateEntretienSuivi.Value = leEntUpdate._DateEntretienSuivi
+
+            _fichier = leEntUpdate._Document
+            _fileName = leEntUpdate._nomDocument
+            _fileExtension = leEntUpdate._extensionDocument
+
         End If
 
         Me.Cursor = Cursors.Default

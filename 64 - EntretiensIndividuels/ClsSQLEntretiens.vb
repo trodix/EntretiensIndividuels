@@ -7,7 +7,7 @@ Public Class ClsSQLEntretiens
     Property sqlConnexion As New SqlConnection("Server=SRV-BDD\SQLEXPRESS2008;Database=dbEntretiensIndividuels;Uid=sa;Pwd=+BTS08;")
     Property requete As SqlCommand
     Property adaptater As SqlDataAdapter
-    Property Dt As New DataTable
+    'Property Dt As New DataTable
     Property _lesEntretiens As New Dictionary(Of Integer, ClsEntretien)
 
     Public Sub New()
@@ -17,17 +17,29 @@ Public Class ClsSQLEntretiens
 
     Public Function readLesEntretiens()
         Dim lesEntretiens As New Dictionary(Of Integer, ClsEntretien)
+        Dim Fichier As Byte()
+        Dim FichierNom As String
+        Dim FichierExt As String
         Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
             "select * from [dbo].[EIEntretiens] order by DateEntretien",
             ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             With s_FbMyReader
                 While .OdbcReader.Read
                     If Not IsDBNull(.OdbcReader("idEntretien")) And Not IsDBNull(.OdbcReader("DateEntretien")) And Not IsDBNull(.OdbcReader("DateEntretienSuivi")) And Not IsDBNull(.OdbcReader("idCollaborateur")) Then
+                        If IsDBNull(.OdbcReader("DocumentScanne")) Then
+                            Fichier = Nothing
+                            FichierNom = Nothing
+                            FichierExt = Nothing
+                        Else
+                            Fichier = .OdbcReader("DocumentScanne")
+                            FichierNom = .OdbcReader("DocumentNom")
+                            FichierExt = .OdbcReader("DocumentExtension")
+                        End If
                         Dim DateEntretien As New Date(CDate(.OdbcReader("DateEntretien")).Year, CDate(.OdbcReader("DateEntretien")).Month, CDate(.OdbcReader("DateEntretien")).Day)
-                        Dim DateEntretienSuivi As New Date(CDate(.OdbcReader("DateEntretienSuivi")).Year, CDate(.OdbcReader("DateEntretienSuivi")).Month, CDate(.OdbcReader("DateEntretienSuivi")).Day)
-                        Dim unEntretien As New ClsEntretien(DateEntretien, DateEntretienSuivi, .OdbcReader("idCollaborateur"), .OdbcReader("idEntretien"),)
+                            Dim DateEntretienSuivi As New Date(CDate(.OdbcReader("DateEntretienSuivi")).Year, CDate(.OdbcReader("DateEntretienSuivi")).Month, CDate(.OdbcReader("DateEntretienSuivi")).Day)
+                        Dim unEntretien As New ClsEntretien(DateEntretien, DateEntretienSuivi, .OdbcReader("idCollaborateur"), .OdbcReader("idEntretien"), Fichier, FichierNom, FichierExt)
                         lesEntretiens.Add(.OdbcReader("idEntretien"), unEntretien)
-                    End If
+                        End If
                 End While
             End With
         End Using
@@ -44,7 +56,7 @@ Public Class ClsSQLEntretiens
                     If Not IsDBNull(.OdbcReader("idEntretien")) And Not IsDBNull(.OdbcReader("DateEntretien")) And Not IsDBNull(.OdbcReader("DateEntretienSuivi")) And Not IsDBNull(.OdbcReader("idCollaborateur")) Then
                         Dim DateEntretien As New Date(CDate(.OdbcReader("DateEntretien")).Year, CDate(.OdbcReader("DateEntretien")).Month, CDate(.OdbcReader("DateEntretien")).Day)
                         Dim DateEntretienSuivi As New Date(CDate(.OdbcReader("DateEntretienSuivi")).Year, CDate(.OdbcReader("DateEntretienSuivi")).Month, CDate(.OdbcReader("DateEntretienSuivi")).Day)
-                        unEntretien = New ClsEntretien(DateEntretien, DateEntretienSuivi, .OdbcReader("idCollaborateur"), .OdbcReader("idEntretien"),)
+                        unEntretien = New ClsEntretien(DateEntretien, DateEntretienSuivi, .OdbcReader("idCollaborateur"), .OdbcReader("idEntretien"), .OdbcReader("DocumentScanne"), .OdbcReader("DocumentNom"), .OdbcReader("DocumentExtension"))
                     End If
                 End While
             End With
@@ -80,40 +92,32 @@ Public Class ClsSQLEntretiens
 
         requete = New SqlCommand(req, sqlConnexion)
 
-        requete.Parameters.Add(New SqlParameter("@Fichier", SqlDbType.VarBinary)).Value = ent._Document
-        requete.Parameters.Add(New SqlParameter("@Nom", SqlDbType.Text)).Value = ent._nomDocument
-        requete.Parameters.Add(New SqlParameter("@Extension", SqlDbType.NChar)).Value = ent._extensionDocument
+        requete.Parameters.Add(New SqlParameter("@Fichier", SqlDbType.VarBinary)).Value = If(ent._Document Is Nothing, DBNull.Value, ent._Document)
+        requete.Parameters.Add(New SqlParameter("@Nom", SqlDbType.Text)).Value = If(ent._nomDocument Is Nothing, DBNull.Value, ent._nomDocument)
+        requete.Parameters.Add(New SqlParameter("@Extension", SqlDbType.NChar)).Value = If(ent._extensionDocument Is Nothing, DBNull.Value, ent._extensionDocument)
         requete.ExecuteNonQuery()
         sqlConnexion.Close()
-
-        '"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-        'requete = New SqlCommand("insert into tbl_files (Nom, Fichier, Extension) values (@Nom, @Fichier, @Extension)", sqlConnexion)
-        'Try
-        '    sqlConnexion.Open()
-        'Catch ex As Exception
-        '    MsgBox("Impossible de se connecter à la base de données" & vbNewLine & ex.Message, MsgBoxStyle.Critical)
-        'End Try
-
-        'requete.Parameters.Add(New SqlParameter("@Nom", SqlDbType.NVarChar, 50)).Value = ent._nomDocument
-        'requete.Parameters.Add(New SqlParameter("@Extension", SqlDbType.NChar, 10)).Value = ent._extentionDocument
-
-        'Dim fs As New FileStream(OpenFileDialog2.FileName, FileMode.Open, FileAccess.Read)
-        'Dim br As New BinaryReader(fs)
-        'Dim fichier() As Byte = br.ReadBytes(br.BaseStream.Length)
-        'requete.Parameters.Add(New SqlParameter("@Fichier", SqlDbType.VarBinary)).Value = fichier
-        'requete.ExecuteNonQuery()
-        'sqlConnexion.Close()
-        'MsgBox("Fichier ajouté à la base de données", MsgBoxStyle.Information, "Fichier ajouté !")
-
-        '""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     End Function
 
     Public Function updateEntretien(ent As ClsEntretien)
-        Dim req As String = "update [dbo].[EIEntretiens] set DateEntretien = '" & ent._DateEntretien & "', " & "DateEntretienSuivi = '" & ent._DateEntretienSuivi & "', DocumentScanne = NULL, DocumentNom = NULL, DocumentExtension = NULL where idEntretien = " & ent._idEntretien
-        Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
-            _odbcConnection.OdbcNotSelectQuery(req)
-        End Using
+
+        Try
+            sqlConnexion.Open()
+        Catch ex As Exception
+            MsgBox("Impossible de se connecter à la base de données" & vbNewLine & ex.Message, MsgBoxStyle.Critical)
+        End Try
+
+        Dim req As String = "update [dbo].[EIEntretiens] set DateEntretien = '" & ent._DateEntretien & "', " & "DateEntretienSuivi = '" & ent._DateEntretienSuivi & "', DocumentScanne = @Fichier, DocumentNom = @Nom, DocumentExtension = @Extension where idEntretien = " & ent._idEntretien
+
+        requete = New SqlCommand(req, sqlConnexion)
+
+        requete.Parameters.Add(New SqlParameter("@Fichier", SqlDbType.VarBinary)).Value = If(ent._Document Is Nothing, DBNull.Value, ent._Document)
+        requete.Parameters.Add(New SqlParameter("@Nom", SqlDbType.Text)).Value = If(ent._nomDocument Is Nothing, DBNull.Value, ent._nomDocument)
+        requete.Parameters.Add(New SqlParameter("@Extension", SqlDbType.NChar)).Value = If(ent._extensionDocument Is Nothing, DBNull.Value, ent._extensionDocument)
+        requete.ExecuteNonQuery()
+        sqlConnexion.Close()
+
     End Function
 
 
