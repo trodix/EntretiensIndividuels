@@ -17,21 +17,41 @@
             Cmb_RespAction.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
         Next
 
-        Dtp_DateSolde.Value = CDate("01/01/1900")
+        Cmb_StatutPDCA.SelectedIndex = 0
+
+        Dtp_DateSolde.MinDate = CDate("01/01/1900")
+        Dtp_Delai.MinDate = CDate("01/01/1900")
+
+        Dtp_Delai.Value = Dtp_Delai.MinDate
+        Dtp_DateSolde.Value = Dtp_DateSolde.MinDate
+
 
         If _askUpdate Then
+
+            Label_Titre.Text = "Modifier une action"
+            BtnValider.Text = "Modifier"
+
             Dim laActionUpdate As ClsAction = _maClsSQLAction.readUneAction(_idActionUpdate)
             'DGV_Action.Item(1, 0).Value = laActionUpdate._Descriptif
             'DGV_Action.Item(2, 0).Value = laActionUpdate._RespAction
             'DGV_Action.Item(3, 0).Value = laActionUpdate._Delai
             'DGV_Action.Item(4, 0).Value = laActionUpdate._SuiviCom
             'DGV_Action.Item(5, 0).Value = laActionUpdate._StatutPDCA
+
+            Dim laActionUpdateCollab As ClsCollaborateur = _maClsSQLCollab.readUnCollaborateurById(laActionUpdate._idCollaborateur)
+            Dim laActionUpdateEnt As ClsEntretien = _maClsSQLEnt.readUnEntretienById(laActionUpdate._idEntretien)
+            Dim laActionUpdateResp As ClsCollaborateur = _maClsSQLCollab.readUnCollaborateurById(laActionUpdate._RespAction)
+
+            Cmb_Collaborateur.SelectedItem = laActionUpdateCollab._idCollaborateur & " - " & laActionUpdateCollab._libelleCollaborateur
+            Cmb_Entretien.SelectedItem = laActionUpdateEnt._idEntretien & " - " & laActionUpdateEnt._DateEntretien
+            Cmb_RespAction.SelectedItem = laActionUpdateResp._idCollaborateur & " - " & laActionUpdateResp._libelleCollaborateur
+
             Tbx_Objectif.Text = laActionUpdate._Objectif
             Tbx_Action.Text = laActionUpdate._ActionField
-            Dtp_Delai.Value = laActionUpdate._Delai
+            If laActionUpdate._Delai.Date = CDate("01/01/0001") Then Dtp_Delai.Value = Dtp_Delai.MinDate Else Dtp_Delai.Value = laActionUpdate._Delai
             Tbx_SuiviCom.Text = laActionUpdate._SuiviCom
-            Cmb_StatutPDCA.SelectedItem = laActionUpdate._StatutPDCA
-            Dtp_DateSolde.Value = laActionUpdate._DateSolde
+            Cmb_StatutPDCA.SelectedItem = laActionUpdate._StatutPDCA.ToString
+            If laActionUpdate._DateSolde.Date = CDate("01/01/0001") Then Dtp_DateSolde.Value = Dtp_DateSolde.MinDate Else Dtp_DateSolde.Value = laActionUpdate._DateSolde
         End If
 
         Me.Cursor = Cursors.Default
@@ -49,11 +69,14 @@
 
         Dim currentObjectif As String = Tbx_Objectif.Text
         Dim currentActionField As String = Tbx_Action.Text
-        Dim currentRespAction As String = Cmb_RespAction.SelectedItem.split("-")(1)
+        Dim currentRespAction As Integer = Cmb_RespAction.SelectedItem.split(" - ")(0)
         Dim currentDelai As Date = Dtp_Delai.Value
         Dim currentSuiviCom As String = Tbx_SuiviCom.Text
         Dim currentStatutPDCA As Char = CChar(Cmb_StatutPDCA.SelectedItem)
         Dim currentDateSolde As Date = Dtp_DateSolde.Value
+
+        If currentDelai.Date = Dtp_Delai.MinDate Then currentDelai = Nothing
+        If currentDateSolde.Date = Dtp_Delai.MinDate Then currentDateSolde = Nothing
 
         If _selectedCollabId <> -1 And _selectedEntId <> -1 Then
             If _askUpdate Then
@@ -134,6 +157,5 @@
         _f.Show()
         Close()
     End Sub
-
 
 End Class

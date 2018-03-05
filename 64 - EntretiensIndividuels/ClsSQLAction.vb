@@ -1,7 +1,7 @@
 ﻿Public Class ClsSQLAction
 
-    'Property _lesActions As New Dictionary(Of Integer, ClsAction)
-    Property _lesActions As New List(Of ClsAction)
+    Property _lesActions As New Dictionary(Of Integer, ClsAction)
+    'Property _lesActions As New List(Of ClsAction)
 
     Public Sub New()
 
@@ -10,8 +10,8 @@
     End Sub
 
     Private Function readLesActions()
-        'Dim lesActions As New Dictionary(Of Integer, ClsAction)
-        Dim lesActions As New List(Of ClsAction)
+        Dim lesActions As New Dictionary(Of Integer, ClsAction)
+        'Dim lesActions As New List(Of ClsAction)
         Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
             "select * from [dbo].[EIActions] order by DateCreation",
             ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
@@ -41,8 +41,8 @@
                     If Not IsDBNull(.OdbcReader("DateSolde")) Then ds = .OdbcReader("DateSolde")
 
                     Dim uneAction As New ClsAction(obj, actField, resrAct, delai, suiviCom, statutPDCA, idCollab, idEnt, ds, dc, idActions)
-                    'lesActions.Add(idEnt, uneAction)
-                    lesActions.Add(uneAction)
+                    lesActions.Add(idActions, uneAction)
+                    'lesActions.Add(uneAction)
                 End While
             End With
         End Using
@@ -57,7 +57,7 @@
 
         Dim lesActionsEnt As New List(Of ClsAction)
 
-        For Each action As ClsAction In _lesActions
+        For Each action As ClsAction In _lesActions.Values
             If action._idCollaborateur = idCollaborateur And action._idEntretien = idEntretien Then
                 lesActionsEnt.Add(action)
             End If
@@ -78,7 +78,7 @@
     End Function
 
     Public Function UpdateAction(act As ClsAction)
-        Dim req As String = "update [dbo].[EIActions] set Objectif = '" & replaceSqlSpecialChars(act._Objectif) & "', ActionField = '" & replaceSqlSpecialChars(act._ActionField) & "', RespAction = '" & replaceSqlSpecialChars(act._RespAction) & "', Delai = '" & replaceSqlSpecialChars(act._Delai) & "', SuiviCom = '" &
+        Dim req As String = "update [dbo].[EIActions] set Objectif = '" & replaceSqlSpecialChars(act._Objectif) & "', ActionField = '" & replaceSqlSpecialChars(act._ActionField) & "', RespAction = " & act._RespAction & ", Delai = '" & replaceSqlSpecialChars(act._Delai) & "', SuiviCom = '" &
                 replaceSqlSpecialChars(act._SuiviCom) & "', StatutPDCA = '" & replaceSqlSpecialChars(act._StatutPDCA) & "' where idActions = " & act._idAction
         Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             _odbcConnection.OdbcNotSelectQuery(req)
