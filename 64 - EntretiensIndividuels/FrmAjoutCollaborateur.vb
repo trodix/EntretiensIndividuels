@@ -30,6 +30,11 @@
             Cmb_Statut.Items.Add(leStatutId & " - " & leStatutLib)
         Next
 
+        Cmb_Actif.Items.Add(True.ToString)
+        Cmb_Actif.Items.Add(False.ToString)
+
+        Cmb_Actif.SelectedItem = True.ToString
+
         If _askUpdate Then
             Dim sqlManager As ClsSQLCollaborateur = _maClsSQLCollaborateur
             Dim sqlService As New ClsSQLService
@@ -42,63 +47,21 @@
 
             Tbx_LibColl.Text = leCollabUpdate._libelleCollaborateur
             ' remplir les cmbx
-            Cmb_Manager.SelectedItem = leCollabUpdateManager._idCollaborateur & " - " & leCollabUpdateManager._libelleCollaborateur
+            If Not leCollabUpdateManager Is Nothing Then
+                Cmb_Manager.SelectedItem = leCollabUpdateManager._idCollaborateur & " - " & leCollabUpdateManager._libelleCollaborateur
+            Else
+                Cmb_Manager.Items.Add("0 - non défini")
+                Cmb_Manager.SelectedItem = "0 - non défini"
+            End If
             Cmb_Service.SelectedItem = leCollabUpdateService._idService & " - " & leCollabUpdateService._LibService
             Cmb_Statut.SelectedItem = leCollabUpdateStatut._idStatut & " - " & leCollabUpdateStatut._LibelleStatut
-            'Cmb_Manager.SelectedItem = leCollabUpdate.
+            Cmb_Actif.SelectedItem = leCollabUpdate._Actif.ToString
+
         End If
 
-        Me.Cursor = Cursors.Default
+            Me.Cursor = Cursors.Default
 
     End Sub
-
-
-    'Private Sub DGV_Collab_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DGV_Collab.CellMouseClick
-
-    '    If e.RowIndex <> -1 Then
-    '        If e.ColumnIndex = DGV_Collab.Columns("Col_Valider").Index Then
-    '            Dim words() As String
-
-    '            Dim currentRowIndex = e.RowIndex
-    '            Dim currentLibelleCollab As String = DGV_Collab.Item(0, currentRowIndex).Value
-
-    '            Dim currentManager As Integer = 0
-    '            Dim currentService As Integer = 0
-    '            Dim currentStatut As Integer = 0
-
-
-    '            Try
-    '                'Manager
-    '                words = DGV_Collab.Item(1, currentRowIndex).Value.Split("-")
-    '                currentManager = words(0)
-
-    '            Catch ex As Exception
-    '                MsgBox(ex.Message, MsgBoxStyle.Exclamation)
-    '            End Try
-
-    '            'Service
-    '            words = DGV_Collab.Item(2, currentRowIndex).Value.Split("-")
-    '            currentService = words(0)
-
-    '            'Statut
-    '            words = DGV_Collab.Item(3, currentRowIndex).Value.Split("-")
-    '            'MsgBox(words)
-    '            currentStatut = words(0)
-
-    '            Dim currentCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, Nothing, currentStatut)
-
-    '            Try
-    '                _maClsSQLCollaborateur.InsertCollaborateur(currentCollab)
-    '                chargerManager()
-    '                DGV_Collab.RefreshEdit()
-    '            Catch ex As Exception
-    '                MsgBox(ex.Message, MsgBoxStyle.Critical)
-    '            End Try
-
-    '        End If
-    '    End If
-
-    'End Sub
 
     Private Sub chargerManager()
 
@@ -140,14 +103,16 @@
         words = Cmb_Statut.SelectedItem.Split("-")
         currentStatut = words(0)
 
+        Dim currentActif As Boolean = CBool(Cmb_Actif.SelectedItem)
+
 
 
         Try
             If Not _askUpdate Then
-                Dim leCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, Nothing, currentStatut)
+                Dim leCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, currentActif, Nothing, currentStatut)
                 _maClsSQLCollaborateur.InsertCollaborateur(leCollab)
             Else
-                Dim leCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, _idCollabUpdate, currentStatut)
+                Dim leCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, currentActif, _idCollabUpdate, currentStatut)
                 _maClsSQLCollaborateur.UpdateCollaborateur(leCollab)
                 Close()
             End If

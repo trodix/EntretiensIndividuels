@@ -13,7 +13,7 @@
             With s_FbMyReader
                 While .OdbcReader.Read
                     currentUser = New ClsUtilisateur(
-                        .OdbcReader("idCollaborateur"), .OdbcReader("LibCollaborateur"), .OdbcReader("MotDePasse"), .OdbcReader("idManager"), .OdbcReader("idService"), .OdbcReader("StatutManager")
+                        .OdbcReader("idCollaborateur"), .OdbcReader("LibCollaborateur"), .OdbcReader("MotDePasse"), .OdbcReader("idManager"), .OdbcReader("idService"), .OdbcReader("StatutManager"), .OdbcReader("Actif")
                         )
                 End While
             End With

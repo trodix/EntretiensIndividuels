@@ -82,6 +82,9 @@ Public Class FrmMonEquipe
     End Sub
 
     Private Sub DGV_Noms_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DGV_Noms.CellMouseClick
+
+        Btn_VoirFichier.Visible = False
+
         DGV_Dates.Rows.Clear()
         DGV_Actions.Rows.Clear()
         Dim ligneCourante As Integer = e.RowIndex
@@ -150,6 +153,7 @@ Public Class FrmMonEquipe
     Private Sub DGV_Actions_CellMouseClick(sender As DataGridView, e As DataGridViewCellMouseEventArgs) Handles DGV_Actions.CellMouseClick
 
 
+        Btn_VoirFichier.Visible = False
 
         Dim ligneCourante As Integer = e.RowIndex
         Dim idEntretien = sender.Rows(ligneCourante).Cells("Col_idEnt").Value

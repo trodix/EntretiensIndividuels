@@ -89,7 +89,7 @@ Public Class FrmMesEntretiens
 
     Private Sub DGV_Actions_CellMouseClick(sender As DataGridView, e As DataGridViewCellMouseEventArgs) Handles DGV_Actions.CellMouseClick
 
-
+        Btn_VoirFichier.Visible = False
 
         Dim ligneCourante As Integer = e.RowIndex
         Dim idEntretien = sender.Rows(ligneCourante).Cells("Col_idEnt").Value

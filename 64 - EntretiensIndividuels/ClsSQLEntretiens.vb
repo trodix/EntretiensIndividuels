@@ -48,6 +48,9 @@ Public Class ClsSQLEntretiens
 
     Public Function readUnEntretienById(idEntUpdate As Integer) As ClsEntretien
         Dim unEntretien As ClsEntretien = Nothing
+        Dim Fichier As Byte()
+        Dim FichierNom As String
+        Dim FichierExt As String
         Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
             "select * from [dbo].[EIEntretiens] where idEntretien = " & idEntUpdate & " order by DateEntretien",
             ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
@@ -56,7 +59,16 @@ Public Class ClsSQLEntretiens
                     If Not IsDBNull(.OdbcReader("idEntretien")) And Not IsDBNull(.OdbcReader("DateEntretien")) And Not IsDBNull(.OdbcReader("DateEntretienSuivi")) And Not IsDBNull(.OdbcReader("idCollaborateur")) Then
                         Dim DateEntretien As New Date(CDate(.OdbcReader("DateEntretien")).Year, CDate(.OdbcReader("DateEntretien")).Month, CDate(.OdbcReader("DateEntretien")).Day)
                         Dim DateEntretienSuivi As New Date(CDate(.OdbcReader("DateEntretienSuivi")).Year, CDate(.OdbcReader("DateEntretienSuivi")).Month, CDate(.OdbcReader("DateEntretienSuivi")).Day)
-                        unEntretien = New ClsEntretien(DateEntretien, DateEntretienSuivi, .OdbcReader("idCollaborateur"), .OdbcReader("idEntretien"), .OdbcReader("DocumentScanne"), .OdbcReader("DocumentNom"), .OdbcReader("DocumentExtension"))
+                        If IsDBNull(.OdbcReader("DocumentScanne")) Then
+                            Fichier = Nothing
+                            FichierNom = Nothing
+                            FichierExt = Nothing
+                        Else
+                            Fichier = .OdbcReader("DocumentScanne")
+                            FichierNom = .OdbcReader("DocumentNom")
+                            FichierExt = .OdbcReader("DocumentExtension")
+                        End If
+                        unEntretien = New ClsEntretien(DateEntretien, DateEntretienSuivi, .OdbcReader("idCollaborateur"), .OdbcReader("idEntretien"), Fichier, FichierNom, FichierExt)
                     End If
                 End While
             End With

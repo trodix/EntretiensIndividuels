@@ -177,6 +177,7 @@ Partial Class FrmAjoutAction
         '
         'Tbx_SuiviCom
         '
+        Me.Tbx_SuiviCom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Tbx_SuiviCom.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Tbx_SuiviCom.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Tbx_SuiviCom.Location = New System.Drawing.Point(737, 183)
@@ -188,6 +189,7 @@ Partial Class FrmAjoutAction
         '
         'Tbx_Objectif
         '
+        Me.Tbx_Objectif.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Tbx_Objectif.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Tbx_Objectif.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Tbx_Objectif.Location = New System.Drawing.Point(223, 183)
@@ -199,6 +201,7 @@ Partial Class FrmAjoutAction
         '
         'Tbx_Action
         '
+        Me.Tbx_Action.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Tbx_Action.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Tbx_Action.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Tbx_Action.Location = New System.Drawing.Point(223, 273)

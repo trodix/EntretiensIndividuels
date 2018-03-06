@@ -30,6 +30,16 @@
                 Cmb_Collaborateur.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
             Next
 
+        ElseIf _authUser._StatutManager = 0 Then
+
+            Dim collab As ClsCollaborateur = _maClsSQLCollab.readUnCollaborateurById(_authUser._idCollaborateur)
+            Cmb_Collaborateur.Items.Add(collab._idCollaborateur & " - " & collab._libelleCollaborateur)
+            Tbx_Action.Enabled = False
+            Tbx_Objectif.Enabled = False
+            Dtp_Delai.Enabled = False
+            Dtp_DateSolde.Enabled = False
+            Cmb_RespAction.Enabled = False
+
         End If
 
 

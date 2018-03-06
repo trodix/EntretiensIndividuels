@@ -179,6 +179,7 @@ Partial Class FrmConnexion
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmConnexion"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmConnexion"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
