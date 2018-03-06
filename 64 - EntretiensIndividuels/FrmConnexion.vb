@@ -22,6 +22,8 @@
                 _f._authUser = _authUser
                 _f.Show()
                 Close()
+            ElseIf CBool(_authUser._Actif) = False Then
+                Label_Error.Text = "Ce compte est désactivé"
             Else
                 Dim fMenu As New FrmMenu
                 fMenu._authUser = _authUser

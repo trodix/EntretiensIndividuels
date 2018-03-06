@@ -15,6 +15,7 @@
         _idManager = idManager
         _idService = idService
         _StatutManager = StatutManager
+        _Actif = Actif
     End Sub
 
 End Class

@@ -4,6 +4,8 @@ Public Class FrmMesEntretiens
 
     Property _authUser As ClsUtilisateur = Nothing
 
+    Property _monCollaborateurSQL As New ClsSQLCollaborateur
+
     Property _lesCollaborateurs As New Dictionary(Of Integer, ClsCollaborateur)
     Property _lesEntretiensCollab As New Dictionary(Of Integer, ClsEntretien)
     Property _lesActionsEntCollab As New Dictionary(Of Integer, ClsAction)
@@ -18,6 +20,8 @@ Public Class FrmMesEntretiens
             Close()
         ElseIf _authUser._StatutManager = 0 Then
             Btn_Equipe.Hide()
+            _lesCollaborateurs = _monCollaborateurSQL.readLesCollaborateurs
+            FillDGV_Entretiens()
         End If
 
     End Sub
@@ -35,7 +39,17 @@ Public Class FrmMesEntretiens
 
         If _lesEntretiensCollab IsNot Nothing Then
             For Each unEntretienCollab As ClsEntretien In _lesEntretiensCollab.Values
-                DGV_Dates.Rows.Add(unEntretienCollab._idEntretien, _authUser._idCollaborateur, unEntretienCollab._DateEntretien.ToShortDateString)
+
+                Dim dateEntretienSuivi As Date = unEntretienCollab._DateEntretien
+                Dim dateEntretienSuiviText As String
+
+                If dateEntretienSuivi.Date < Date.Now Then
+                    dateEntretienSuiviText = "Non défini"
+                Else
+                    dateEntretienSuiviText = dateEntretienSuivi.ToShortDateString
+                End If
+
+                DGV_Dates.Rows.Add(unEntretienCollab._idEntretien, _authUser._idCollaborateur, dateEntretienSuiviText)
             Next
         End If
 

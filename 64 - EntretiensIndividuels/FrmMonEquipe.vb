@@ -55,7 +55,14 @@ Public Class FrmMonEquipe
 
         If _lesEntretiensCollab IsNot Nothing Then
             For Each unEntretienCollab As ClsEntretien In _lesEntretiensCollab.Values
-                DGV_Dates.Rows.Add(unEntretienCollab._idEntretien, idCollab, unEntretienCollab._DateEntretien.ToShortDateString)
+                Dim dateEntSuivi As Date = unEntretienCollab._DateEntretienSuivi
+                Dim dateEntSuiviText As String
+                If dateEntSuivi.Date < Date.Now Then
+                    dateEntSuiviText = "Non défini"
+                Else
+                    dateEntSuiviText = dateEntSuivi.ToShortDateString
+                End If
+                DGV_Dates.Rows.Add(unEntretienCollab._idEntretien, idCollab, unEntretienCollab._DateEntretien, dateEntSuiviText)
             Next
         End If
 
@@ -72,9 +79,28 @@ Public Class FrmMonEquipe
 
         If _lesActionsEntCollab IsNot Nothing Then
             For Each uneActionEnt As ClsAction In _lesActionsEntCollab.Values
+
+                Dim delai As Date = uneActionEnt._Delai
+                Dim delaiText As String
+
+                If delai.Date < Date.Now Then
+                    delaiText = "Non défini"
+                Else
+                    delaiText = delai.ToShortDateString
+                End If
+
+                Dim dateSolde As Date = uneActionEnt._DateSolde
+                Dim dateSoldeText As String
+
+                If dateSolde.Date < Date.Now Then
+                    dateSoldeText = "Non défini"
+                Else
+                    dateSoldeText = dateSolde.ToShortDateString
+                End If
+
                 DGV_Actions.Rows.Add(
                     uneActionEnt._idEntretien, uneActionEnt._idAction, uneActionEnt._DateCreation, uneActionEnt._Objectif, uneActionEnt._ActionField, uneActionEnt._RespAction,
-                    uneActionEnt._Delai, uneActionEnt._SuiviCom, uneActionEnt._StatutPDCA, uneActionEnt._DateSolde
+                    delaiText, uneActionEnt._SuiviCom, uneActionEnt._StatutPDCA, dateSoldeText
                     )
             Next
         End If

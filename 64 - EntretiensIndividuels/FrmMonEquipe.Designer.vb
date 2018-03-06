@@ -28,9 +28,6 @@ Partial Class FrmMonEquipe
         Me.col_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_Noms = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DGV_Dates = New System.Windows.Forms.DataGridView()
-        Me.Col_idEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_idCollab = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Col_dateEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DGV_Actions = New System.Windows.Forms.DataGridView()
         Me.Col_idEnt = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_idActions = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -44,6 +41,7 @@ Partial Class FrmMonEquipe
         Me.Col_DateSolde = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Btn_Header = New System.Windows.Forms.Button()
+        Me.Btn_VoirFichier = New System.Windows.Forms.Button()
         Me.TLP_Menu = New System.Windows.Forms.TableLayoutPanel()
         Me.Btn_Accueil = New System.Windows.Forms.Button()
         Me.Btn_Entretiens = New System.Windows.Forms.Button()
@@ -54,7 +52,10 @@ Partial Class FrmMonEquipe
         Me.Btn_AjoutCollab = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Btn_VoirFichier = New System.Windows.Forms.Button()
+        Me.Col_idEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_idCollab = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_dateEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Col_DateEntSuivi = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TLP_Main.SuspendLayout()
         CType(Me.DGV_Noms, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGV_Dates, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,7 +73,7 @@ Partial Class FrmMonEquipe
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.0!))
-        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43.0!))
         Me.TLP_Main.Controls.Add(Me.DGV_Noms, 1, 5)
         Me.TLP_Main.Controls.Add(Me.DGV_Dates, 2, 5)
         Me.TLP_Main.Controls.Add(Me.DGV_Actions, 3, 5)
@@ -108,7 +109,7 @@ Partial Class FrmMonEquipe
         Me.DGV_Noms.RowHeadersVisible = False
         Me.DGV_Noms.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.Control
         Me.DGV_Noms.RowTemplate.ReadOnly = True
-        Me.DGV_Noms.Size = New System.Drawing.Size(197, 459)
+        Me.DGV_Noms.Size = New System.Drawing.Size(196, 459)
         Me.DGV_Noms.TabIndex = 4
         '
         'col_id
@@ -129,36 +130,14 @@ Partial Class FrmMonEquipe
         '
         Me.DGV_Dates.BackgroundColor = System.Drawing.SystemColors.Control
         Me.DGV_Dates.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV_Dates.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_idEntretien, Me.Col_idCollab, Me.Col_dateEntretien})
+        Me.DGV_Dates.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_idEntretien, Me.Col_idCollab, Me.Col_dateEntretien, Me.Col_DateEntSuivi})
         Me.DGV_Dates.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGV_Dates.GridColor = System.Drawing.SystemColors.Control
-        Me.DGV_Dates.Location = New System.Drawing.Point(226, 153)
+        Me.DGV_Dates.Location = New System.Drawing.Point(225, 153)
         Me.DGV_Dates.Name = "DGV_Dates"
         Me.DGV_Dates.RowHeadersVisible = False
         Me.DGV_Dates.Size = New System.Drawing.Size(115, 459)
         Me.DGV_Dates.TabIndex = 5
-        '
-        'Col_idEntretien
-        '
-        Me.Col_idEntretien.HeaderText = "idEntretien"
-        Me.Col_idEntretien.Name = "Col_idEntretien"
-        Me.Col_idEntretien.ReadOnly = True
-        Me.Col_idEntretien.Visible = False
-        '
-        'Col_idCollab
-        '
-        Me.Col_idCollab.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_idCollab.HeaderText = "idCollab"
-        Me.Col_idCollab.Name = "Col_idCollab"
-        Me.Col_idCollab.ReadOnly = True
-        Me.Col_idCollab.Visible = False
-        '
-        'Col_dateEntretien
-        '
-        Me.Col_dateEntretien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Col_dateEntretien.HeaderText = "Date Entretien"
-        Me.Col_dateEntretien.Name = "Col_dateEntretien"
-        Me.Col_dateEntretien.ReadOnly = True
         '
         'DGV_Actions
         '
@@ -167,10 +146,10 @@ Partial Class FrmMonEquipe
         Me.DGV_Actions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_idEnt, Me.Col_idActions, Me.Col_DateCreation, Me.Col_Objectif, Me.Col_Action, Me.Col_RespAction, Me.Col_Delai, Me.Col_SuiviCom, Me.Col_StatutPDCA, Me.Col_DateSolde})
         Me.DGV_Actions.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGV_Actions.GridColor = System.Drawing.SystemColors.Control
-        Me.DGV_Actions.Location = New System.Drawing.Point(347, 153)
+        Me.DGV_Actions.Location = New System.Drawing.Point(346, 153)
         Me.DGV_Actions.Name = "DGV_Actions"
         Me.DGV_Actions.RowHeadersVisible = False
-        Me.DGV_Actions.Size = New System.Drawing.Size(481, 459)
+        Me.DGV_Actions.Size = New System.Drawing.Size(480, 459)
         Me.DGV_Actions.TabIndex = 6
         '
         'Col_idEnt
@@ -248,7 +227,7 @@ Partial Class FrmMonEquipe
         Me.Label1.Location = New System.Drawing.Point(23, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(805, 40)
+        Me.Label1.Size = New System.Drawing.Size(803, 40)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Mon équipe"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -263,11 +242,27 @@ Partial Class FrmMonEquipe
         Me.Btn_Header.ForeColor = System.Drawing.Color.White
         Me.Btn_Header.Location = New System.Drawing.Point(23, 83)
         Me.Btn_Header.Name = "Btn_Header"
-        Me.Btn_Header.Size = New System.Drawing.Size(197, 44)
+        Me.Btn_Header.Size = New System.Drawing.Size(196, 44)
         Me.Btn_Header.TabIndex = 8
         Me.Btn_Header.Text = "Button1"
         Me.Btn_Header.UseVisualStyleBackColor = False
         Me.Btn_Header.Visible = False
+        '
+        'Btn_VoirFichier
+        '
+        Me.Btn_VoirFichier.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Btn_VoirFichier.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_VoirFichier.FlatAppearance.BorderSize = 0
+        Me.Btn_VoirFichier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_VoirFichier.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_VoirFichier.ForeColor = System.Drawing.Color.White
+        Me.Btn_VoirFichier.Location = New System.Drawing.Point(225, 83)
+        Me.Btn_VoirFichier.Name = "Btn_VoirFichier"
+        Me.Btn_VoirFichier.Size = New System.Drawing.Size(115, 44)
+        Me.Btn_VoirFichier.TabIndex = 9
+        Me.Btn_VoirFichier.Text = "Ouvrir le fichier"
+        Me.Btn_VoirFichier.UseVisualStyleBackColor = False
+        Me.Btn_VoirFichier.Visible = False
         '
         'TLP_Menu
         '
@@ -447,21 +442,34 @@ Partial Class FrmMonEquipe
         Me.Panel1.Size = New System.Drawing.Size(874, 635)
         Me.Panel1.TabIndex = 5
         '
-        'Btn_VoirFichier
+        'Col_idEntretien
         '
-        Me.Btn_VoirFichier.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Btn_VoirFichier.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_VoirFichier.FlatAppearance.BorderSize = 0
-        Me.Btn_VoirFichier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_VoirFichier.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_VoirFichier.ForeColor = System.Drawing.Color.White
-        Me.Btn_VoirFichier.Location = New System.Drawing.Point(226, 83)
-        Me.Btn_VoirFichier.Name = "Btn_VoirFichier"
-        Me.Btn_VoirFichier.Size = New System.Drawing.Size(115, 44)
-        Me.Btn_VoirFichier.TabIndex = 9
-        Me.Btn_VoirFichier.Text = "Ouvrir le fichier"
-        Me.Btn_VoirFichier.UseVisualStyleBackColor = False
-        Me.Btn_VoirFichier.Visible = False
+        Me.Col_idEntretien.HeaderText = "idEntretien"
+        Me.Col_idEntretien.Name = "Col_idEntretien"
+        Me.Col_idEntretien.ReadOnly = True
+        Me.Col_idEntretien.Visible = False
+        '
+        'Col_idCollab
+        '
+        Me.Col_idCollab.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_idCollab.HeaderText = "idCollab"
+        Me.Col_idCollab.Name = "Col_idCollab"
+        Me.Col_idCollab.ReadOnly = True
+        Me.Col_idCollab.Visible = False
+        '
+        'Col_dateEntretien
+        '
+        Me.Col_dateEntretien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_dateEntretien.HeaderText = "Date Entretien"
+        Me.Col_dateEntretien.Name = "Col_dateEntretien"
+        Me.Col_dateEntretien.ReadOnly = True
+        '
+        'Col_DateEntSuivi
+        '
+        Me.Col_DateEntSuivi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Col_DateEntSuivi.HeaderText = "Date entretien suivi"
+        Me.Col_DateEntSuivi.Name = "Col_DateEntSuivi"
+        Me.Col_DateEntSuivi.ReadOnly = True
         '
         'FrmMonEquipe
         '
@@ -498,9 +506,6 @@ Partial Class FrmMonEquipe
     Friend WithEvents Btn_Equipe As Button
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Col_idEntretien As DataGridViewTextBoxColumn
-    Friend WithEvents Col_idCollab As DataGridViewTextBoxColumn
-    Friend WithEvents Col_dateEntretien As DataGridViewTextBoxColumn
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Btn_AjoutAction As Button
     Friend WithEvents Btn_AjoutEntretien As Button
@@ -518,4 +523,8 @@ Partial Class FrmMonEquipe
     Friend WithEvents Col_StatutPDCA As DataGridViewTextBoxColumn
     Friend WithEvents Col_DateSolde As DataGridViewTextBoxColumn
     Friend WithEvents Btn_VoirFichier As Button
+    Friend WithEvents Col_idEntretien As DataGridViewTextBoxColumn
+    Friend WithEvents Col_idCollab As DataGridViewTextBoxColumn
+    Friend WithEvents Col_dateEntretien As DataGridViewTextBoxColumn
+    Friend WithEvents Col_DateEntSuivi As DataGridViewTextBoxColumn
 End Class
