@@ -104,65 +104,53 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClsAction.vb" />
-    <Compile Include="ClsCollaborateur.vb" />
-    <Compile Include="ClsEntretien.vb" />
-    <Compile Include="ClsService.vb" />
-    <Compile Include="ClsSQLAction.vb" />
-    <Compile Include="ClsSQLCollaborateur.vb" />
-    <Compile Include="ClsSQLEntretiens.vb" />
-    <Compile Include="ClsSQLService.vb" />
-    <Compile Include="ClsSQLStatut.vb" />
-    <Compile Include="ClsSQLUtilisateur.vb" />
-    <Compile Include="ClsStatut.vb" />
-    <Compile Include="ClsUtilisateur.vb" />
-    <Compile Include="FrmAjoutAction.Designer.vb">
+    <Compile Include="Forms\ClsAction.vb" />
+    <Compile Include="Forms\ClsCollaborateur.vb" />
+    <Compile Include="Forms\ClsEntretien.vb" />
+    <Compile Include="Forms\ClsService.vb" />
+    <Compile Include="Database\ClsSQLAction.vb" />
+    <Compile Include="Database\ClsSQLCollaborateur.vb" />
+    <Compile Include="Database\ClsSQLEntretiens.vb" />
+    <Compile Include="Database\ClsSQLService.vb" />
+    <Compile Include="Database\ClsSQLStatut.vb" />
+    <Compile Include="Database\ClsSQLUtilisateur.vb" />
+    <Compile Include="Forms\ClsStatut.vb" />
+    <Compile Include="Forms\ClsUtilisateur.vb" />
+    <Compile Include="Forms\FrmAjoutAction.Designer.vb">
       <DependentUpon>FrmAjoutAction.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmAjoutAction.vb">
+    <Compile Include="Forms\FrmAjoutAction.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAjoutCollaborateur.Designer.vb">
+    <Compile Include="Forms\FrmAjoutCollaborateur.Designer.vb">
       <DependentUpon>FrmAjoutCollaborateur.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmAjoutCollaborateur.vb">
+    <Compile Include="Forms\FrmAjoutCollaborateur.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAjoutEntretien.Designer.vb">
+    <Compile Include="Forms\FrmAjoutEntretien.Designer.vb">
       <DependentUpon>FrmAjoutEntretien.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmAjoutEntretien.vb">
+    <Compile Include="Forms\FrmAjoutEntretien.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConnexion.Designer.vb">
+    <Compile Include="Forms\FrmConnexion.Designer.vb">
       <DependentUpon>FrmConnexion.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmConnexion.vb">
+    <Compile Include="Forms\FrmConnexion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMenu.vb">
+    <Compile Include="Forms\FrmMenu.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMenu.Designer.vb">
+    <Compile Include="Forms\FrmMenu.Designer.vb">
       <DependentUpon>FrmMenu.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMesEntretiens.Designer.vb">
-      <DependentUpon>FrmMesEntretiens.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMesEntretiens.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMonEquipe.Designer.vb">
-      <DependentUpon>FrmMonEquipe.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMonEquipe.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmNewPassword.Designer.vb">
+    <Compile Include="Forms\FrmNewPassword.Designer.vb">
       <DependentUpon>FrmNewPassword.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmNewPassword.vb">
+    <Compile Include="Forms\FrmNewPassword.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -180,30 +168,42 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="UserInterface\UI_Accueil.Designer.vb">
+      <DependentUpon>UI_Accueil.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\UI_Accueil.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserInterface\UI_MesEntretiens.Designer.vb">
+      <DependentUpon>UI_MesEntretiens.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\UI_MesEntretiens.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserInterface\UI_MonEquipe.Designer.vb">
+      <DependentUpon>UI_MonEquipe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\UI_MonEquipe.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FrmAjoutAction.resx">
+    <EmbeddedResource Include="Forms\FrmAjoutAction.resx">
       <DependentUpon>FrmAjoutAction.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAjoutCollaborateur.resx">
+    <EmbeddedResource Include="Forms\FrmAjoutCollaborateur.resx">
       <DependentUpon>FrmAjoutCollaborateur.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAjoutEntretien.resx">
+    <EmbeddedResource Include="Forms\FrmAjoutEntretien.resx">
       <DependentUpon>FrmAjoutEntretien.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConnexion.resx">
+    <EmbeddedResource Include="Forms\FrmConnexion.resx">
       <DependentUpon>FrmConnexion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMenu.resx">
+    <EmbeddedResource Include="Forms\FrmMenu.resx">
       <DependentUpon>FrmMenu.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMesEntretiens.resx">
-      <DependentUpon>FrmMesEntretiens.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmMonEquipe.resx">
-      <DependentUpon>FrmMonEquipe.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmNewPassword.resx">
+    <EmbeddedResource Include="Forms\FrmNewPassword.resx">
       <DependentUpon>FrmNewPassword.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -211,6 +211,15 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInterface\UI_Accueil.resx">
+      <DependentUpon>UI_Accueil.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInterface\UI_MesEntretiens.resx">
+      <DependentUpon>UI_MesEntretiens.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserInterface\UI_MonEquipe.resx">
+      <DependentUpon>UI_MonEquipe.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -117,53 +117,32 @@ Public Class FrmAjoutEntretien
 
     End Sub
 
-    Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs)
-        Me.Cursor = Cursors.WaitCursor
-        Dim _f As New FrmMenu
-        _f._authUser = _authUser
-        _f.Show()
-        Close()
-    End Sub
+    'Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs)
+    '    Me.Cursor = Cursors.WaitCursor
+    '    Dim _f As New FrmMenu
+    '    _f._authUser = _authUser
+    '    _f.Show()
+    '    Close()
+    'End Sub
 
-    Private Sub Btn_Equipe_Click(sender As Object, e As EventArgs)
-        Me.Cursor = Cursors.WaitCursor
-        Dim _f As New FrmMonEquipe
-        _f._authUser = _authUser
-        _f.Show()
-        Close()
-    End Sub
+    'Private Sub Btn_Equipe_Click(sender As Object, e As EventArgs)
+    '    Me.Cursor = Cursors.WaitCursor
+    '    Dim _f As New FrmMonEquipe
+    '    _f._authUser = _authUser
+    '    _f.Show()
+    '    Close()
+    'End Sub
 
-    Private Sub Btn_Entretiens_Click(sender As Object, e As EventArgs)
-        Me.Cursor = Cursors.WaitCursor
-        Dim _f As New FrmMesEntretiens
-        _f._authUser = _authUser
-        _f.Show()
-        Close()
-    End Sub
+    'Private Sub Btn_Entretiens_Click(sender As Object, e As EventArgs)
+    '    Me.Cursor = Cursors.WaitCursor
+    '    Dim _f As New FrmMesEntretiens
+    '    _f._authUser = _authUser
+    '    _f.Show()
+    '    Close()
+    'End Sub
 
     Private Sub Dtp_DateEntretienSuivi_DropDown(sender As Object, e As EventArgs) Handles Dtp_DateEntretienSuivi.DropDown
         Dtp_DateEntretienSuivi.Value = Date.Now
     End Sub
-
-    'Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-    '    requete = New SqlCommand("insert into tbl_files (Nom, Fichier, Extension) values (@Nom, @Fichier, @Extension)", sqlConnexion)
-    '    Try
-    '        sqlConnexion.Open()
-    '    Catch ex As Exception
-    '        MsgBox("Impossible de se connecter à la base de données" & vbNewLine & ex.Message, MsgBoxStyle.Critical)
-    '        Close()
-    '    End Try
-
-    '    requete.Parameters.Add(New SqlParameter("@Nom", SqlDbType.NVarChar, 50)).Value = tbxNom.Text
-    '    requete.Parameters.Add(New SqlParameter("@Extension", SqlDbType.NChar, 10)).Value = Path.GetExtension(OpenFileDialog2.FileName)
-
-    '    Dim fs As New FileStream(OpenFileDialog2.FileName, FileMode.Open, FileAccess.Read)
-    '    Dim br As New BinaryReader(fs)
-    '    Dim fichier() As Byte = br.ReadBytes(br.BaseStream.Length)
-    '    requete.Parameters.Add(New SqlParameter("@Fichier", SqlDbType.VarBinary)).Value = fichier
-    '    requete.ExecuteNonQuery()
-    '    sqlConnexion.Close()
-    '    MsgBox("Fichier ajouté à la base de données", MsgBoxStyle.Information, "Fichier ajouté !")
-    'End Sub
 
 End Class

@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 
-Public Class FrmMesEntretiens
+Public Class UI_MesEntretiens
 
     Property _authUser As ClsUtilisateur = Nothing
 
@@ -13,13 +13,20 @@ Public Class FrmMesEntretiens
     Property _entIdClicked As Integer
     Property _actionIdClicked As Integer
 
+    Public Sub New()
 
-    Private Sub FrmMesEntretiens_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Cet appel est requis par le concepteur.
+        InitializeComponent()
+
+        ' Ajoutez une initialisation quelconque après l'appel InitializeComponent().
+
+    End Sub
+
+    Private Sub FrmMesEntretiens_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         If _authUser Is Nothing Then
-            Close()
+            End
         ElseIf _authUser._StatutManager = 0 Then
-            Btn_Equipe.Hide()
             _lesCollaborateurs = _monCollaborateurSQL.readLesCollaborateurs
             FillDGV_Entretiens()
         End If
@@ -138,24 +145,5 @@ Public Class FrmMesEntretiens
         End Try
 
     End Sub
-
-
-
-    Private Sub Btn_Equipe_Click(sender As Object, e As EventArgs) Handles Btn_Equipe.Click
-        Me.Cursor = Cursors.WaitCursor
-        Dim _f As New FrmMonEquipe
-        _f._authUser = _authUser
-        _f.Show()
-        Close()
-    End Sub
-
-    Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs) Handles Btn_Accueil.Click
-        Me.Cursor = Cursors.WaitCursor
-        Dim _f As New FrmMenu
-        _f._authUser = _authUser
-        _f.Show()
-        Close()
-    End Sub
-
 
 End Class

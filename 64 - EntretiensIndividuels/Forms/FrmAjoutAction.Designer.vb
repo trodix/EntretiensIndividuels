@@ -346,6 +346,7 @@ Partial Class FrmAjoutAction
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.MinimumSize = New System.Drawing.Size(1070, 550)
         Me.Name = "FrmAjoutAction"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Entretiens Individuels - Ajouter des actions"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()

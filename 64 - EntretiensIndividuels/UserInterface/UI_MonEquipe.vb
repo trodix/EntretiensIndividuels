@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 
-Public Class FrmMonEquipe
+Public Class UI_MonEquipe
 
     Property _authUser As ClsUtilisateur = Nothing
 
@@ -15,16 +15,14 @@ Public Class FrmMonEquipe
     Property _actionIdClicked As Integer
 
 
-    Private Sub FrmMonEquipe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FrmMonEquipe_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         If _authUser Is Nothing OrElse _authUser._StatutManager = 0 Then
-            Close()
-            Me.Cursor = Cursors.Default
+            End
         Else
 
             If _authUser._StatutManager = 1 Then
                 _lesCollaborateurs = _monCollaborateurSQL.readLesCollaborateursByManager(_authUser._idCollaborateur)
-                Btn_AjoutCollab.Hide()
             ElseIf _authUser._StatutManager = 2 Then
                 _lesCollaborateurs = _monCollaborateurSQL.readLesCollaborateurs
             End If
@@ -84,7 +82,7 @@ Public Class FrmMonEquipe
                 Dim delai As Date = uneActionEnt._Delai
                 Dim delaiText As String
 
-                If delai.Date.Year << CDate("01/01/1999").Year Then
+                If delai.Date.Year < CDate("01/01/1999").Year Then
                     delaiText = "Non défini"
                 Else
                     delaiText = delai.ToShortDateString
@@ -232,44 +230,6 @@ Public Class FrmMonEquipe
         _f.ShowDialog()
     End Sub
 
-    '""""""""""""""""""""""""""""""""""""""""""""""""""
-
-    Private Sub Btn_Entretiens_Click(sender As Object, e As EventArgs) Handles Btn_Entretiens.Click
-        Me.Cursor = Cursors.WaitCursor
-        Dim _f As New FrmMesEntretiens
-        _f._authUser = _authUser
-        _f.Show()
-        Close()
-    End Sub
-
-    Private Sub Btn_AjoutCollab_Click(sender As Object, e As EventArgs) Handles Btn_AjoutCollab.Click
-        Me.Cursor = Cursors.WaitCursor
-        Dim _f As New FrmAjoutCollaborateur
-        _f._authUser = _authUser
-        _f.ShowDialog()
-    End Sub
-
-    Private Sub Btn_AjoutEntretien_Click(sender As Object, e As EventArgs) Handles Btn_AjoutEntretien.Click
-        Me.Cursor = Cursors.WaitCursor
-        Dim _f As New FrmAjoutEntretien
-        _f._authUser = _authUser
-        _f.ShowDialog()
-    End Sub
-
-    Private Sub Btn_AjoutAction_Click(sender As Object, e As EventArgs) Handles Btn_AjoutAction.Click
-        Me.Cursor = Cursors.WaitCursor
-        Dim _f As New FrmAjoutAction
-        _f._authUser = _authUser
-        _f.ShowDialog()
-    End Sub
-
-    Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs) Handles Btn_Accueil.Click
-        Me.Cursor = Cursors.WaitCursor
-        Dim _f As New FrmMenu
-        _f._authUser = _authUser
-        _f.Show()
-        Close()
-    End Sub
 
     Private Sub Btn_VoirFichier_Click(sender As Object, e As EventArgs) Handles Btn_VoirFichier.Click
 

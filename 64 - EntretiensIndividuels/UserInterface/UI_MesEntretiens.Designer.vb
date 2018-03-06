@@ -1,8 +1,8 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FrmMesEntretiens
-    Inherits System.Windows.Forms.Form
+Partial Class UI_MesEntretiens
+    Inherits System.Windows.Forms.UserControl
 
-    'Form remplace la méthode Dispose pour nettoyer la liste des composants.
+    'UserControl remplace la méthode Dispose pour nettoyer la liste des composants.
     <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
@@ -22,13 +22,6 @@ Partial Class FrmMesEntretiens
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMesEntretiens))
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.TLP_Menu = New System.Windows.Forms.TableLayoutPanel()
-        Me.Btn_Accueil = New System.Windows.Forms.Button()
-        Me.Btn_Entretiens = New System.Windows.Forms.Button()
-        Me.Btn_Equipe = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Btn_VoirFichier = New System.Windows.Forms.Button()
@@ -47,112 +40,10 @@ Partial Class FrmMesEntretiens
         Me.Col_idEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_dateEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_DateEntSuivi = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Panel2.SuspendLayout()
-        Me.TLP_Menu.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DGV_Actions, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGV_Dates, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.TLP_Menu)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(241, 570)
-        Me.Panel2.TabIndex = 5
-        '
-        'TLP_Menu
-        '
-        Me.TLP_Menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.TLP_Menu.ColumnCount = 3
-        Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
-        Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
-        Me.TLP_Menu.Controls.Add(Me.Btn_Accueil, 1, 1)
-        Me.TLP_Menu.Controls.Add(Me.Btn_Entretiens, 1, 2)
-        Me.TLP_Menu.Controls.Add(Me.Btn_Equipe, 1, 3)
-        Me.TLP_Menu.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TLP_Menu.Location = New System.Drawing.Point(0, 0)
-        Me.TLP_Menu.Name = "TLP_Menu"
-        Me.TLP_Menu.RowCount = 7
-        Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
-        Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
-        Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
-        Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
-        Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TLP_Menu.Size = New System.Drawing.Size(241, 570)
-        Me.TLP_Menu.TabIndex = 2
-        '
-        'Btn_Accueil
-        '
-        Me.Btn_Accueil.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_Accueil.FlatAppearance.BorderSize = 0
-        Me.Btn_Accueil.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_Accueil.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Accueil.ForeColor = System.Drawing.Color.White
-        Me.Btn_Accueil.Image = Global.EntretiensIndividuels.My.Resources.Resources.accueil_32
-        Me.Btn_Accueil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Accueil.Location = New System.Drawing.Point(23, 23)
-        Me.Btn_Accueil.Name = "Btn_Accueil"
-        Me.Btn_Accueil.Size = New System.Drawing.Size(194, 44)
-        Me.Btn_Accueil.TabIndex = 8
-        Me.Btn_Accueil.Text = "Accueil"
-        Me.Btn_Accueil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Accueil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Btn_Accueil.UseVisualStyleBackColor = True
-        '
-        'Btn_Entretiens
-        '
-        Me.Btn_Entretiens.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(131, Byte), Integer), CType(CType(222, Byte), Integer))
-        Me.Btn_Entretiens.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_Entretiens.FlatAppearance.BorderSize = 0
-        Me.Btn_Entretiens.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_Entretiens.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Entretiens.ForeColor = System.Drawing.Color.White
-        Me.Btn_Entretiens.Image = CType(resources.GetObject("Btn_Entretiens.Image"), System.Drawing.Image)
-        Me.Btn_Entretiens.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Entretiens.Location = New System.Drawing.Point(23, 73)
-        Me.Btn_Entretiens.Name = "Btn_Entretiens"
-        Me.Btn_Entretiens.Size = New System.Drawing.Size(194, 44)
-        Me.Btn_Entretiens.TabIndex = 3
-        Me.Btn_Entretiens.Text = "Mes entretiens"
-        Me.Btn_Entretiens.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Entretiens.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Btn_Entretiens.UseVisualStyleBackColor = False
-        '
-        'Btn_Equipe
-        '
-        Me.Btn_Equipe.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Btn_Equipe.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Btn_Equipe.FlatAppearance.BorderSize = 0
-        Me.Btn_Equipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_Equipe.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Equipe.ForeColor = System.Drawing.Color.White
-        Me.Btn_Equipe.Image = CType(resources.GetObject("Btn_Equipe.Image"), System.Drawing.Image)
-        Me.Btn_Equipe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Equipe.Location = New System.Drawing.Point(23, 123)
-        Me.Btn_Equipe.Name = "Btn_Equipe"
-        Me.Btn_Equipe.Size = New System.Drawing.Size(194, 44)
-        Me.Btn_Equipe.TabIndex = 4
-        Me.Btn_Equipe.Text = "Mon équipe"
-        Me.Btn_Equipe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Equipe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.Btn_Equipe.UseVisualStyleBackColor = False
-        '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.TableLayoutPanel1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(241, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(846, 570)
-        Me.Panel1.TabIndex = 6
         '
         'TableLayoutPanel1
         '
@@ -160,7 +51,7 @@ Partial Class FrmMesEntretiens
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Btn_VoirFichier, 1, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.DGV_Actions, 2, 5)
@@ -176,8 +67,8 @@ Partial Class FrmMesEntretiens
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(846, 570)
-        Me.TableLayoutPanel1.TabIndex = 9
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(988, 617)
+        Me.TableLayoutPanel1.TabIndex = 10
         '
         'Label1
         '
@@ -188,7 +79,7 @@ Partial Class FrmMesEntretiens
         Me.Label1.Location = New System.Drawing.Point(23, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(798, 40)
+        Me.Label1.Size = New System.Drawing.Size(939, 40)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "Mes entretiens"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -203,7 +94,7 @@ Partial Class FrmMesEntretiens
         Me.Btn_VoirFichier.ForeColor = System.Drawing.Color.White
         Me.Btn_VoirFichier.Location = New System.Drawing.Point(23, 83)
         Me.Btn_VoirFichier.Name = "Btn_VoirFichier"
-        Me.Btn_VoirFichier.Size = New System.Drawing.Size(114, 44)
+        Me.Btn_VoirFichier.Size = New System.Drawing.Size(135, 44)
         Me.Btn_VoirFichier.TabIndex = 10
         Me.Btn_VoirFichier.Text = "Voir le fichier"
         Me.Btn_VoirFichier.UseVisualStyleBackColor = False
@@ -216,10 +107,10 @@ Partial Class FrmMesEntretiens
         Me.DGV_Actions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_idEnt, Me.Col_idActions, Me.Col_DateCreation, Me.Col_Objectif, Me.Col_Action, Me.Col_RespAction, Me.Col_Delai, Me.Col_SuiviCom, Me.Col_StatutPDCA, Me.Col_DateSolde})
         Me.DGV_Actions.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGV_Actions.GridColor = System.Drawing.SystemColors.Control
-        Me.DGV_Actions.Location = New System.Drawing.Point(143, 143)
+        Me.DGV_Actions.Location = New System.Drawing.Point(164, 143)
         Me.DGV_Actions.Name = "DGV_Actions"
         Me.DGV_Actions.RowHeadersVisible = False
-        Me.DGV_Actions.Size = New System.Drawing.Size(678, 404)
+        Me.DGV_Actions.Size = New System.Drawing.Size(798, 451)
         Me.DGV_Actions.TabIndex = 8
         '
         'Col_idEnt
@@ -298,7 +189,7 @@ Partial Class FrmMesEntretiens
         Me.DGV_Dates.Location = New System.Drawing.Point(23, 143)
         Me.DGV_Dates.Name = "DGV_Dates"
         Me.DGV_Dates.RowHeadersVisible = False
-        Me.DGV_Dates.Size = New System.Drawing.Size(114, 404)
+        Me.DGV_Dates.Size = New System.Drawing.Size(135, 451)
         Me.DGV_Dates.TabIndex = 7
         '
         'Col_idEntretien
@@ -322,19 +213,13 @@ Partial Class FrmMesEntretiens
         Me.Col_DateEntSuivi.Name = "Col_DateEntSuivi"
         Me.Col_DateEntSuivi.ReadOnly = True
         '
-        'FrmMesEntretiens
+        'UC_MesEntretiens
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1087, 570)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Panel2)
-        Me.Name = "FrmMesEntretiens"
-        Me.Text = "Entretiens Individuels - Mes entretiens"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        Me.Panel2.ResumeLayout(False)
-        Me.TLP_Menu.ResumeLayout(False)
-        Me.Panel1.ResumeLayout(False)
+        Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.Name = "UC_MesEntretiens"
+        Me.Size = New System.Drawing.Size(988, 617)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         CType(Me.DGV_Actions, System.ComponentModel.ISupportInitialize).EndInit()
@@ -343,14 +228,9 @@ Partial Class FrmMesEntretiens
 
     End Sub
 
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents TLP_Menu As TableLayoutPanel
-    Friend WithEvents Btn_Entretiens As Button
-    Friend WithEvents Btn_Equipe As Button
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents DGV_Dates As DataGridView
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents Btn_Accueil As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Btn_VoirFichier As Button
     Friend WithEvents DGV_Actions As DataGridView
     Friend WithEvents Col_idEnt As DataGridViewTextBoxColumn
     Friend WithEvents Col_idActions As DataGridViewTextBoxColumn
@@ -362,8 +242,7 @@ Partial Class FrmMesEntretiens
     Friend WithEvents Col_SuiviCom As DataGridViewTextBoxColumn
     Friend WithEvents Col_StatutPDCA As DataGridViewTextBoxColumn
     Friend WithEvents Col_DateSolde As DataGridViewTextBoxColumn
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Btn_VoirFichier As Button
+    Friend WithEvents DGV_Dates As DataGridView
     Friend WithEvents Col_idEntretien As DataGridViewTextBoxColumn
     Friend WithEvents Col_dateEntretien As DataGridViewTextBoxColumn
     Friend WithEvents Col_DateEntSuivi As DataGridViewTextBoxColumn
