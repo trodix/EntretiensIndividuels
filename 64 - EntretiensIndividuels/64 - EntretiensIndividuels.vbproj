@@ -26,8 +26,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>2.2.0.4</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -159,6 +159,12 @@
     <Compile Include="FrmMonEquipe.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmNewPassword.Designer.vb">
+      <DependentUpon>FrmNewPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNewPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMonEquipe.resx">
       <DependentUpon>FrmMonEquipe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNewPassword.resx">
+      <DependentUpon>FrmNewPassword.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

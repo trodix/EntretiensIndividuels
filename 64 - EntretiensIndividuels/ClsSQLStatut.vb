@@ -21,4 +21,18 @@
         Return lesStatuts
     End Function
 
+    Public Function readStatutById(idStatut As Integer)
+        Dim unStatut As ClsStatut = Nothing
+        Dim req As String = "select * from [dbo].[EIStatut] where idStatut = " & idStatut
+
+        Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(req, ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+            With s_FbMyReader
+                While .OdbcReader.Read
+                    unStatut = New ClsStatut(.OdbcReader("idStatut"), .OdbcReader("LibelleStatut"))
+                End While
+            End With
+        End Using
+        Return unStatut
+    End Function
+
 End Class

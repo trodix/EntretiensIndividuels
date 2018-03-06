@@ -37,3 +37,4 @@ J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQ
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EI.exe
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EI.xml
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EI.pdb
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\EntretiensIndividuels.FrmNewPassword.resources

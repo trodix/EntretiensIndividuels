@@ -6,15 +6,18 @@
     Property _idService As Integer
     Property _StatutManager As Integer
     Property _password As String = "Acta89+"
+    Property _Actif As Boolean = True
     Property _maClsEntretien As New ClsSQLEntretiens
     Property _lesEntretiensCollab As List(Of ClsEntretien)
 
-    Public Sub New(libelleCollaborateur As String, idManager As Integer, idService As Integer, Optional idCollaborateur As Integer = Nothing, Optional StatutManager As Integer = Nothing)
+
+    Public Sub New(libelleCollaborateur As String, idManager As Integer, idService As Integer, Actif As Boolean, Optional idCollaborateur As Integer = Nothing, Optional StatutManager As Integer = Nothing)
         _idCollaborateur = idCollaborateur
         _StatutManager = StatutManager
         _libelleCollaborateur = libelleCollaborateur
         _idManager = idManager
         _idService = idService
+        _Actif = Actif
         _lesEntretiensCollab = readLesEntretiensCollab(_idCollaborateur)
     End Sub
 

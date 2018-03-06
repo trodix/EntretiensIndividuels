@@ -22,4 +22,18 @@
         Return lesServices
     End Function
 
+    Public Function readServiceById(idService As Integer)
+        Dim unService As ClsService = Nothing
+        Dim req As String = "select * from [dbo].[EIServices] where idService = " & idService
+
+        Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(req, ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+            With s_FbMyReader
+                While .OdbcReader.Read
+                    unService = New ClsService(.OdbcReader("LibService"), .OdbcReader("idService"))
+                End While
+            End With
+        End Using
+        Return unService
+    End Function
+
 End Class

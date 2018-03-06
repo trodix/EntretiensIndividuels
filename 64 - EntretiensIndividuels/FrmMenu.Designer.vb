@@ -166,6 +166,7 @@ Partial Class FrmMenu
         '
         'TLP_Main
         '
+        Me.TLP_Main.BackColor = System.Drawing.Color.Transparent
         Me.TLP_Main.ColumnCount = 3
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
