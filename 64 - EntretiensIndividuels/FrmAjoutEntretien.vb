@@ -20,12 +20,24 @@ Public Class FrmAjoutEntretien
             Close()
         End If
 
+        If _authUser._StatutManager = 2 Then
 
-        For Each Collab As ClsCollaborateur In _maClsSQLCollab.readLesCollaborateursByManager(_authUser._idCollaborateur).Values
-            Dim leCollabId As Integer = Collab._idCollaborateur
-            Dim leCollabLibelle As String = Collab._libelleCollaborateur
-            Cmb_Collaborateur.Items.Add(leCollabId & " - " & leCollabLibelle)
-        Next
+            For Each Collab As ClsCollaborateur In _maClsSQLCollab.readLesCollaborateurs().Values
+                Dim leCollabId As Integer = Collab._idCollaborateur
+                Dim leCollabLibelle As String = Collab._libelleCollaborateur
+                Cmb_Collaborateur.Items.Add(leCollabId & " - " & leCollabLibelle)
+            Next
+
+        ElseIf _authUser._StatutManager = 1 Then
+
+            For Each Collab As ClsCollaborateur In _maClsSQLCollab.readLesCollaborateursByManager(_authUser._idCollaborateur).Values
+                Dim leCollabId As Integer = Collab._idCollaborateur
+                Dim leCollabLibelle As String = Collab._libelleCollaborateur
+                Cmb_Collaborateur.Items.Add(leCollabId & " - " & leCollabLibelle)
+            Next
+
+        End If
+
 
         Dtp_DateEntretienSuivi.Value = CDate("01/01/1900")
 

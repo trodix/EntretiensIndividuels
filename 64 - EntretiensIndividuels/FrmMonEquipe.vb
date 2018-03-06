@@ -47,7 +47,6 @@ Public Class FrmMonEquipe
     Private Sub FillDGV_Entretiens(idCollab As Integer)
         DGV_Dates.Rows.Clear()
         _lesEntretiensCollab.Clear()
-        'DGV_Dates.Rows.Add(Nothing, idCollab, Nothing)
 
         For Each unEnt As ClsEntretien In _lesCollaborateurs(idCollab)._lesEntretiensCollab
             _lesEntretiensCollab.Add(unEnt._idEntretien, unEnt)
@@ -167,40 +166,8 @@ Public Class FrmMonEquipe
             AddHandler Btn_Header.Click, AddressOf BtnModif_Action_Click
 
         Else
-            ' Ajouter une action
             Btn_Header.Visible = False
         End If
-
-
-        '    '_entClicked = _lesEntretiensCollab(idEntretien)
-        '    _entClicked = _lesEntretiensCollab(DGV_Dates.SelectedRows.Item(0).Cells("Col_idEntretien").Value)
-        '    BtnAjout.Text = "Ajouter une" & vbNewLine & "action"
-        '    BtnAjout.Visible = True
-        '    AddHandler BtnAjout.Click, AddressOf BtnAjout_Action_Click
-        'End Sub
-
-        'Private Sub BtnAjout_Collaborateur_Click(ByVal sender As Object, ByVal e As EventArgs)
-        '    Dim _f As New FrmAjoutCollaborateur
-        '    _f.Show()
-        '    Close()
-        'End Sub
-
-        'Private Sub BtnAjout_Entretien_Click(ByVal sender As Object, ByVal e As EventArgs)
-        '    Dim _f As New FrmAjoutEntretien
-        '    If Not _collabClicked Is Nothing Then
-        '        _f._leCollab = _collabClicked
-        '    End If
-        '    _f.Show()
-        '    Close()
-        'End Sub
-
-        'Private Sub BtnAjout_Action_Click(ByVal sender As Object, ByVal e As EventArgs)
-        '    Dim _f As New FrmAjoutAction
-        '    If Not _collabClicked Is Nothing Then
-        '        _f._entretien = _entClicked
-        '    End If
-        '    _f.Show()
-        '    Close()
 
     End Sub
 
@@ -277,8 +244,8 @@ Public Class FrmMonEquipe
 
         Try
 
-
             Dim FileName As String = _lesEntretiensCollab(_entIdClicked)._nomDocument
+            Dim FileExt As String = _lesEntretiensCollab(_entIdClicked)._extensionDocument
             Dim fileData() As Byte = CType(_lesEntretiensCollab(_entIdClicked)._Document, Byte())
             Dim fs As New FileStream(FileName, FileMode.OpenOrCreate, FileAccess.Write)
             fs.Write(fileData, 0, fileData.Length)

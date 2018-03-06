@@ -18,10 +18,20 @@
             Close()
         End If
 
+        If _authUser._StatutManager = 2 Then
 
-        For Each Collab As ClsCollaborateur In _maClsSQLCollab.readLesCollaborateursByManager(_authUser._idCollaborateur).Values
-            Cmb_Collaborateur.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
-        Next
+            For Each Collab As ClsCollaborateur In _maClsSQLCollab.readLesCollaborateurs.Values
+                Cmb_Collaborateur.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
+            Next
+
+        ElseIf _authUser._StatutManager = 1 Then
+
+            For Each Collab As ClsCollaborateur In _maClsSQLCollab.readLesCollaborateursByManager(_authUser._idCollaborateur).Values
+                Cmb_Collaborateur.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
+            Next
+
+        End If
+
 
         For Each Collab As ClsCollaborateur In _maClsSQLCollab.readLesCollaborateurs.Values
             Cmb_RespAction.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
@@ -42,11 +52,6 @@
             BtnValider.Text = "Modifier"
 
             Dim laActionUpdate As ClsAction = _maClsSQLAction.readUneAction(_idActionUpdate)
-            'DGV_Action.Item(1, 0).Value = laActionUpdate._Descriptif
-            'DGV_Action.Item(2, 0).Value = laActionUpdate._RespAction
-            'DGV_Action.Item(3, 0).Value = laActionUpdate._Delai
-            'DGV_Action.Item(4, 0).Value = laActionUpdate._SuiviCom
-            'DGV_Action.Item(5, 0).Value = laActionUpdate._StatutPDCA
 
             Dim laActionUpdateCollab As ClsCollaborateur = _maClsSQLCollab.readUnCollaborateurById(laActionUpdate._idCollaborateur)
             Dim laActionUpdateEnt As ClsEntretien = _maClsSQLEnt.readUnEntretienById(laActionUpdate._idEntretien)
@@ -106,35 +111,6 @@
         End If
 
     End Sub
-
-    'Private Sub DGV_Action_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DGV_Action.CellMouseClick
-
-    '    If e.RowIndex <> -1 Then
-    '        If e.ColumnIndex = DGV_Action.Columns("Col_Valider").Index Then
-
-    '            Dim currentRowIndex = e.RowIndex
-
-    '            Dim currentDescriptif As String = DGV_Action.Item(1, currentRowIndex).Value
-    '            Dim currentRespAction As String = DGV_Action.Item(2, currentRowIndex).Value.split("-")(1)
-    '            Dim currentDelai As Date = DGV_Action.Item(3, currentRowIndex).Value
-    '            Dim currentSuiviCom As String = DGV_Action.Item(4, currentRowIndex).Value
-    '            Dim currentStatutPDCA As Char = Char.ToUpper(DGV_Action.Item(5, currentRowIndex).Value)
-
-    '            Dim currentAction As New ClsAction(currentDescriptif, currentRespAction, currentDelai, currentSuiviCom, currentStatutPDCA, _selectedCollabId, _selectedEntId)
-
-    '            If _selectedCollabId <> -1 And _selectedEntId <> -1 Then
-    '                Try
-    '                    _maClsSQLAction.InsertAction(currentAction)
-    '                Catch ex As Exception
-    '                    MsgBox(ex.Message, MsgBoxStyle.Critical)
-
-    '                End Try
-    '            Else
-    '                MessageBox.Show("Action non ajoutée, seletionnez un collaborateur et un entretien", "Ajout d'actions", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '            End If
-    '        End If
-    '    End If
-    'End Sub
 
     Private Sub Cmb_Collaborateur_SelectedValueChanged(sender As Object, e As EventArgs) Handles Cmb_Collaborateur.SelectedValueChanged
 
