@@ -181,7 +181,7 @@ Partial Class FrmNewPassword
         Me.MinimizeBox = False
         Me.Name = "FrmNewPassword"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmNewPassword"
+        Me.Text = "Entretiens Individuels - Changer son mot de passe"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.TableLayoutPanel3.ResumeLayout(False)

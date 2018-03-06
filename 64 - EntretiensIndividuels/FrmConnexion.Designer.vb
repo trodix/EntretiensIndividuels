@@ -180,7 +180,7 @@ Partial Class FrmConnexion
         Me.MinimizeBox = False
         Me.Name = "FrmConnexion"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "FrmConnexion"
+        Me.Text = "Entretiens Individuels - Connexion"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.TableLayoutPanel3.ResumeLayout(False)
