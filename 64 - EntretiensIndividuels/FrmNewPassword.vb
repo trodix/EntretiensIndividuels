@@ -35,11 +35,44 @@
     End Sub
 
 
-    Private Sub Tbx_Password_Enter(sender As Object, e As EventArgs) Handles Tbx_Password1.Enter, Tbx_Password2.Enter
+    Private Sub Tbx_Password1_Enter(sender As Object, e As EventArgs) Handles Tbx_Password1.Enter
+        If Tbx_Password1.Text = "Mot de passe" Then
+            Tbx_Password1.Text = ""
+        End If
+    End Sub
 
-        Tbx_Password2.Text = ""
-        Tbx_Password2.UseSystemPasswordChar = True
+    Private Sub Tbx_Password1_Leave(sender As Object, e As EventArgs) Handles Tbx_Password1.Leave
+        If Tbx_Password1.Text = "" Then
+            Tbx_Password1.Text = "Mot de passe"
+        End If
+    End Sub
 
+    Private Sub Tbx_Password1_TextChanged(sender As Object, e As EventArgs) Handles Tbx_Password1.TextChanged
+        If Not Tbx_Password1.Text = "Mot de passe" Then
+            Tbx_Password1.UseSystemPasswordChar = True
+        Else
+            Tbx_Password1.UseSystemPasswordChar = False
+        End If
+    End Sub
+
+    Private Sub Tbx_Password2_Enter(sender As Object, e As EventArgs) Handles Tbx_Password2.Enter
+        If Tbx_Password2.Text = "Confirmer mot de passe" Then
+            Tbx_Password2.Text = ""
+        End If
+    End Sub
+
+    Private Sub Tbx_Password2_Leave(sender As Object, e As EventArgs) Handles Tbx_Password2.Leave
+        If Tbx_Password2.Text = "" Then
+            Tbx_Password2.Text = "Confirmer mot de passe"
+        End If
+    End Sub
+
+    Private Sub Tbx_Password2_TextChanged(sender As Object, e As EventArgs) Handles Tbx_Password2.TextChanged
+        If Not Tbx_Password2.Text = "Confirmer mot de passe" Then
+            Tbx_Password2.UseSystemPasswordChar = True
+        Else
+            Tbx_Password2.UseSystemPasswordChar = False
+        End If
     End Sub
 
 End Class

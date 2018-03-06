@@ -157,7 +157,6 @@ Partial Class FrmNewPassword
         Me.Tbx_Password1.Name = "Tbx_Password1"
         Me.Tbx_Password1.Size = New System.Drawing.Size(285, 24)
         Me.Tbx_Password1.TabIndex = 0
-        Me.Tbx_Password1.UseSystemPasswordChar = True
         '
         'Label_Error
         '
