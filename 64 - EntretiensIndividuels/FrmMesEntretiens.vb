@@ -43,7 +43,7 @@ Public Class FrmMesEntretiens
                 Dim dateEntretienSuivi As Date = unEntretienCollab._DateEntretien
                 Dim dateEntretienSuiviText As String
 
-                If dateEntretienSuivi.Date < Date.Now Then
+                If dateEntretienSuivi.Date.Year < CDate("01/01/1999").Year Then
                     dateEntretienSuiviText = "Non défini"
                 Else
                     dateEntretienSuiviText = dateEntretienSuivi.ToShortDateString

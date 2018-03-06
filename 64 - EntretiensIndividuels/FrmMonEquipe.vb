@@ -57,7 +57,8 @@ Public Class FrmMonEquipe
             For Each unEntretienCollab As ClsEntretien In _lesEntretiensCollab.Values
                 Dim dateEntSuivi As Date = unEntretienCollab._DateEntretienSuivi
                 Dim dateEntSuiviText As String
-                If dateEntSuivi.Date < Date.Now Then
+
+                If dateEntSuivi.Date.Year < CDate("01/01/1999").Year Then
                     dateEntSuiviText = "Non défini"
                 Else
                     dateEntSuiviText = dateEntSuivi.ToShortDateString
@@ -83,7 +84,7 @@ Public Class FrmMonEquipe
                 Dim delai As Date = uneActionEnt._Delai
                 Dim delaiText As String
 
-                If delai.Date < Date.Now Then
+                If delai.Date.Year << CDate("01/01/1999").Year Then
                     delaiText = "Non défini"
                 Else
                     delaiText = delai.ToShortDateString
@@ -92,7 +93,7 @@ Public Class FrmMonEquipe
                 Dim dateSolde As Date = uneActionEnt._DateSolde
                 Dim dateSoldeText As String
 
-                If dateSolde.Date < Date.Now Then
+                If dateSolde.Date.Year < CDate("01/01/1999").Year Then
                     dateSoldeText = "Non défini"
                 Else
                     dateSoldeText = dateSolde.ToShortDateString
