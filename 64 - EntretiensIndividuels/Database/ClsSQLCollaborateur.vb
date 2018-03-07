@@ -123,4 +123,16 @@
         End Using
         Return unCollab
     End Function
+
+    Public Function DeleteCollaborateur(idCollaborateur As Integer)
+        Dim req1 As String = "delete from [dbo].[EICollaborateurs] where idCollaborateur = " & idCollaborateur
+        Dim req2 As String = "delete from [dbo].[EIEntretiens] where idCollaborateur = " & idCollaborateur
+        Dim req3 As String = "delete from [dbo].[EIActions] where idCollaborateur = " & idCollaborateur
+        Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+            _odbcConnection.OdbcNotSelectQuery(req1)
+            _odbcConnection.OdbcNotSelectQuery(req2)
+            _odbcConnection.OdbcNotSelectQuery(req3)
+        End Using
+    End Function
+
 End Class

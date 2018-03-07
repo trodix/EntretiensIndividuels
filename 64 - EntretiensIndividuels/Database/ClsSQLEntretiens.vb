@@ -132,6 +132,14 @@ Public Class ClsSQLEntretiens
 
     End Function
 
+    Public Function DeleteEntretien(idEntretien As Integer)
+        Dim req1 As String = "delete from [dbo].[EIEntretiens] where idEntretien = " & idEntretien
+        Dim req2 As String = "delete from [dbo].[EIActions] where idEntretien = " & idEntretien
+        Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+            _odbcConnection.OdbcNotSelectQuery(req1)
+            _odbcConnection.OdbcNotSelectQuery(req2)
+        End Using
+    End Function
 
     Private Function replaceSqlSpecialChars(maChaine As String)
         Return maChaine.Replace("'", "''")

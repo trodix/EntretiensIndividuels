@@ -89,6 +89,13 @@
         End Using
     End Function
 
+    Public Function DeleteAction(idAction As Integer)
+        Dim req As String = "delete from [dbo].[EIActions] where idAction = " & idAction
+        Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+            _odbcConnection.OdbcNotSelectQuery(req)
+        End Using
+    End Function
+
 
     Private Function replaceSqlSpecialChars(maChaine As String)
         Return maChaine.Replace("'", "''")

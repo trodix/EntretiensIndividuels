@@ -71,4 +71,10 @@
             Tbx_Password.UseSystemPasswordChar = False
         End If
     End Sub
+
+    Private Sub Tbx_Password_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Tbx_Password.KeyPress
+        If Convert.ToInt32(e.KeyChar) = 13 Then
+            Btn_Connexion.PerformClick()
+        End If
+    End Sub
 End Class

@@ -5,6 +5,8 @@ Public Class UI_MonEquipe
     Property _authUser As ClsUtilisateur = Nothing
 
     Property _monCollaborateurSQL As New ClsSQLCollaborateur
+    Property _EntretienSQL As New ClsSQLEntretiens
+    Property _actionsSQL As New ClsSQLAction
     Property _lesCollaborateurs As New Dictionary(Of Integer, ClsCollaborateur)
     Property _lesEntretiensCollab As New Dictionary(Of Integer, ClsEntretien)
     Property _lesActionsEntCollab As New Dictionary(Of Integer, ClsAction)
@@ -118,24 +120,28 @@ Public Class UI_MonEquipe
         If _lesCollaborateurs.ContainsKey(idCollab) Then
 
             ' afficher bouton modifier un collaborateur
-            Btn_Header.Text = "Modifier le collaborateur"
-            Btn_Header.Visible = True
+            Btn_Modif.Text = "Modifier le collaborateur"
+            Btn_Modif.Visible = True
             _collabIdClicked = idCollab
-            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Collaborateur_Click
-            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Entretien_Click
-            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Action_Click
-            AddHandler Btn_Header.Click, AddressOf BtnModif_Collaborateur_Click
+            RemoveHandler Btn_Modif.Click, AddressOf BtnModif_Collaborateur_Click
+            RemoveHandler Btn_Modif.Click, AddressOf BtnModif_Entretien_Click
+            RemoveHandler Btn_Modif.Click, AddressOf BtnModif_Action_Click
+            AddHandler Btn_Modif.Click, AddressOf BtnModif_Collaborateur_Click
+
+            ' afficher button supprimer un collaborateur
+            Btn_Supprimer.Text = "Supprimer le collaborateur"
+            Btn_Supprimer.Visible = True
+            RemoveHandler Btn_Supprimer.Click, AddressOf Btn_SupprimerCollaborateur_Click
+            RemoveHandler Btn_Supprimer.Click, AddressOf Btn_SupprimerEntretien_Click
+            RemoveHandler Btn_Supprimer.Click, AddressOf Btn_SupprimerAction_Click
+            AddHandler Btn_Supprimer.Click, AddressOf Btn_SupprimerCollaborateur_Click
 
             FillDGV_Entretiens(idCollab)
         Else
-            ' Ajouter un collaborateur
-            Btn_Header.Visible = False
+            Btn_Modif.Visible = False
+            Btn_Supprimer.Visible = False
         End If
 
-
-        'BtnAjout.Text = "Ajouter un" & vbNewLine & "collaborateur"
-        'BtnAjout.Visible = True
-        'AddHandler BtnAjout.Click, AddressOf BtnAjout_Collaborateur_Click
     End Sub
 
 
@@ -146,13 +152,13 @@ Public Class UI_MonEquipe
         Dim idEntretien = sender.Rows(ligneCourante).Cells(0).Value
         If _lesEntretiensCollab.ContainsKey(idEntretien) Then
             ' afficher bouton modifier un entretien
-            Btn_Header.Text = "Modifier l'entretien"
-            Btn_Header.Visible = True
+            Btn_Modif.Text = "Modifier l'entretien"
+            Btn_Modif.Visible = True
             _entIdClicked = idEntretien
-            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Collaborateur_Click
-            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Entretien_Click
-            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Action_Click
-            AddHandler Btn_Header.Click, AddressOf BtnModif_Entretien_Click
+            RemoveHandler Btn_Modif.Click, AddressOf BtnModif_Collaborateur_Click
+            RemoveHandler Btn_Modif.Click, AddressOf BtnModif_Entretien_Click
+            RemoveHandler Btn_Modif.Click, AddressOf BtnModif_Action_Click
+            AddHandler Btn_Modif.Click, AddressOf BtnModif_Entretien_Click
 
             If Not _lesEntretiensCollab(idEntretien)._Document Is Nothing Then
                 Btn_VoirFichier.Visible = True
@@ -161,16 +167,20 @@ Public Class UI_MonEquipe
                 Btn_VoirFichier.Visible = False
             End If
 
+            ' afficher button supprimer un entretien
+            Btn_Supprimer.Text = "Supprimer l'entretien"
+            Btn_Supprimer.Visible = True
+            RemoveHandler Btn_Supprimer.Click, AddressOf Btn_SupprimerCollaborateur_Click
+            RemoveHandler Btn_Supprimer.Click, AddressOf Btn_SupprimerEntretien_Click
+            RemoveHandler Btn_Supprimer.Click, AddressOf Btn_SupprimerAction_Click
+            AddHandler Btn_Supprimer.Click, AddressOf Btn_SupprimerEntretien_Click
+
             FillDGV_Actions(idEntretien)
         Else
-            ' Ajouter un entretien
-            Btn_Header.Visible = False
+            Btn_Modif.Visible = False
+            Btn_Supprimer.Visible = False
         End If
 
-        '_collabClicked = _lesCollaborateurs(idCollab)
-        'BtnAjout.Text = "Ajouter un" & vbNewLine & "entretien"
-        'BtnAjout.Visible = True
-        'AddHandler BtnAjout.Click, AddressOf BtnAjout_Entretien_Click
     End Sub
 
 
@@ -185,17 +195,26 @@ Public Class UI_MonEquipe
         Dim idAction = sender.Rows(ligneCourante).Cells("Col_idActions").Value
 
         If _lesActionsEntCollab.ContainsKey(idAction) Then
-            ' afficher bouton modifier une action
-            Btn_Header.Text = "Modifier l'action"
-            Btn_Header.Visible = True
-            _actionIdClicked = idAction
-            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Collaborateur_Click
-            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Entretien_Click
-            RemoveHandler Btn_Header.Click, AddressOf BtnModif_Action_Click
-            AddHandler Btn_Header.Click, AddressOf BtnModif_Action_Click
 
+            ' afficher bouton modifier une action
+            Btn_Modif.Text = "Modifier l'action"
+            Btn_Modif.Visible = True
+            _actionIdClicked = idAction
+            RemoveHandler Btn_Modif.Click, AddressOf BtnModif_Collaborateur_Click
+            RemoveHandler Btn_Modif.Click, AddressOf BtnModif_Entretien_Click
+            RemoveHandler Btn_Modif.Click, AddressOf BtnModif_Action_Click
+            AddHandler Btn_Modif.Click, AddressOf BtnModif_Action_Click
+
+            ' afficher button supprimer une action
+            Btn_Supprimer.Text = "Supprimer l'action"
+            Btn_Supprimer.Visible = True
+            RemoveHandler Btn_Supprimer.Click, AddressOf Btn_SupprimerCollaborateur_Click
+            RemoveHandler Btn_Supprimer.Click, AddressOf Btn_SupprimerEntretien_Click
+            RemoveHandler Btn_Supprimer.Click, AddressOf Btn_SupprimerAction_Click
+            AddHandler Btn_Supprimer.Click, AddressOf Btn_SupprimerAction_Click
         Else
-            Btn_Header.Visible = False
+            Btn_Modif.Visible = False
+            Btn_Supprimer.Visible = False
         End If
 
     End Sub
@@ -250,6 +269,27 @@ Public Class UI_MonEquipe
 
         End Try
 
+    End Sub
+
+    Private Sub Btn_SupprimerAction_Click(sender As Object, e As EventArgs)
+        Dim res As MsgBoxResult = MsgBox("Voulez-vous supprimer l'action sélectionnée ?", MsgBoxStyle.Exclamation, MsgBoxStyle.YesNo)
+        If res = MsgBoxResult.Yes Then
+            _actionsSQL.DeleteAction(_actionIdClicked)
+        End If
+    End Sub
+
+    Private Sub Btn_SupprimerEntretien_Click(sender As Object, e As EventArgs)
+        Dim res As MsgBoxResult = MsgBox("Voulez-vous supprimer l'entretien sélectionné et les actions associées ?", MsgBoxStyle.Exclamation, MsgBoxStyle.YesNo)
+        If res = MsgBoxResult.Yes Then
+            _EntretienSQL.DeleteEntretien(_entIdClicked)
+        End If
+    End Sub
+
+    Private Sub Btn_SupprimerCollaborateur_Click(sender As Object, e As EventArgs)
+        Dim res As MsgBoxResult = MsgBox("Voulez-vous supprimer le collaborateur sélectionné, les entretiens associés ainsi que leurs actions ?", MsgBoxStyle.Exclamation, MsgBoxStyle.YesNo)
+        If res = MsgBoxResult.Yes Then
+            _monCollaborateurSQL.DeleteCollaborateur(_collabIdClicked)
+        End If
     End Sub
 
 End Class
