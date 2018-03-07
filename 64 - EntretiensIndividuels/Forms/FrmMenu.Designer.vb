@@ -23,7 +23,6 @@ Partial Class FrmMenu
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMenu))
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TLP_Menu = New System.Windows.Forms.TableLayoutPanel()
         Me.Btn_Accueil = New System.Windows.Forms.Button()
         Me.Btn_Entretiens = New System.Windows.Forms.Button()
@@ -32,38 +31,33 @@ Partial Class FrmMenu
         Me.Btn_AjoutAction = New System.Windows.Forms.Button()
         Me.Btn_AjoutEntretien = New System.Windows.Forms.Button()
         Me.Btn_AjoutCollab = New System.Windows.Forms.Button()
+        Me.Btn_SlideMenu = New System.Windows.Forms.Button()
         Me.Panel_Main = New System.Windows.Forms.Panel()
-        Me.Panel1.SuspendLayout()
+        Me.PanelSlide = New System.Windows.Forms.Panel()
         Me.TLP_Menu.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.PanelSlide.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.TLP_Menu)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(241, 671)
-        Me.Panel1.TabIndex = 0
         '
         'TLP_Menu
         '
         Me.TLP_Menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.TLP_Menu.ColumnCount = 4
-        Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
+        Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10.0!))
+        Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170.0!))
         Me.TLP_Menu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
-        Me.TLP_Menu.Controls.Add(Me.Btn_Accueil, 1, 1)
-        Me.TLP_Menu.Controls.Add(Me.Btn_Entretiens, 1, 2)
-        Me.TLP_Menu.Controls.Add(Me.Btn_Equipe, 1, 3)
-        Me.TLP_Menu.Controls.Add(Me.TableLayoutPanel1, 2, 4)
+        Me.TLP_Menu.Controls.Add(Me.Btn_Accueil, 1, 3)
+        Me.TLP_Menu.Controls.Add(Me.Btn_Entretiens, 1, 4)
+        Me.TLP_Menu.Controls.Add(Me.Btn_Equipe, 1, 5)
+        Me.TLP_Menu.Controls.Add(Me.TableLayoutPanel1, 2, 6)
+        Me.TLP_Menu.Controls.Add(Me.Btn_SlideMenu, 1, 1)
         Me.TLP_Menu.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TLP_Menu.Location = New System.Drawing.Point(0, 0)
         Me.TLP_Menu.Name = "TLP_Menu"
-        Me.TLP_Menu.RowCount = 7
+        Me.TLP_Menu.RowCount = 9
+        Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
@@ -71,7 +65,7 @@ Partial Class FrmMenu
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TLP_Menu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TLP_Menu.Size = New System.Drawing.Size(241, 671)
+        Me.TLP_Menu.Size = New System.Drawing.Size(264, 671)
         Me.TLP_Menu.TabIndex = 3
         '
         'Btn_Accueil
@@ -85,7 +79,7 @@ Partial Class FrmMenu
         Me.Btn_Accueil.ForeColor = System.Drawing.Color.White
         Me.Btn_Accueil.Image = Global.EntretiensIndividuels.My.Resources.Resources.accueil_32
         Me.Btn_Accueil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Accueil.Location = New System.Drawing.Point(23, 23)
+        Me.Btn_Accueil.Location = New System.Drawing.Point(13, 93)
         Me.Btn_Accueil.Name = "Btn_Accueil"
         Me.Btn_Accueil.Size = New System.Drawing.Size(214, 44)
         Me.Btn_Accueil.TabIndex = 6
@@ -104,7 +98,7 @@ Partial Class FrmMenu
         Me.Btn_Entretiens.ForeColor = System.Drawing.Color.White
         Me.Btn_Entretiens.Image = CType(resources.GetObject("Btn_Entretiens.Image"), System.Drawing.Image)
         Me.Btn_Entretiens.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Entretiens.Location = New System.Drawing.Point(23, 73)
+        Me.Btn_Entretiens.Location = New System.Drawing.Point(13, 143)
         Me.Btn_Entretiens.Name = "Btn_Entretiens"
         Me.Btn_Entretiens.Size = New System.Drawing.Size(214, 44)
         Me.Btn_Entretiens.TabIndex = 3
@@ -124,7 +118,7 @@ Partial Class FrmMenu
         Me.Btn_Equipe.ForeColor = System.Drawing.Color.White
         Me.Btn_Equipe.Image = CType(resources.GetObject("Btn_Equipe.Image"), System.Drawing.Image)
         Me.Btn_Equipe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Btn_Equipe.Location = New System.Drawing.Point(23, 123)
+        Me.Btn_Equipe.Location = New System.Drawing.Point(13, 193)
         Me.Btn_Equipe.Name = "Btn_Equipe"
         Me.Btn_Equipe.Size = New System.Drawing.Size(214, 44)
         Me.Btn_Equipe.TabIndex = 4
@@ -141,7 +135,7 @@ Partial Class FrmMenu
         Me.TableLayoutPanel1.Controls.Add(Me.Btn_AjoutEntretien, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Btn_AjoutCollab, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(43, 173)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(63, 243)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 4
         Me.TLP_Menu.SetRowSpan(Me.TableLayoutPanel1, 2)
@@ -149,7 +143,7 @@ Partial Class FrmMenu
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(194, 475)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(164, 405)
         Me.TableLayoutPanel1.TabIndex = 5
         '
         'Btn_AjoutAction
@@ -163,7 +157,7 @@ Partial Class FrmMenu
         Me.Btn_AjoutAction.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Btn_AjoutAction.Location = New System.Drawing.Point(3, 103)
         Me.Btn_AjoutAction.Name = "Btn_AjoutAction"
-        Me.Btn_AjoutAction.Size = New System.Drawing.Size(188, 44)
+        Me.Btn_AjoutAction.Size = New System.Drawing.Size(158, 44)
         Me.Btn_AjoutAction.TabIndex = 2
         Me.Btn_AjoutAction.Text = "Ajouter action"
         Me.Btn_AjoutAction.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -182,7 +176,7 @@ Partial Class FrmMenu
         Me.Btn_AjoutEntretien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Btn_AjoutEntretien.Location = New System.Drawing.Point(3, 53)
         Me.Btn_AjoutEntretien.Name = "Btn_AjoutEntretien"
-        Me.Btn_AjoutEntretien.Size = New System.Drawing.Size(188, 44)
+        Me.Btn_AjoutEntretien.Size = New System.Drawing.Size(158, 44)
         Me.Btn_AjoutEntretien.TabIndex = 1
         Me.Btn_AjoutEntretien.Text = "Ajouter entretien"
         Me.Btn_AjoutEntretien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -201,7 +195,7 @@ Partial Class FrmMenu
         Me.Btn_AjoutCollab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Btn_AjoutCollab.Location = New System.Drawing.Point(3, 3)
         Me.Btn_AjoutCollab.Name = "Btn_AjoutCollab"
-        Me.Btn_AjoutCollab.Size = New System.Drawing.Size(188, 44)
+        Me.Btn_AjoutCollab.Size = New System.Drawing.Size(158, 44)
         Me.Btn_AjoutCollab.TabIndex = 0
         Me.Btn_AjoutCollab.Text = "Ajouter collaborateur"
         Me.Btn_AjoutCollab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -209,13 +203,39 @@ Partial Class FrmMenu
         Me.Btn_AjoutCollab.UseVisualStyleBackColor = False
         Me.Btn_AjoutCollab.Visible = False
         '
+        'Btn_SlideMenu
+        '
+        Me.Btn_SlideMenu.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_SlideMenu.FlatAppearance.BorderSize = 0
+        Me.Btn_SlideMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Btn_SlideMenu.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Btn_SlideMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_SlideMenu.Image = Global.EntretiensIndividuels.My.Resources.Resources.menu_64
+        Me.Btn_SlideMenu.Location = New System.Drawing.Point(13, 23)
+        Me.Btn_SlideMenu.Name = "Btn_SlideMenu"
+        Me.Btn_SlideMenu.Size = New System.Drawing.Size(44, 44)
+        Me.Btn_SlideMenu.TabIndex = 7
+        Me.Btn_SlideMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Btn_SlideMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        Me.Btn_SlideMenu.UseVisualStyleBackColor = True
+        '
         'Panel_Main
         '
         Me.Panel_Main.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel_Main.Location = New System.Drawing.Point(241, 0)
+        Me.Panel_Main.Location = New System.Drawing.Point(264, 0)
         Me.Panel_Main.Name = "Panel_Main"
-        Me.Panel_Main.Size = New System.Drawing.Size(917, 671)
+        Me.Panel_Main.Size = New System.Drawing.Size(894, 671)
         Me.Panel_Main.TabIndex = 1
+        '
+        'PanelSlide
+        '
+        Me.PanelSlide.BackColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.PanelSlide.Controls.Add(Me.TLP_Menu)
+        Me.PanelSlide.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PanelSlide.Location = New System.Drawing.Point(0, 0)
+        Me.PanelSlide.Name = "PanelSlide"
+        Me.PanelSlide.Size = New System.Drawing.Size(264, 671)
+        Me.PanelSlide.TabIndex = 0
         '
         'FrmMenu
         '
@@ -223,19 +243,17 @@ Partial Class FrmMenu
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1158, 671)
         Me.Controls.Add(Me.Panel_Main)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.PanelSlide)
         Me.Name = "FrmMenu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Entretiens Individuels - Accueil"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        Me.Panel1.ResumeLayout(False)
         Me.TLP_Menu.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.PanelSlide.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel_Main As Panel
     Friend WithEvents TLP_Menu As TableLayoutPanel
     Friend WithEvents Btn_Accueil As Button
@@ -245,4 +263,6 @@ Partial Class FrmMenu
     Friend WithEvents Btn_AjoutAction As Button
     Friend WithEvents Btn_AjoutEntretien As Button
     Friend WithEvents Btn_AjoutCollab As Button
+    Friend WithEvents Btn_SlideMenu As Button
+    Friend WithEvents PanelSlide As Panel
 End Class

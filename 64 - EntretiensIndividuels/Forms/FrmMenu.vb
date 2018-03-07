@@ -4,6 +4,9 @@
 
     Private Sub FrmMenu_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
+        PanelSlide.Width = ExtendedSlidePanelWidth
+        timer1.Interval = 10
+
         If _authUser Is Nothing Then
             Close()
         Else
@@ -96,5 +99,54 @@
             End If
         Next
     End Sub
+
+#Region "SlideMenu"
+
+    Private WithEvents timer1 As New Timer
+    Private ExtendedSlidePanelWidth As Integer = 250
+    Private MinSlidePanelWidth As Integer = 70
+    Private isSmall As Boolean = Nothing
+
+    Private Sub Btn_SlideMenu_Click(sender As Object, e As EventArgs) Handles Btn_SlideMenu.Click
+
+        timer1.Enabled = True
+        timer1.Start()
+        If PanelSlide.Width = ExtendedSlidePanelWidth Then
+            isSmall = False
+        ElseIf PanelSlide.Width = MinSlidePanelWidth Then
+            isSmall = True
+        End If
+
+    End Sub
+
+    Private Sub timer1_Tick(sender As Object, e As EventArgs) Handles timer1.Tick
+
+        If (isSmall = False) Then
+            For Each control As Control In TLP_Menu.Controls
+                If Not control.Name.Equals(Btn_SlideMenu.Name) Then
+                    control.Hide()
+                End If
+            Next
+            PanelSlide.Width -= 180
+
+        ElseIf (isSmall = True) Then
+
+            For Each control As Control In TLP_Menu.Controls
+                If Not control.Name.Equals(Btn_SlideMenu.Name) Then
+                    control.Show()
+                End If
+            Next
+            PanelSlide.Width += 180
+        End If
+
+
+        If PanelSlide.Width = MinSlidePanelWidth Or PanelSlide.Width = ExtendedSlidePanelWidth Then
+            timer1.Stop()
+            isSmall = Nothing
+        End If
+
+    End Sub
+
+#End Region
 
 End Class

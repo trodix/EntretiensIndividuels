@@ -7,8 +7,6 @@
         Tbx_Username.Text = "NOM Prénom"
         Tbx_Password.Text = "Mot de passe"
         Tbx_Password.UseSystemPasswordChar = False
-
-        Tbx_Username.Text = (ClsUtilisateur.CryptPassword("Volodia2014*"))
     End Sub
 
     Private Sub Btn_Connexion_Click(sender As Object, e As EventArgs) Handles Btn_Connexion.Click
