@@ -7,17 +7,19 @@
         Tbx_Username.Text = "NOM Prénom"
         Tbx_Password.Text = "Mot de passe"
         Tbx_Password.UseSystemPasswordChar = False
+
+        Tbx_Username.Text = (ClsUtilisateur.CryptPassword("Volodia2014*"))
     End Sub
 
     Private Sub Btn_Connexion_Click(sender As Object, e As EventArgs) Handles Btn_Connexion.Click
 
         Dim tbxUsername As String = Tbx_Username.Text
-        Dim tbxPassword As String = Tbx_Password.Text
+        Dim tbxPassword As String = ClsUtilisateur.CryptPassword(Tbx_Password.Text)
 
         _authUser = _maClsSQLUtilisateur.validUser(tbxUsername, tbxPassword)
 
         If _authUser IsNot Nothing Then
-            If _authUser._password.Equals("Acta89+") Then
+            If _authUser._password.Equals(ClsUtilisateur.CryptPassword("Acta89+")) Then
                 Dim _f As New FrmNewPassword
                 _f._authUser = _authUser
                 _f.Show()

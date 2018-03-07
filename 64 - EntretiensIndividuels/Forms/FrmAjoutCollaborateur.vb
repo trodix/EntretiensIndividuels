@@ -64,15 +64,16 @@
     End Sub
 
     Private Sub chargerManager()
-
+        Dim selectedItem As String = Cmb_Manager.SelectedItem
         Cmb_Manager.Items.Clear()
 
-        'For Each Manager As ClsCollaborateur In _maClsSQLCollaborateur._lesManagers.Values
         For Each Manager As ClsCollaborateur In _maClsSQLCollaborateur.readLesManagers.Values
             Dim leManagerId As Integer = Manager._idCollaborateur
             Dim leManagerLib As String = Manager._libelleCollaborateur
             Cmb_Manager.Items.Add(leManagerId & " - " & leManagerLib)
         Next
+
+        Cmb_Manager.SelectedItem = selectedItem
 
     End Sub
 
@@ -111,6 +112,7 @@
             If Not _askUpdate Then
                 Dim leCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, currentActif, Nothing, currentStatut)
                 _maClsSQLCollaborateur.InsertCollaborateur(leCollab)
+
             Else
                 Dim leCollab As New ClsCollaborateur(currentLibelleCollab, currentManager, currentService, currentActif, _idCollabUpdate, currentStatut)
                 _maClsSQLCollaborateur.UpdateCollaborateur(leCollab)
@@ -122,32 +124,5 @@
             MsgBox(ex.Message, MsgBoxStyle.Critical)
         End Try
     End Sub
-
-
-
-
-    'Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs)
-    '    Me.Cursor = Cursors.WaitCursor
-    '    Dim _f As New FrmMenu
-    '    _f._authUser = _authUser
-    '    _f.Show()
-    '    Close()
-    'End Sub
-
-    'Private Sub Btn_Equipe_Click(sender As Object, e As EventArgs)
-    '    Me.Cursor = Cursors.WaitCursor
-    '    Dim _f As New FrmMonEquipe
-    '    _f._authUser = _authUser
-    '    _f.Show()
-    '    Close()
-    'End Sub
-
-    'Private Sub Btn_Entretiens_Click(sender As Object, e As EventArgs)
-    '    Me.Cursor = Cursors.WaitCursor
-    '    Dim _f As New FrmMesEntretiens
-    '    _f._authUser = _authUser
-    '    _f.Show()
-    '    Close()
-    'End Sub
 
 End Class

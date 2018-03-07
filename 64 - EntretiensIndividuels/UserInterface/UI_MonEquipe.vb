@@ -98,7 +98,7 @@ Public Class UI_MonEquipe
                 End If
 
                 DGV_Actions.Rows.Add(
-                    uneActionEnt._idEntretien, uneActionEnt._idAction, uneActionEnt._DateCreation, uneActionEnt._Objectif, uneActionEnt._ActionField, uneActionEnt._RespAction,
+                    uneActionEnt._idEntretien, uneActionEnt._idAction, uneActionEnt._DateCreation, uneActionEnt._Objectif, uneActionEnt._ActionField, uneActionEnt._LibRespAction,
                     delaiText, uneActionEnt._SuiviCom, uneActionEnt._StatutPDCA, dateSoldeText
                     )
             Next

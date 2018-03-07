@@ -44,7 +44,7 @@ Partial Class FrmAjoutEntretien
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98.03922!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.960784!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Label_Titre, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Label2, 1, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.Cmb_Collaborateur, 2, 3)
@@ -84,7 +84,7 @@ Partial Class FrmAjoutEntretien
         Me.Label_Titre.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_Titre.Location = New System.Drawing.Point(23, 20)
         Me.Label_Titre.Name = "Label_Titre"
-        Me.Label_Titre.Size = New System.Drawing.Size(511, 40)
+        Me.Label_Titre.Size = New System.Drawing.Size(510, 40)
         Me.Label_Titre.TabIndex = 0
         Me.Label_Titre.Text = "Créer un entretien"
         '
@@ -95,7 +95,7 @@ Partial Class FrmAjoutEntretien
         Me.Label2.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(23, 151)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(207, 30)
+        Me.Label2.Size = New System.Drawing.Size(206, 30)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Date entretien"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -105,7 +105,7 @@ Partial Class FrmAjoutEntretien
         Me.Cmb_Collaborateur.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Cmb_Collaborateur.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cmb_Collaborateur.FormattingEnabled = True
-        Me.Cmb_Collaborateur.Location = New System.Drawing.Point(236, 104)
+        Me.Cmb_Collaborateur.Location = New System.Drawing.Point(235, 104)
         Me.Cmb_Collaborateur.Name = "Cmb_Collaborateur"
         Me.Cmb_Collaborateur.Size = New System.Drawing.Size(294, 26)
         Me.Cmb_Collaborateur.TabIndex = 3
@@ -117,7 +117,7 @@ Partial Class FrmAjoutEntretien
         Me.Label3.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(23, 201)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(207, 30)
+        Me.Label3.Size = New System.Drawing.Size(206, 30)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Date entretien suivi"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -129,7 +129,7 @@ Partial Class FrmAjoutEntretien
         Me.Label4.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(23, 251)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(207, 30)
+        Me.Label4.Size = New System.Drawing.Size(206, 30)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Document"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -138,7 +138,7 @@ Partial Class FrmAjoutEntretien
         '
         Me.BtnValider.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BtnValider.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnValider.Location = New System.Drawing.Point(236, 304)
+        Me.BtnValider.Location = New System.Drawing.Point(235, 304)
         Me.BtnValider.Name = "BtnValider"
         Me.BtnValider.Size = New System.Drawing.Size(294, 44)
         Me.BtnValider.TabIndex = 4
@@ -152,7 +152,7 @@ Partial Class FrmAjoutEntretien
         Me.Label5.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(23, 101)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(207, 30)
+        Me.Label5.Size = New System.Drawing.Size(206, 30)
         Me.Label5.TabIndex = 5
         Me.Label5.Text = "Collaborateur"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -161,7 +161,7 @@ Partial Class FrmAjoutEntretien
         '
         Me.Dtp_DateEntretien.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Dtp_DateEntretien.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Dtp_DateEntretien.Location = New System.Drawing.Point(236, 154)
+        Me.Dtp_DateEntretien.Location = New System.Drawing.Point(235, 154)
         Me.Dtp_DateEntretien.Name = "Dtp_DateEntretien"
         Me.Dtp_DateEntretien.Size = New System.Drawing.Size(294, 27)
         Me.Dtp_DateEntretien.TabIndex = 6
@@ -170,7 +170,7 @@ Partial Class FrmAjoutEntretien
         '
         Me.Dtp_DateEntretienSuivi.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Dtp_DateEntretienSuivi.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Dtp_DateEntretienSuivi.Location = New System.Drawing.Point(236, 204)
+        Me.Dtp_DateEntretienSuivi.Location = New System.Drawing.Point(235, 204)
         Me.Dtp_DateEntretienSuivi.Name = "Dtp_DateEntretienSuivi"
         Me.Dtp_DateEntretienSuivi.Size = New System.Drawing.Size(294, 27)
         Me.Dtp_DateEntretienSuivi.TabIndex = 7
@@ -179,7 +179,7 @@ Partial Class FrmAjoutEntretien
         '
         Me.Btn_Fichier.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Btn_Fichier.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Btn_Fichier.Location = New System.Drawing.Point(236, 254)
+        Me.Btn_Fichier.Location = New System.Drawing.Point(235, 254)
         Me.Btn_Fichier.Name = "Btn_Fichier"
         Me.Btn_Fichier.Size = New System.Drawing.Size(294, 24)
         Me.Btn_Fichier.TabIndex = 8

@@ -17,8 +17,8 @@
 
     Private Sub Btn_Valider_Click(sender As Object, e As EventArgs) Handles Btn_Valider.Click
 
-        Dim tbxPassword1 As String = Tbx_Password1.Text
-        Dim tbxPassword2 As String = Tbx_Password2.Text
+        Dim tbxPassword1 As String = ClsUtilisateur.CryptPassword(Tbx_Password1.Text)
+        Dim tbxPassword2 As String = ClsUtilisateur.CryptPassword(Tbx_Password2.Text)
 
         If Not tbxPassword1.Equals(tbxPassword2) Then
             Label_Error.Text = "Les deux champs sont differents"

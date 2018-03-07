@@ -13,7 +13,9 @@
         Dim lesActions As New Dictionary(Of Integer, ClsAction)
         'Dim lesActions As New List(Of ClsAction)
         Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
-            "select * from [dbo].[EIActions] order by DateCreation",
+            "select * from [dbo].[EIActions] 
+            inner join [dbo].[EICollaborateurs] on [dbo].[EICollaborateurs].idCollaborateur = [dbo].[EIActions].RespAction
+            order by DateCreation",
             ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             With s_FbMyReader
                 While .OdbcReader.Read
@@ -22,6 +24,7 @@
                     Dim obj As String = ""
                     Dim actField As String = ""
                     Dim resrAct As String = ""
+                    Dim LibresrAct As String = ""
                     Dim delai As New Date
                     Dim suiviCom As String = ""
                     Dim statutPDCA As Char = ""
@@ -33,6 +36,7 @@
                     If Not IsDBNull(.OdbcReader("Objectif")) Then obj = .OdbcReader("Objectif")
                     If Not IsDBNull(.OdbcReader("ActionField")) Then actField = .OdbcReader("ActionField")
                     If Not IsDBNull(.OdbcReader("RespAction")) Then resrAct = .OdbcReader("RespAction")
+                    If Not IsDBNull(.OdbcReader("LibCollaborateur")) Then LibresrAct = .OdbcReader("LibCollaborateur")
                     If Not IsDBNull(.OdbcReader("Delai")) Then delai = .OdbcReader("Delai")
                     If Not IsDBNull(.OdbcReader("SuiviCom")) Then suiviCom = .OdbcReader("SuiviCom")
                     If Not IsDBNull(.OdbcReader("StatutPDCA")) Then statutPDCA = .OdbcReader("StatutPDCA")
@@ -40,7 +44,7 @@
                     If Not IsDBNull(.OdbcReader("idEntretien")) Then idEnt = .OdbcReader("idEntretien")
                     If Not IsDBNull(.OdbcReader("DateSolde")) Then ds = .OdbcReader("DateSolde")
 
-                    Dim uneAction As New ClsAction(obj, actField, resrAct, delai, suiviCom, statutPDCA, idCollab, idEnt, ds, dc, idActions)
+                    Dim uneAction As New ClsAction(obj, actField, resrAct, LibresrAct, delai, suiviCom, statutPDCA, idCollab, idEnt, ds, dc, idActions)
                     lesActions.Add(idActions, uneAction)
                     'lesActions.Add(uneAction)
                 End While

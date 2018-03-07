@@ -6,6 +6,7 @@
     Property _ActionField As String
     'Property _RespAction As String
     Property _RespAction As Integer
+    Property _LibRespAction As String
     Property _Delai As Date
     Property _SuiviCom As String
     Property _StatutPDCA As Char
@@ -29,4 +30,23 @@
             _DateCreation = Date.Today
         End If
     End Sub
+
+    Public Sub New(Objectif As String, ActionField As String, RespAction As Integer, LibRespAction As String, Delai As Date, SuiviCom As String, StatutPDCA As Char, idCollaborateur As Integer, idEntretien As Integer, Optional DateSolde As Date = Nothing, Optional DateCreation As Date = Nothing, Optional idAction As Integer = -1)
+        _idAction = idAction
+        _DateCreation = DateCreation
+        _Objectif = Objectif
+        _ActionField = ActionField
+        _RespAction = RespAction
+        _LibRespAction = LibRespAction
+        _Delai = Delai
+        _SuiviCom = SuiviCom
+        _StatutPDCA = StatutPDCA
+        _idCollaborateur = idCollaborateur
+        _idEntretien = idEntretien
+        _DateSolde = DateSolde
+        If DateCreation = New Date Then
+            _DateCreation = Date.Today
+        End If
+    End Sub
+
 End Class
