@@ -260,13 +260,15 @@ Partial Class UI_MonEquipe
         Me.Btn_Modif.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Btn_Modif.FlatAppearance.BorderSize = 0
         Me.Btn_Modif.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Btn_Modif.Font = New System.Drawing.Font("Verdana", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_Modif.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btn_Modif.ForeColor = System.Drawing.Color.White
+        Me.Btn_Modif.Image = Global.EntretiensIndividuels.My.Resources.Resources.icons8_modifier_32
         Me.Btn_Modif.Location = New System.Drawing.Point(23, 83)
         Me.Btn_Modif.Name = "Btn_Modif"
         Me.Btn_Modif.Size = New System.Drawing.Size(171, 54)
         Me.Btn_Modif.TabIndex = 8
-        Me.Btn_Modif.Text = "Button1"
+        Me.Btn_Modif.Text = "Modifier"
+        Me.Btn_Modif.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Btn_Modif.UseVisualStyleBackColor = False
         Me.Btn_Modif.Visible = False
         '
@@ -279,11 +281,13 @@ Partial Class UI_MonEquipe
         Me.Btn_VoirFichier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_VoirFichier.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btn_VoirFichier.ForeColor = System.Drawing.Color.White
+        Me.Btn_VoirFichier.Image = Global.EntretiensIndividuels.My.Resources.Resources.icons8_visible_32
         Me.Btn_VoirFichier.Location = New System.Drawing.Point(318, 83)
         Me.Btn_VoirFichier.Name = "Btn_VoirFichier"
         Me.Btn_VoirFichier.Size = New System.Drawing.Size(171, 54)
         Me.Btn_VoirFichier.TabIndex = 9
         Me.Btn_VoirFichier.Text = "Ouvrir le fichier"
+        Me.Btn_VoirFichier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Btn_VoirFichier.UseVisualStyleBackColor = False
         Me.Btn_VoirFichier.Visible = False
         '
@@ -295,11 +299,13 @@ Partial Class UI_MonEquipe
         Me.Btn_Supprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Btn_Supprimer.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Btn_Supprimer.ForeColor = System.Drawing.Color.White
+        Me.Btn_Supprimer.Image = Global.EntretiensIndividuels.My.Resources.Resources.icons8_poubelle_32
         Me.Btn_Supprimer.Location = New System.Drawing.Point(495, 83)
         Me.Btn_Supprimer.Name = "Btn_Supprimer"
         Me.Btn_Supprimer.Size = New System.Drawing.Size(171, 54)
         Me.Btn_Supprimer.TabIndex = 10
         Me.Btn_Supprimer.Text = "Supprimer"
+        Me.Btn_Supprimer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Btn_Supprimer.UseVisualStyleBackColor = False
         Me.Btn_Supprimer.Visible = False
         '

@@ -266,6 +266,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon-96.ico" />
+    <None Include="Resources\icons8-modifier-32.png" />
+    <None Include="Resources\icons8-visible-32.png" />
+    <None Include="Resources\icons8-poubelle-32.png" />
     <None Include="Resources\menu-64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
