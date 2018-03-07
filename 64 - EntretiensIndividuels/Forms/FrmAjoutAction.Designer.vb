@@ -22,6 +22,7 @@ Partial Class FrmAjoutAction
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAjoutAction))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label_Collaborateur = New System.Windows.Forms.Label()
         Me.Label_Entretien = New System.Windows.Forms.Label()
@@ -344,6 +345,7 @@ Partial Class FrmAjoutAction
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1054, 511)
         Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(1070, 550)
         Me.Name = "FrmAjoutAction"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent

@@ -244,6 +244,7 @@ Partial Class FrmMenu
         Me.ClientSize = New System.Drawing.Size(1158, 671)
         Me.Controls.Add(Me.Panel_Main)
         Me.Controls.Add(Me.PanelSlide)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmMenu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Entretiens Individuels - Accueil"
