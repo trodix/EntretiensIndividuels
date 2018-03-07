@@ -5,7 +5,7 @@
     Property _idManager As Integer
     Property _idService As Integer
     Property _StatutManager As Integer
-    Property _password As String = "Acta89+"
+    Property _password As String = ClsUtilisateur.CryptPassword("Acta89+")
     Property _Actif As Boolean = True
     Property _maClsEntretien As New ClsSQLEntretiens
     Property _lesEntretiensCollab As List(Of ClsEntretien)
