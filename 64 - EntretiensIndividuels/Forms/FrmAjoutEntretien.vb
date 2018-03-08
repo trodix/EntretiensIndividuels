@@ -6,6 +6,7 @@ Public Class FrmAjoutEntretien
 
     Property _maClsSQLCollab As New ClsSQLCollaborateur
     Property _maClsSQLEntretien As New ClsSQLEntretiens
+    Property _maClsSQLAction As New ClsSQLAction
     Property _selectedCollabId As Integer = -1
     Property _fileName As String
     Property _fileExtension As String
@@ -13,6 +14,9 @@ Public Class FrmAjoutEntretien
 
     Property _askUpdate As Boolean = False
     Property _idEntUpdate As Integer
+
+    Property _lesActionsASolder As List(Of Integer) = Nothing
+    Property _lesActionsARecuperer As List(Of Integer) = Nothing
 
     Private Sub FrmAjoutEntretien_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -108,7 +112,20 @@ Public Class FrmAjoutEntretien
                 Close()
             Else
                 Dim currentEntretien As New ClsEntretien(currentDateEntretien, currentDateEntSuivi, _selectedCollabId, Nothing, _fichier, _fileName, _fileExtension)
-                _maClsSQLEntretien.InsertEntretien(currentEntretien)
+                Dim lastEntId As Integer = _maClsSQLEntretien.InsertEntretien(currentEntretien)
+
+                If Not _lesActionsASolder Is Nothing Then
+                    For Each action As Integer In _lesActionsASolder
+                        _maClsSQLAction.UpdateSolde(lastEntId, action)
+                    Next
+                End If
+
+                If Not _lesActionsARecuperer Is Nothing Then
+                    For Each action As Integer In _lesActionsARecuperer
+                        _maClsSQLAction.RecupAction(action)
+                    Next
+                End If
+
                 Close()
             End If
         Else
@@ -116,30 +133,6 @@ Public Class FrmAjoutEntretien
         End If
 
     End Sub
-
-    'Private Sub Btn_Accueil_Click(sender As Object, e As EventArgs)
-    '    Me.Cursor = Cursors.WaitCursor
-    '    Dim _f As New FrmMenu
-    '    _f._authUser = _authUser
-    '    _f.Show()
-    '    Close()
-    'End Sub
-
-    'Private Sub Btn_Equipe_Click(sender As Object, e As EventArgs)
-    '    Me.Cursor = Cursors.WaitCursor
-    '    Dim _f As New FrmMonEquipe
-    '    _f._authUser = _authUser
-    '    _f.Show()
-    '    Close()
-    'End Sub
-
-    'Private Sub Btn_Entretiens_Click(sender As Object, e As EventArgs)
-    '    Me.Cursor = Cursors.WaitCursor
-    '    Dim _f As New FrmMesEntretiens
-    '    _f._authUser = _authUser
-    '    _f.Show()
-    '    Close()
-    'End Sub
 
     Private Sub Dtp_DateEntretienSuivi_DropDown(sender As Object, e As EventArgs) Handles Dtp_DateEntretienSuivi.DropDown
         Dtp_DateEntretienSuivi.Value = Date.Now

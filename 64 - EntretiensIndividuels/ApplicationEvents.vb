@@ -6,5 +6,6 @@
     ' StartupNextInstance : Déclenché lors du lancement d'une application à instance unique et si cette application est déjà active. 
     ' NetworkAvailabilityChanged : Déclenché quand la connexion réseau est connectée ou déconnectée.
     Partial Friend Class MyApplication
+
     End Class
 End Namespace

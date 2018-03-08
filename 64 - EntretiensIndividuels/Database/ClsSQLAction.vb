@@ -53,8 +53,29 @@
         Return lesActions
     End Function
 
+    Public Function readLesActionsNonSoldeCollab(idCollab As Integer)
+        Dim lesActions As New Dictionary(Of Integer, ClsAction)
+        Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
+            "select * from [dbo].[EIActions] where (DateSolde is null) and (idCollaborateur = " & idCollab & ") order by DateCreation",
+            ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+            With s_FbMyReader
+                While .OdbcReader.Read
+                    Dim ds As New Date
+                    If Not IsDBNull(.OdbcReader("DateSolde")) Then ds = .OdbcReader("DateSolde")
+                    Dim uneAction As New ClsAction(
+                        .OdbcReader("Objectif"), .OdbcReader("ActionField"), .OdbcReader("RespAction"),
+                        .OdbcReader("Delai"), .OdbcReader("SuiviCom"), .OdbcReader("StatutPDCA"), .OdbcReader("idCollaborateur"), .OdbcReader("idEntretien"),
+                        ds, .OdbcReader("DateCreation"), .OdbcReader("idActions")
+                        )
+                    lesActions.Add(uneAction._idAction, uneAction)
+                End While
+            End With
+        End Using
+        Return lesActions
+    End Function
+
     Public Function readUneAction(idAction As Integer)
-        Return _lesActions.Item(idAction) 'bug ici
+        Return _lesActions.Item(idAction)
     End Function
 
     Public Function readLesActionsEnt(idCollaborateur As Integer, idEntretien As Integer)
@@ -72,7 +93,6 @@
     End Function
 
     Public Function InsertAction(act As ClsAction)
-        'act._DateCreation = Date.Today
         Dim req As String = "insert into [dbo].[EIActions] (DateCreation, Objectif, ActionField, RespAction, Delai, SuiviCom, StatutPDCA, idCollaborateur, idEntretien) values(
                 '" & replaceSqlSpecialChars(act._DateCreation) & "', '" & replaceSqlSpecialChars(act._Objectif) & "', '" & replaceSqlSpecialChars(act._ActionField) & "', '" & replaceSqlSpecialChars(act._RespAction) & "', '" & replaceSqlSpecialChars(act._Delai) & "', '" & replaceSqlSpecialChars(act._SuiviCom) & "', '" & replaceSqlSpecialChars(act._StatutPDCA) & "', '" &
                 replaceSqlSpecialChars(act._idCollaborateur) & "', '" & replaceSqlSpecialChars(act._idEntretien) & "')"
@@ -90,9 +110,47 @@
     End Function
 
     Public Function DeleteAction(idAction As Integer)
-        Dim req As String = "delete from [dbo].[EIActions] where idAction = " & idAction
+        Dim req As String = "delete from [dbo].[EIActions] where idActions = " & idAction
         Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
             _odbcConnection.OdbcNotSelectQuery(req)
+        End Using
+    End Function
+
+    Public Function UpdateSolde(idNouveauEntretien As Integer, idAction As Integer)
+
+        Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+
+            Dim req2 As String = "select * from [dbo].[EIActions] where idActions = " & idAction
+            _odbcConnection.OdbcNotSelectQuery(req2)
+            With _odbcConnection
+                While .OdbcReader.Read
+                    Dim req3 As String =
+                        "insert into [dbo].[EIActions] values(
+                        'NULL', " &
+                        "'" & .OdbcReader("DateCreation") & "', " &
+                        "'" & .OdbcReader("Objectif") & "', " &
+                        "'" & .OdbcReader("ActionField") & "', " &
+                        "'" & .OdbcReader("RespAction") & "', " &
+                        "'" & .OdbcReader("Delai") & "', " &
+                        "'" & .OdbcReader("SuiviCom") & "', " &
+                        "'" & .OdbcReader("StatutPDCA") & "', " &
+                        "" & .OdbcReader("idCollaborateur") & ", " &
+                        idNouveauEntretien & ",
+                        'NULL')"
+
+                    _odbcConnection.OdbcNotSelectQuery(req3)
+                End While
+            End With
+        End Using
+    End Function
+
+    Public Function RecupAction(idAction As Integer)
+        Dim req1 As String = "update [dbo].[EIActions] set DateSolde = '" & Date.Now & "' where idAction = " & idAction
+
+        Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
+
+            _odbcConnection.OdbcNotSelectQuery(req1)
+
         End Using
     End Function
 

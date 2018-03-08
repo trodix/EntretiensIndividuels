@@ -82,6 +82,9 @@
     End Sub
 
     Private Sub LoadPage(UserInterface)
+        For Each ctrl As Control In Panel_Main.Controls
+            ctrl.Dispose()
+        Next
         Panel_Main.Controls.Clear()
         Me.Cursor = Cursors.WaitCursor
         UserInterface._authUser = _authUser
