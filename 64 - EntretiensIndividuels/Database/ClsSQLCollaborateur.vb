@@ -1,13 +1,15 @@
 ﻿Public Class ClsSQLCollaborateur
 
-    'Property _lesCollaborateurs As Dictionary(Of Integer, ClsCollaborateur) = readLesCollaborateurs()
+    Property _maClsSQLActions As New ClsSQLAction
+    Property _maClsSQLEntretien As New ClsSQLEntretiens(_maClsSQLActions)
+    Property _lesCollaborateurs As Dictionary(Of Integer, ClsCollaborateur)
     'Property _lesManagers As Dictionary(Of Integer, ClsCollaborateur) = readLesManagers()
 
     Public Sub New()
-        readLesCollaborateurs()
+        _lesCollaborateurs = readLesCollaborateurs(_maClsSQLEntretien)
     End Sub
 
-    Public Function readLesCollaborateurs() As Dictionary(Of Integer, ClsCollaborateur)
+    Private Function readLesCollaborateurs(classEntretien As ClsSQLEntretiens) As Dictionary(Of Integer, ClsCollaborateur)
         Dim lesCollaborateurs As New Dictionary(Of Integer, ClsCollaborateur)
         Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
             "select * from [dbo].[EICollaborateurs] order by cast(LibCollaborateur as nvarchar)",
@@ -15,7 +17,8 @@
             With s_FbMyReader
                 While .OdbcReader.Read
                     Dim unCollaborateur As New ClsCollaborateur(.OdbcReader("LibCollaborateur"), .OdbcReader("idManager"), .OdbcReader("idService"), .OdbcReader("Actif"), .OdbcReader("idCollaborateur"))
-                    lesCollaborateurs.Add(.OdbcReader("idCollaborateur"), unCollaborateur)
+                    unCollaborateur.associerEntretiens(classEntretien)
+                    lesCollaborateurs.Add(unCollaborateur._idCollaborateur, unCollaborateur)
                 End While
             End With
         End Using

@@ -3,8 +3,9 @@
     Property _authUser As ClsUtilisateur = Nothing
 
     Property _maClsSQLCollab As New ClsSQLCollaborateur
-    Property _maClsSQLEnt As New ClsSQLEntretiens
     Property _maClsSQLAction As New ClsSQLAction
+    Property _maClsSQLEnt As New ClsSQLEntretiens(_maClsSQLAction)
+
     Property _entretien As ClsEntretien
     Property _selectedCollabId As Integer = -1
     Property _selectedEntId As Integer = -1
@@ -20,7 +21,7 @@
 
         If _authUser._StatutManager = 2 Then
 
-            For Each Collab As ClsCollaborateur In _maClsSQLCollab.readLesCollaborateurs.Values
+            For Each Collab As ClsCollaborateur In _maClsSQLCollab._lesCollaborateurs.Values
                 Cmb_Collaborateur.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
             Next
 
@@ -43,7 +44,7 @@
         End If
 
 
-        For Each Collab As ClsCollaborateur In _maClsSQLCollab.readLesCollaborateurs.Values
+        For Each Collab As ClsCollaborateur In _maClsSQLCollab._lesCollaborateurs.Values
             Cmb_RespAction.Items.Add(Collab._idCollaborateur & " - " & Collab._libelleCollaborateur)
         Next
 

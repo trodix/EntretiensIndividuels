@@ -5,8 +5,9 @@ Public Class UI_MonEquipe
     Property _authUser As ClsUtilisateur = Nothing
 
     Property _monCollaborateurSQL As New ClsSQLCollaborateur
-    Property _EntretienSQL As New ClsSQLEntretiens
     Property _actionsSQL As New ClsSQLAction
+    Property _EntretienSQL As New ClsSQLEntretiens(_actionsSQL)
+
     Property _lesCollaborateurs As New Dictionary(Of Integer, ClsCollaborateur)
     Property _lesEntretiensCollab As New Dictionary(Of Integer, ClsEntretien)
     Property _lesActionsEntCollab As New Dictionary(Of Integer, ClsAction)
@@ -26,7 +27,7 @@ Public Class UI_MonEquipe
             If _authUser._StatutManager = 1 Then
                 _lesCollaborateurs = _monCollaborateurSQL.readLesCollaborateursByManager(_authUser._idCollaborateur)
             ElseIf _authUser._StatutManager = 2 Then
-                _lesCollaborateurs = _monCollaborateurSQL.readLesCollaborateurs
+                _lesCollaborateurs = _monCollaborateurSQL._lesCollaborateurs
             End If
 
         End If

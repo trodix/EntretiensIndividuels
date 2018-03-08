@@ -5,8 +5,9 @@ Public Class FrmAjoutEntretien
     Property _authUser As ClsUtilisateur = Nothing
 
     Property _maClsSQLCollab As New ClsSQLCollaborateur
-    Property _maClsSQLEntretien As New ClsSQLEntretiens
     Property _maClsSQLAction As New ClsSQLAction
+    Property _maClsSQLEntretien As New ClsSQLEntretiens(_maClsSQLAction)
+
     Property _selectedCollabId As Integer = -1
     Property _fileName As String
     Property _fileExtension As String
@@ -26,7 +27,7 @@ Public Class FrmAjoutEntretien
 
         If _authUser._StatutManager = 2 Then
 
-            For Each Collab As ClsCollaborateur In _maClsSQLCollab.readLesCollaborateurs().Values
+            For Each Collab As ClsCollaborateur In _maClsSQLCollab._lesCollaborateurs.Values
                 Dim leCollabId As Integer = Collab._idCollaborateur
                 Dim leCollabLibelle As String = Collab._libelleCollaborateur
                 Cmb_Collaborateur.Items.Add(leCollabId & " - " & leCollabLibelle)

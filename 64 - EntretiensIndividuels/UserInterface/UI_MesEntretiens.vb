@@ -27,7 +27,7 @@ Public Class UI_MesEntretiens
         If _authUser Is Nothing Then
             End
         ElseIf _authUser._StatutManager = 0 Then
-            _lesCollaborateurs = _monCollaborateurSQL.readLesCollaborateurs
+            _lesCollaborateurs = _monCollaborateurSQL._lesCollaborateurs
             FillDGV_Entretiens()
         End If
 

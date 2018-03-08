@@ -10,12 +10,13 @@ Public Class ClsSQLEntretiens
     'Property Dt As New DataTable
     Property _lesEntretiens As New Dictionary(Of Integer, ClsEntretien)
 
-    Public Sub New()
-        _lesEntretiens = readLesEntretiens()
+    Public Sub New(classAction As ClsSQLAction)
+
+        _lesEntretiens = readLesEntretiens(classAction)
         'MessageBox.Show(_lesEntretiens.Count)
     End Sub
 
-    Public Function readLesEntretiens()
+    Public Function readLesEntretiens(classAction As ClsSQLAction)
         Dim lesEntretiens As New Dictionary(Of Integer, ClsEntretien)
         Dim Fichier As Byte()
         Dim FichierNom As String
@@ -36,10 +37,11 @@ Public Class ClsSQLEntretiens
                             FichierExt = .OdbcReader("DocumentExtension")
                         End If
                         Dim DateEntretien As New Date(CDate(.OdbcReader("DateEntretien")).Year, CDate(.OdbcReader("DateEntretien")).Month, CDate(.OdbcReader("DateEntretien")).Day)
-                            Dim DateEntretienSuivi As New Date(CDate(.OdbcReader("DateEntretienSuivi")).Year, CDate(.OdbcReader("DateEntretienSuivi")).Month, CDate(.OdbcReader("DateEntretienSuivi")).Day)
+                        Dim DateEntretienSuivi As New Date(CDate(.OdbcReader("DateEntretienSuivi")).Year, CDate(.OdbcReader("DateEntretienSuivi")).Month, CDate(.OdbcReader("DateEntretienSuivi")).Day)
                         Dim unEntretien As New ClsEntretien(DateEntretien, DateEntretienSuivi, .OdbcReader("idCollaborateur"), .OdbcReader("idEntretien"), Fichier, FichierNom, FichierExt)
+                        unEntretien.associerActions(classAction)
                         lesEntretiens.Add(.OdbcReader("idEntretien"), unEntretien)
-                        End If
+                    End If
                 End While
             End With
         End Using

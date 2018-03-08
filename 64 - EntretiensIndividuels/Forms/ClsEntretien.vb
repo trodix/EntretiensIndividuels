@@ -21,13 +21,25 @@ Public Class ClsEntretien
         _Document = Document
         _nomDocument = nomDocument
         _extensionDocument = extensionDocument
-        For Each action As ClsAction In _maClsSQLAction.readLesActionsEnt(idCollaborateur, idEntretien)
-            '_lesActionsEnt = _maClsSQLAction.readLesActionsEnt(idCollaborateur, idEntretien)
-            _lesActionsEnt.Add(action._idAction, action)
-        Next
+        'For Each action As ClsAction In _maClsSQLAction.readLesActionsEnt(idCollaborateur, idEntretien)
+        '    '_lesActionsEnt = _maClsSQLAction.readLesActionsEnt(idCollaborateur, idEntretien)
+        '    
+        'Next
     End Sub
 
     Public Sub New()
+
+    End Sub
+
+    Public Sub associerActions(actions As ClsSQLAction)
+
+        Dim _Result = From _Row In actions._lesActions
+                      Where (_Row.Value._idEntretien = Me._idEntretien)
+
+        For Each r In _Result
+            _lesActionsEnt.Add(r.Value._idAction, r.Value)
+        Next
+
 
     End Sub
 
