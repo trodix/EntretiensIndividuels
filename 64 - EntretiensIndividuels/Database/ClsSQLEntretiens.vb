@@ -6,6 +6,7 @@ Public Class ClsSQLEntretiens
     'Property _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
     Property sqlConnexion As New SqlConnection("Server=SRV-BDD\SQLEXPRESS2008;Database=dbEntretiensIndividuels;Uid=sa;Pwd=+BTS08;")
     Property requete As SqlCommand
+    Property reader As SqlDataReader
     Property adaptater As SqlDataAdapter
     'Property Dt As New DataTable
     Property _lesEntretiens As New Dictionary(Of Integer, ClsEntretien)
@@ -110,7 +111,9 @@ Public Class ClsSQLEntretiens
         requete.Parameters.Add(New SqlParameter("@Nom", SqlDbType.Text)).Value = If(ent._nomDocument Is Nothing, DBNull.Value, ent._nomDocument)
         requete.Parameters.Add(New SqlParameter("@Extension", SqlDbType.NChar)).Value = If(ent._extensionDocument Is Nothing, DBNull.Value, ent._extensionDocument)
         requete.ExecuteNonQuery()
-        Dim lastInsertId As Integer = New SqlCommand("select MAX(idEntretien) from [dbo].[EIEntretiens]", sqlConnexion).ExecuteReader.GetValue("idEntretien") 'humm
+        reader = New SqlCommand("select MAX(idEntretien) from [dbo].[EIEntretiens]", sqlConnexion).ExecuteReader
+        reader.Read()
+        Dim lastInsertId As Integer = reader.Item(0)
         sqlConnexion.Close()
 
         Return lastInsertId

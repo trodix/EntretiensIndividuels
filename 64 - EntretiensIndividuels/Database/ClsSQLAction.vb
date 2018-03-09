@@ -132,11 +132,11 @@
 
         Dim req1 As String = "select * from [dbo].[EIActions] where idActions = " & idAction
 
-        Dim temp_dc As String
+        Dim temp_dc As Date
         Dim temp_ob As String
         Dim temp_af As String
         Dim temp_ra As String
-        Dim temp_delai As String
+        Dim temp_delai As Date
         Dim temp_sc As String
         Dim temp_pdca As String
         Dim temp_idColl As Integer = -1
@@ -159,13 +159,12 @@
         End Using
 
         If temp_idColl <> -1 Then
-            Dim req2 As String = "insert into [dbo].[EIActions] values('NULL', " & "'" & temp_dc & "', " & "'" & temp_ob & "', " & "'" & temp_af & "', " & "'" & temp_ra & "', " & "'" & temp_delai & "', " & "'" & temp_sc & "', " & "'" & temp_pdca & "', " & "" & temp_idColl & ", " & idNouveauEntretien & ", 'NULL')"
+            Dim req2 As String = "insert into [dbo].[EIActions] (DateCreation, Objectif, ActionField, RespAction, Delai, SuiviCom, StatutPDCA, idCollaborateur, idEntretien) values('" & temp_dc & "', " & "'" & temp_ob & "', " & "'" & temp_af & "', " & "'" & temp_ra & "', " & "'" & temp_delai & "', " & "'" & temp_sc & "', " & "'" & temp_pdca & "', " & "" & temp_idColl & ", " & idNouveauEntretien & ")"
 
             Using _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
 
-                With _odbcConnection
-                    _odbcConnection.OdbcNotSelectQuery(req2)
-                End With
+                _odbcConnection.OdbcNotSelectQuery(req2)
+
             End Using
 
         End If

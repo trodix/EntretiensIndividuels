@@ -143,6 +143,7 @@ Public Class FrmAjoutEntretien
                     Next
 
                     Me.Visible = True
+                    Close()
 
                 Else
                     Dim currentEntretien As New ClsEntretien(currentDateEntretien, currentDateEntSuivi, _selectedCollabId, Nothing, _fichier, _fileName, _fileExtension)
