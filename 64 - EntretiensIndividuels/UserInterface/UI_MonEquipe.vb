@@ -274,21 +274,21 @@ Public Class UI_MonEquipe
     End Sub
 
     Private Sub Btn_SupprimerAction_Click(sender As Object, e As EventArgs)
-        Dim res As MsgBoxResult = MsgBox("Voulez-vous supprimer l'action sélectionnée ?", MsgBoxStyle.Exclamation, MsgBoxStyle.YesNo)
+        Dim res As MsgBoxResult = MsgBox("Voulez-vous supprimer l'action sélectionnée ?", MsgBoxStyle.YesNo, MsgBoxStyle.Exclamation)
         If res = MsgBoxResult.Yes Then
             _actionsSQL.DeleteAction(_actionIdClicked)
         End If
     End Sub
 
     Private Sub Btn_SupprimerEntretien_Click(sender As Object, e As EventArgs)
-        Dim res As MsgBoxResult = MsgBox("Voulez-vous supprimer l'entretien sélectionné et les actions associées ?", MsgBoxStyle.Exclamation, MsgBoxStyle.YesNo)
+        Dim res As MsgBoxResult = MsgBox("Voulez-vous supprimer l'entretien sélectionné et les actions associées ?", MsgBoxStyle.YesNo, MsgBoxStyle.Exclamation)
         If res = MsgBoxResult.Yes Then
             _EntretienSQL.DeleteEntretien(_entIdClicked)
         End If
     End Sub
 
     Private Sub Btn_SupprimerCollaborateur_Click(sender As Object, e As EventArgs)
-        Dim res As MsgBoxResult = MsgBox("Voulez-vous supprimer le collaborateur sélectionné, les entretiens associés ainsi que leurs actions ?", MsgBoxStyle.Exclamation, MsgBoxStyle.YesNo)
+        Dim res As MsgBoxResult = MsgBox("Voulez-vous supprimer le collaborateur sélectionné, les entretiens associés ainsi que leurs actions ?", MsgBoxStyle.YesNo, MsgBoxStyle.Exclamation)
         If res = MsgBoxResult.Yes Then
             _monCollaborateurSQL.DeleteCollaborateur(_collabIdClicked)
         End If
