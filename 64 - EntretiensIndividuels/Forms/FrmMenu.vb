@@ -27,12 +27,13 @@
 
     End Sub
 
-    Private Sub BtnAjoutEntretien_Click(sender As Button, e As EventArgs)
-        Me.Cursor = Cursors.WaitCursor
-        Dim _f As New FrmAjoutEntretien
-        _f._authUser = _authUser
-        _f.Show()
-    End Sub
+    'Private Sub BtnAjoutEntretien_Click(sender As Button, e As EventArgs)
+    '    Me.Cursor = Cursors.WaitCursor
+    '    Dim _f As New FrmAjoutEntretien
+    '    _f._authUser = _authUser
+    '    _f.Show()
+    '    Me.Cursor = Cursors.Default
+    'End Sub
 
     Private Sub Btn_Accueil_Click_1(sender As Button, e As EventArgs) Handles Btn_Accueil.Click
         LoadPage(New UI_Accueil)
@@ -61,6 +62,7 @@
         Dim _f As New FrmAjoutEntretien
         _f._authUser = _authUser
         _f.ShowDialog()
+        Me.Cursor = Cursors.Default
     End Sub
 
     Private Sub Btn_AjoutAction_Click(sender As Button, e As EventArgs) Handles Btn_AjoutAction.Click
@@ -68,6 +70,7 @@
         Dim _f As New FrmAjoutAction
         _f._authUser = _authUser
         _f.ShowDialog()
+        Me.Cursor = Cursors.Default
     End Sub
 
     Private Sub GestionAffichageMenu()

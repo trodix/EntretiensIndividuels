@@ -19,7 +19,14 @@ Public Class FrmAjoutEntretien
     Property _lesActionsASolder As List(Of Integer) = Nothing
     Property _lesActionsARecuperer As List(Of Integer) = Nothing
 
+    Property _lesActionsAGererCollab As New Dictionary(Of Integer, ClsAction)
+
+    Property _ActionsChecked As List(Of Integer)
+    Property _ActionsNonChecked As List(Of Integer)
+
     Private Sub FrmAjoutEntretien_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        Show()
 
         If _authUser Is Nothing Then
             Close()
@@ -112,22 +119,39 @@ Public Class FrmAjoutEntretien
                 _maClsSQLEntretien.updateEntretien(currentEntretien)
                 Close()
             Else
-                Dim currentEntretien As New ClsEntretien(currentDateEntretien, currentDateEntSuivi, _selectedCollabId, Nothing, _fichier, _fileName, _fileExtension)
-                Dim lastEntId As Integer = _maClsSQLEntretien.InsertEntretien(currentEntretien)
 
-                If Not _lesActionsASolder Is Nothing Then
-                    For Each action As Integer In _lesActionsASolder
-                        _maClsSQLAction.UpdateSolde(lastEntId, action)
+                _lesActionsAGererCollab = _maClsSQLAction.readLesActionsNonSoldeCollab(_selectedCollabId) ''''''''''''''
+
+                If _lesActionsAGererCollab.Count > 0 Then
+
+                    Dim _f As New FrmSolde
+                    _f._authUser = _authUser
+                    _f._fEnt = Me
+                    _f._lesActionsAGererCollab = _lesActionsAGererCollab
+                    Me.Visible = False
+                    _f.ShowDialog()
+
+                    Dim currentEntretien As New ClsEntretien(currentDateEntretien, currentDateEntSuivi, _selectedCollabId, Nothing, _fichier, _fileName, _fileExtension)
+                    Dim lastEntId As Integer = _maClsSQLEntretien.InsertEntretien(currentEntretien)
+
+                    For Each idAction As Integer In _lesActionsASolder
+                        _maClsSQLAction.UpdateSolde(idAction)
                     Next
+
+                    For Each idAction As Integer In _lesActionsARecuperer
+                        _maClsSQLAction.RecupAction(lastEntId, idAction)
+                    Next
+
+                    Me.Visible = True
+
+                Else
+                    Dim currentEntretien As New ClsEntretien(currentDateEntretien, currentDateEntSuivi, _selectedCollabId, Nothing, _fichier, _fileName, _fileExtension)
+                    Dim lastEntId As Integer = _maClsSQLEntretien.InsertEntretien(currentEntretien)
+
+                    Close()
                 End If
 
-                If Not _lesActionsARecuperer Is Nothing Then
-                    For Each action As Integer In _lesActionsARecuperer
-                        _maClsSQLAction.RecupAction(action)
-                    Next
-                End If
 
-                Close()
             End If
         Else
             MessageBox.Show("Entretien non ajouté, sélétionnez un collaborateur", "Ajout d'entretien", MessageBoxButtons.OK, MessageBoxIcon.Warning)

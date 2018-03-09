@@ -1,16 +1,20 @@
 ﻿Public Class FrmSolde
 
+    Property _fEnt As FrmAjoutEntretien
+
+    Property _authUser As ClsUtilisateur = Nothing
+
     Property _lesActionsSQL As New ClsSQLAction
-    Property _lesActionsASolderCollab As New Dictionary(Of Integer, ClsAction)
-    Property _idCollabClicked As Integer
-    Property _ActionsChecked As List(Of Integer)
-    Property _ActionsNonChecked As List(Of Integer)
+    Property _lesActionsAGererCollab As New Dictionary(Of Integer, ClsAction)
+    Property _idCollabClicked As Integer = -1
+    Property _ActionsChecked As New List(Of Integer)
+    Property _ActionsNonChecked As New List(Of Integer)
 
     Private Sub FrmSolde_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        _lesActionsASolderCollab = _lesActionsSQL.readLesActionsNonSoldeCollab(_idCollabClicked)
+        Me.Visible = True
 
-        For Each action As ClsAction In _lesActionsASolderCollab.Values
+        For Each action As ClsAction In _lesActionsAGererCollab.Values
             DGV_Solde.Rows.Add(action._idAction, action._DateCreation, action._Objectif, action._Delai, action._StatutPDCA)
         Next
 
@@ -20,7 +24,7 @@
 
         If e.ColumnIndex = Col_Recup.Index And e.RowIndex <> -1 Then
 
-            Dim idAction As Integer = sender.Rows(e.RowIndex).Cells(Col_idAction).Value
+            Dim idAction As Integer = DGV_Solde(0, e.RowIndex).Value.ToString
 
             If Not _ActionsChecked.Contains(idAction) Then
                 _ActionsChecked.Add(idAction)
@@ -41,16 +45,14 @@
 
     Private Sub Btn_ValidRecup_Click(sender As Object, e As EventArgs) Handles Btn_ValidRecup.Click
 
-        For Each action As ClsAction In _lesActionsASolderCollab.Values
+        For Each action As ClsAction In _lesActionsAGererCollab.Values
             If Not _ActionsChecked.Contains(action._idAction) Then
                 _ActionsNonChecked.Add(action._idAction)
             End If
         Next
 
-        Dim _f As New FrmAjoutEntretien
-        _f._lesActionsASolder = _ActionsChecked
-        _f._lesActionsARecuperer = _ActionsNonChecked
-        _f.ShowDialog()
+        _fEnt._lesActionsARecuperer = _ActionsChecked
+        _fEnt._lesActionsASolder = _ActionsNonChecked
         Close()
 
     End Sub

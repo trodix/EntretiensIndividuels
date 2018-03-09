@@ -115,6 +115,7 @@ Public Class UI_MonEquipe
 
         DGV_Dates.Rows.Clear()
         DGV_Actions.Rows.Clear()
+
         Dim ligneCourante As Integer = e.RowIndex
         Dim idCollab = sender.Rows(ligneCourante).Cells(0).Value
 

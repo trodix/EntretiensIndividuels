@@ -109,7 +109,8 @@ Public Class ClsSQLEntretiens
         requete.Parameters.Add(New SqlParameter("@Fichier", SqlDbType.VarBinary)).Value = If(ent._Document Is Nothing, DBNull.Value, ent._Document)
         requete.Parameters.Add(New SqlParameter("@Nom", SqlDbType.Text)).Value = If(ent._nomDocument Is Nothing, DBNull.Value, ent._nomDocument)
         requete.Parameters.Add(New SqlParameter("@Extension", SqlDbType.NChar)).Value = If(ent._extensionDocument Is Nothing, DBNull.Value, ent._extensionDocument)
-        Dim lastInsertId = requete.ExecuteScalar() ' récupére l'id de la ligne qui viens d'etre  inserée
+        requete.ExecuteNonQuery()
+        Dim lastInsertId As Integer = New SqlCommand("select MAX(idEntretien) from [dbo].[EIEntretiens]", sqlConnexion).ExecuteReader.GetValue("idEntretien") 'humm
         sqlConnexion.Close()
 
         Return lastInsertId
