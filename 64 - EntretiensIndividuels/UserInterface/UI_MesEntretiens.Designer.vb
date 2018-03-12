@@ -40,18 +40,28 @@ Partial Class UI_MesEntretiens
         Me.Col_idEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_dateEntretien = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_DateEntSuivi = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Btn_StatDetails = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DGV_Actions, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGV_Dates, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
         '
-        Me.TableLayoutPanel1.ColumnCount = 4
+        Me.TableLayoutPanel1.ColumnCount = 5
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 3, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Btn_VoirFichier, 1, 3)
         Me.TableLayoutPanel1.Controls.Add(Me.DGV_Actions, 2, 5)
@@ -79,7 +89,7 @@ Partial Class UI_MesEntretiens
         Me.Label1.Location = New System.Drawing.Point(23, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(939, 40)
+        Me.Label1.Size = New System.Drawing.Size(559, 40)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "Mes entretiens"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -105,12 +115,13 @@ Partial Class UI_MesEntretiens
         Me.DGV_Actions.BackgroundColor = System.Drawing.SystemColors.Control
         Me.DGV_Actions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGV_Actions.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Col_idEnt, Me.Col_idActions, Me.Col_DateCreation, Me.Col_Objectif, Me.Col_Action, Me.Col_RespAction, Me.Col_Delai, Me.Col_SuiviCom, Me.Col_StatutPDCA, Me.Col_DateSolde})
+        Me.TableLayoutPanel1.SetColumnSpan(Me.DGV_Actions, 2)
         Me.DGV_Actions.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGV_Actions.GridColor = System.Drawing.SystemColors.Control
         Me.DGV_Actions.Location = New System.Drawing.Point(164, 143)
         Me.DGV_Actions.Name = "DGV_Actions"
         Me.DGV_Actions.RowHeadersVisible = False
-        Me.DGV_Actions.Size = New System.Drawing.Size(798, 451)
+        Me.DGV_Actions.Size = New System.Drawing.Size(795, 451)
         Me.DGV_Actions.TabIndex = 8
         '
         'Col_idEnt
@@ -213,17 +224,116 @@ Partial Class UI_MesEntretiens
         Me.Col_DateEntSuivi.Name = "Col_DateEntSuivi"
         Me.Col_DateEntSuivi.ReadOnly = True
         '
-        'UC_MesEntretiens
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TableLayoutPanel2.ColumnCount = 5
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Label2, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label3, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label4, 1, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label7, 0, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label8, 1, 2)
+        Me.TableLayoutPanel2.Controls.Add(Me.Btn_StatDetails, 3, 1)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(588, 23)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 3
+        Me.TableLayoutPanel1.SetRowSpan(Me.TableLayoutPanel2, 3)
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(371, 104)
+        Me.TableLayoutPanel2.TabIndex = 12
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.TableLayoutPanel2.SetColumnSpan(Me.Label2, 4)
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label2.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(3, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(344, 24)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "Statistiques"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label3.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(3, 24)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(104, 30)
+        Me.Label3.TabIndex = 13
+        Me.Label3.Text = "Total % soldé"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label4.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(113, 24)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(104, 30)
+        Me.Label4.TabIndex = 14
+        Me.Label4.Text = "% soldé collab"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label7.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(3, 54)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(104, 50)
+        Me.Label7.TabIndex = 17
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label8.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(113, 54)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(104, 50)
+        Me.Label8.TabIndex = 18
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Btn_StatDetails
+        '
+        Me.Btn_StatDetails.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.Btn_StatDetails.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_StatDetails.FlatAppearance.BorderSize = 0
+        Me.Btn_StatDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_StatDetails.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_StatDetails.ForeColor = System.Drawing.Color.White
+        Me.Btn_StatDetails.Location = New System.Drawing.Point(243, 27)
+        Me.Btn_StatDetails.Name = "Btn_StatDetails"
+        Me.Btn_StatDetails.Size = New System.Drawing.Size(104, 24)
+        Me.Btn_StatDetails.TabIndex = 19
+        Me.Btn_StatDetails.Text = "Details"
+        Me.Btn_StatDetails.UseVisualStyleBackColor = False
+        '
+        'UI_MesEntretiens
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.Name = "UC_MesEntretiens"
+        Me.Name = "UI_MesEntretiens"
         Me.Size = New System.Drawing.Size(988, 617)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         CType(Me.DGV_Actions, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGV_Dates, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -246,4 +356,11 @@ Partial Class UI_MesEntretiens
     Friend WithEvents Col_idEntretien As DataGridViewTextBoxColumn
     Friend WithEvents Col_dateEntretien As DataGridViewTextBoxColumn
     Friend WithEvents Col_DateEntSuivi As DataGridViewTextBoxColumn
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Btn_StatDetails As Button
 End Class

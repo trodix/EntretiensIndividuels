@@ -7,6 +7,7 @@ Public Class UI_MonEquipe
     Property _monCollaborateurSQL As New ClsSQLCollaborateur
     Property _actionsSQL As New ClsSQLAction
     Property _EntretienSQL As New ClsSQLEntretiens(_actionsSQL)
+    Property _statististiquesSQL As New ClsSQLStatistique
 
     Property _lesCollaborateurs As New Dictionary(Of Integer, ClsCollaborateur)
     Property _lesEntretiensCollab As New Dictionary(Of Integer, ClsEntretien)
@@ -34,6 +35,9 @@ Public Class UI_MonEquipe
 
 
         FillDGV_Noms()
+
+        Label7.Text = Format(_statististiquesSQL.NbActSolde / _statististiquesSQL.NbActTotal, "#0.00") * 100 & " %"
+
 
     End Sub
 
@@ -143,6 +147,8 @@ Public Class UI_MonEquipe
             Btn_Modif.Visible = False
             Btn_Supprimer.Visible = False
         End If
+
+        Label8.Text = Format(_statististiquesSQL.NbActSoldeByCollab(idCollab) / _statististiquesSQL.NbActByCollab(_authUser._idCollaborateur), "#0.00") * 100 & " %"
 
     End Sub
 
@@ -294,4 +300,12 @@ Public Class UI_MonEquipe
         End If
     End Sub
 
+    Private Sub Btn_StatDetails_Click(sender As Object, e As EventArgs) Handles Btn_StatDetails.Click
+        Dim _f As New Form
+        Dim ui As New UI_Statistiques
+        _f.Controls.Add(ui)
+        ui.Dock = DockStyle.Fill
+        _f.WindowState = FormWindowState.Maximized
+        _f.ShowDialog()
+    End Sub
 End Class

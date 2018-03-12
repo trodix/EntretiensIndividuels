@@ -26,7 +26,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>15</ApplicationRevision>
     <ApplicationVersion>2.3.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -83,6 +83,9 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CircularProgressBar, Version=2.5.6403.13419, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CircularProgressBar.2.5.6403.13419\lib\net35-client\CircularProgressBar.dll</HintPath>
+    </Reference>
     <Reference Include="ClassConnection, Version=5.0.0.12, Culture=neutral, PublicKeyToken=f1c7b54f14379fee, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\98 - DLL 2012\ClassConnection.dll</HintPath>
@@ -92,10 +95,14 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="WinFormAnimation, Version=1.5.6298.3372, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFormAnimation.1.5.6298.3372\lib\net35-client\WinFormAnimation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -111,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Database\ClsSQLStatistique.vb" />
     <Compile Include="Forms\ClsAction.vb" />
     <Compile Include="Forms\ClsCollaborateur.vb" />
     <Compile Include="Forms\ClsEntretien.vb" />
@@ -199,6 +207,12 @@
     <Compile Include="UserInterface\UI_MonEquipe.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="UserInterface\UI_Statistiques.Designer.vb">
+      <DependentUpon>UI_Statistiques.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\UI_Statistiques.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\FrmAjoutAction.resx">
@@ -237,6 +251,9 @@
     <EmbeddedResource Include="UserInterface\UI_MonEquipe.resx">
       <DependentUpon>UI_MonEquipe.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserInterface\UI_Statistiques.resx">
+      <DependentUpon>UI_Statistiques.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="64 - EntretiensIndividuels_TemporaryKey.pfx" />
@@ -252,6 +269,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\ajouter-32.png" />
   </ItemGroup>
   <ItemGroup>

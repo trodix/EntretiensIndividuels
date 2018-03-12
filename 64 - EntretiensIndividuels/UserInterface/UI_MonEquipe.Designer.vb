@@ -43,6 +43,13 @@ Partial Class UI_MonEquipe
         Me.Col_StatutPDCA = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Col_DateSolde = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Btn_StatDetails = New System.Windows.Forms.Button()
         Me.Btn_Modif = New System.Windows.Forms.Button()
         Me.Btn_VoirFichier = New System.Windows.Forms.Button()
         Me.Btn_Supprimer = New System.Windows.Forms.Button()
@@ -50,18 +57,19 @@ Partial Class UI_MonEquipe
         CType(Me.DGV_Noms, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGV_Dates, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGV_Actions, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TLP_Main
         '
         Me.TLP_Main.ColumnCount = 8
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
-        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
+        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.0!))
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.0!))
-        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.0!))
-        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.0!))
+        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.0!))
         Me.TLP_Main.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
         Me.TLP_Main.Controls.Add(Me.DGV_Noms, 1, 5)
         Me.TLP_Main.Controls.Add(Me.DGV_Dates, 3, 5)
@@ -70,6 +78,7 @@ Partial Class UI_MonEquipe
         Me.TLP_Main.Controls.Add(Me.Btn_Modif, 1, 3)
         Me.TLP_Main.Controls.Add(Me.Btn_VoirFichier, 3, 3)
         Me.TLP_Main.Controls.Add(Me.Btn_Supprimer, 5, 3)
+        Me.TLP_Main.Controls.Add(Me.TableLayoutPanel1, 6, 1)
         Me.TLP_Main.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TLP_Main.Location = New System.Drawing.Point(0, 0)
         Me.TLP_Main.Name = "TLP_Main"
@@ -249,10 +258,107 @@ Partial Class UI_MonEquipe
         Me.Label1.Location = New System.Drawing.Point(23, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(643, 40)
+        Me.Label1.Size = New System.Drawing.Size(702, 40)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Mon équipe"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TableLayoutPanel1.ColumnCount = 5
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Label2, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label3, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label4, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label7, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.Label8, 1, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.Btn_StatDetails, 3, 1)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(731, 23)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 3
+        Me.TLP_Main.SetRowSpan(Me.TableLayoutPanel1, 3)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(466, 114)
+        Me.TableLayoutPanel1.TabIndex = 11
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.TableLayoutPanel1.SetColumnSpan(Me.Label2, 4)
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label2.Font = New System.Drawing.Font("Verdana", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(3, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(440, 34)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "Statistiques"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label3.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(3, 34)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(152, 30)
+        Me.Label3.TabIndex = 13
+        Me.Label3.Text = "Total % soldé"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label4.Font = New System.Drawing.Font("Verdana", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(161, 34)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(152, 30)
+        Me.Label4.TabIndex = 14
+        Me.Label4.Text = "% soldé collab"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label7.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(3, 64)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(152, 50)
+        Me.Label7.TabIndex = 17
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label8.Font = New System.Drawing.Font("Verdana", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(161, 64)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(152, 50)
+        Me.Label8.TabIndex = 18
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Btn_StatDetails
+        '
+        Me.Btn_StatDetails.BackColor = System.Drawing.Color.FromArgb(CType(CType(39, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(96, Byte), Integer))
+        Me.Btn_StatDetails.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Btn_StatDetails.FlatAppearance.BorderSize = 0
+        Me.Btn_StatDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Btn_StatDetails.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Btn_StatDetails.ForeColor = System.Drawing.Color.White
+        Me.Btn_StatDetails.Location = New System.Drawing.Point(339, 37)
+        Me.Btn_StatDetails.Name = "Btn_StatDetails"
+        Me.Btn_StatDetails.Size = New System.Drawing.Size(104, 24)
+        Me.Btn_StatDetails.TabIndex = 19
+        Me.Btn_StatDetails.Text = "Details"
+        Me.Btn_StatDetails.UseVisualStyleBackColor = False
         '
         'Btn_Modif
         '
@@ -265,7 +371,7 @@ Partial Class UI_MonEquipe
         Me.Btn_Modif.Image = Global.EntretiensIndividuels.My.Resources.Resources.icons8_modifier_32
         Me.Btn_Modif.Location = New System.Drawing.Point(23, 83)
         Me.Btn_Modif.Name = "Btn_Modif"
-        Me.Btn_Modif.Size = New System.Drawing.Size(171, 54)
+        Me.Btn_Modif.Size = New System.Drawing.Size(230, 54)
         Me.Btn_Modif.TabIndex = 8
         Me.Btn_Modif.Text = "Modifier"
         Me.Btn_Modif.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -302,7 +408,7 @@ Partial Class UI_MonEquipe
         Me.Btn_Supprimer.Image = Global.EntretiensIndividuels.My.Resources.Resources.icons8_poubelle_32
         Me.Btn_Supprimer.Location = New System.Drawing.Point(495, 83)
         Me.Btn_Supprimer.Name = "Btn_Supprimer"
-        Me.Btn_Supprimer.Size = New System.Drawing.Size(171, 54)
+        Me.Btn_Supprimer.Size = New System.Drawing.Size(230, 54)
         Me.Btn_Supprimer.TabIndex = 10
         Me.Btn_Supprimer.Text = "Supprimer"
         Me.Btn_Supprimer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -321,6 +427,8 @@ Partial Class UI_MonEquipe
         CType(Me.DGV_Noms, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGV_Dates, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGV_Actions, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -349,4 +457,11 @@ Partial Class UI_MonEquipe
     Friend WithEvents Btn_Modif As Button
     Friend WithEvents Btn_VoirFichier As Button
     Friend WithEvents Btn_Supprimer As Button
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Btn_StatDetails As Button
 End Class

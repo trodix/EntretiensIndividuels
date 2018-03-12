@@ -40,3 +40,8 @@ J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQ
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\EntretiensIndividuels.UI_MonEquipe.resources
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\64 - EntretiensIndividuels.vbprojResolveAssemblyReference.cache
 J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\EntretiensIndividuels.FrmSolde.resources
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\bin\Debug\CircularProgressBar.dll
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\bin\Debug\WinFormAnimation.dll
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\bin\Debug\CircularProgressBar.xml
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\bin\Debug\WinFormAnimation.xml
+J:\Informatique\Programmes\00 - PROGRAMMES DEVELOPPEMENT ACTA\VISUAL STUDIO - SQL 2012\64 - EntretiensIndividuels\EntretiensIndividuels\64 - EntretiensIndividuels\obj\x86\Debug\EntretiensIndividuels.UI_Statistiques.resources
