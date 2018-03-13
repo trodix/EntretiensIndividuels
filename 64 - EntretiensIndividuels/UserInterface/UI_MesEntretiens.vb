@@ -34,7 +34,14 @@ Public Class UI_MesEntretiens
         End If
 
         Label7.Text = Format(_statististiquesSQL.NbActSolde / _statististiquesSQL.NbActTotal, "#0.00") * 100 & " %"
-        Label8.Text = Format(_statististiquesSQL.NbActSoldeByCollab(_authUser._idCollaborateur) / _statististiquesSQL.NbActByCollab(_authUser._idCollaborateur), "#0.00") * 100 & " %"
+
+        Dim TotalActCollab = _statististiquesSQL.NbActByCollab(_authUser._idCollaborateur)
+        If TotalActCollab = 0 Then
+            Label8.Text = "0 %"
+        Else
+            Label8.Text = Format(_statististiquesSQL.NbActSoldeByCollab(_authUser._idCollaborateur) / TotalActCollab, "#0.00") * 100 & " %"
+        End If
+
 
     End Sub
 

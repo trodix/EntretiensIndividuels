@@ -148,7 +148,12 @@ Public Class UI_MonEquipe
             Btn_Supprimer.Visible = False
         End If
 
-        Label8.Text = Format(_statististiquesSQL.NbActSoldeByCollab(idCollab) / _statististiquesSQL.NbActByCollab(_authUser._idCollaborateur), "#0.00") * 100 & " %"
+        Dim TotalActCollab As Integer = _statististiquesSQL.NbActByCollab(_authUser._idCollaborateur)
+        If TotalActCollab = 0 Then
+            Label8.Text = "0 %"
+        Else
+            Label8.Text = Format(_statististiquesSQL.NbActSoldeByCollab(idCollab) / TotalActCollab, "#0.00") * 100 & " %"
+        End If
 
     End Sub
 

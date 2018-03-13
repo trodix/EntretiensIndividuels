@@ -1,13 +1,14 @@
 ﻿Public Class ClsSQLService
 
-    Property _lesServices As Dictionary(Of Integer, ClsService) = readLesServices()
+    Property _lesServices As Dictionary(Of Integer, ClsService)
 
     Public Sub New()
 
+        _lesServices = readLesServices()
 
     End Sub
 
-    Private Function readLesServices()
+    Public Function readLesServices()
         Dim lesServices As New Dictionary(Of Integer, ClsService)
         Using s_FbMyReader As New ClassConnection.ClsOdbcConnection(
             "select * from [dbo].[EIServices] order by cast(LibService as nvarchar)",

@@ -75,6 +75,8 @@ Partial Class UI_Statistiques
         '
         ChartArea1.AxisX.Interval = 1.0R
         ChartArea1.AxisX.IsLabelAutoFit = False
+        ChartArea1.AxisY.Maximum = 100.0R
+        ChartArea1.AxisY.Minimum = 0R
         ChartArea1.Name = "ChartArea1"
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Me.TableLayoutPanel1.SetColumnSpan(Me.Chart1, 2)
@@ -96,6 +98,8 @@ Partial Class UI_Statistiques
         '
         ChartArea2.AxisX.Interval = 1.0R
         ChartArea2.AxisX.IsLabelAutoFit = False
+        ChartArea2.AxisY.Maximum = 100.0R
+        ChartArea2.AxisY.Minimum = 0R
         ChartArea2.Name = "ChartArea1"
         Me.Chart2.ChartAreas.Add(ChartArea2)
         Me.TableLayoutPanel1.SetColumnSpan(Me.Chart2, 2)
@@ -103,6 +107,7 @@ Partial Class UI_Statistiques
         Me.Chart2.Location = New System.Drawing.Point(23, 380)
         Me.Chart2.Name = "Chart2"
         Series2.ChartArea = "ChartArea1"
+        Series2.Color = System.Drawing.Color.LightGreen
         Series2.Legend = "Legend1"
         Series2.Name = "ActionsSoldeService"
         Me.Chart2.Series.Add(Series2)
