@@ -4,7 +4,7 @@ Imports EntretiensIndividuels
 Public Class ClsSQLEntretiens
 
     'Property _odbcConnection As New ClassConnection.ClsOdbcConnection(ClassConnection.ClsChaineConnection.ChaineConnection.ENTRETIEN)
-    Property sqlConnexion As New SqlConnection("Server=SRV-BDD\SQLEXPRESS2008;Database=dbEntretiensIndividuels;Uid=sa;Pwd=+BTS08;")
+    Property sqlConnexion As New SqlConnection("Server=SRV-BDD\SQLEXPRESS2008;Database=dbEntretiensIndividuels;Uid=sa;Pwd=password;")
     Property requete As SqlCommand
     Property reader As SqlDataReader
     Property adaptater As SqlDataAdapter
